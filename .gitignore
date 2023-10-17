@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+Scripts
+Lib
+pyvenv
+.rasa
+actions/__pycache__

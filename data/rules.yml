@@ -11,3 +11,101 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+#                                     PURCHASE REQUEST                                                #
+- rule: List pending PR
+  steps:
+  - intent: pending_pr
+  - action: action_pending_pr
+
+- rule: PR Item list
+  steps:
+  - intent: pr_itemlist
+  - action: action_pr_itemlist
+
+- rule: PR Description
+  steps:
+  - intent: pr_description
+  - action: action_pr_description
+
+- rule: PR Approval
+  steps:
+  - intent: pr_approve
+  - action: action_pr_approve
+
+- rule: PR Rejection
+  steps:
+  - intent: pr_reject
+  - action: action_pr_reject
+
+#                                     PURCHASE REQUEST                                                #
+
+#                                          PURCHASE ORDER                                                  #
+- rule: List pending PO
+  steps:
+  - intent: pending_po
+  - action: action_pending_po
+
+- rule: PO Item list
+  steps:
+  - intent: po_itemlist
+  - action: action_po_itemlist
+
+- rule: PO Description
+  steps:
+  - intent: po_description
+  - action: action_po_description
+
+- rule: PO Approval
+  steps:
+  - intent: po_approve
+  - action: action_po_approve
+
+- rule: PO Rejection
+  steps:
+  - intent: po_reject
+  - action: action_po_reject
+#                                          PURCHASE ORDER                                                  #
+
+#                                          LEAVE REQUEST                                                  #
+- rule: List pending leaves
+  steps:
+  - intent: pending_leave
+  - action: action_pending_leave
+
+- rule: Leave Description
+  steps:
+  - intent: leave_description
+  - action: action_leave_description
+
+- rule: PL Approval
+  steps:
+  - intent: pl_approve
+  - action: action_pl_approve
+
+- rule: PL Rejection
+  steps:
+  - intent: pl_reject
+  - action: action_pl_reject
+#                                          LEAVE REQUEST                                                  #
+
+#                                    BUSINESS TRIP REQUEST                                                #
+- rule: List pending business trips
+  steps:
+  - intent: pending_trip
+  - action: action_pending_trip
+
+- rule: Trip Description
+  steps:
+  - intent: trip_description
+  - action: action_trip_description
+
+- rule: BT Approval
+  steps:
+  - intent: bt_approve
+  - action: action_bt_approve
+
+- rule: BT Rejection
+  steps:
+  - intent: bt_reject
+  - action: action_bt_reject
+#                                      BUSINESS TRIP REQUEST                                                #

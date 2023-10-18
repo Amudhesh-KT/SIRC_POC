@@ -8,6 +8,122 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+#                                     PURCHASE REQUEST                                                #
+  - pending_pr
+  - pr_itemlist
+  - pr_description
+  - pr_approve
+  - pr_reject
+#                                     PURCHASE REQUEST                                                #
+
+
+#                                          PURCHASE ORDER                                                  #
+  - pending_po
+  - po_itemlist
+  - po_description
+  - po_approve
+  - po_reject
+#                                          PURCHASE ORDER                                                  #
+
+#                                          LEAVE REQUEST                                                   #
+  - pending_leave
+  - leave_description
+  - pl_approve
+  - pl_reject
+
+#                                          LEAVE REQUEST                                                   #
+
+#                                 BUSINESS TRIP REQUEST                                                  #
+  - pending_trip
+  - trip_description
+  - bt_approve
+  - bt_reject
+#                                 BUSINESS TRIP REQUEST                                                  #
+
+entities:
+#                                     PURCHASE REQUEST                                                #
+  - pr_number:
+      type: regex
+      pattern: "[0-9]{8}"
+
+  - pr_itemnumber:
+      type: regex
+      pattern: "^[0-9]{3,6}$"
+#                                     PURCHASE REQUEST                                                #
+
+#                                          PURCHASE ORDER                                                  #
+  - po_number:
+      type: regex
+      pattern: "[0-9]{8}"
+
+  - po_itemnumber:
+      type: regex
+      pattern: "^[0-9]{3,6}$"
+#                                          PURCHASE ORDER                                                  #
+
+#                                          LEAVE REQUEST                                                  #
+  - LeaveId:
+      type: text
+#                                          LEAVE REQUEST                                                  #
+
+#                                 BUSINESS TRIP REQUEST                                                  #
+  - TripId:
+      type: text
+#                                 BUSINESS TRIP REQUEST                                                  #
+
+slots:
+#                                     PURCHASE REQUEST                                                #
+  prnumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pr_number
+
+  pritemnumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pr_itemnumber
+
+#                                     PURCHASE REQUEST                                                #
+
+#                                     PURCHASE ORDER                                                  #
+  ponumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: po_number
+
+  poitemnumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: po_itemnumber
+
+#                                     PURCHASE ORDER                                                  #
+
+#                                          LEAVE REQUEST                                                  #
+  LeaveId:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: LeaveId
+#                                          LEAVE REQUEST                                                  #
+
+#                                 BUSINESS TRIP REQUEST                                                  #
+  TripId:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: TripId
+#                                 BUSINESS TRIP REQUEST                                                  #
+
 
 responses:
   utter_greet:
@@ -28,6 +144,38 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+actions:
+#                                     PURCHASE REQUEST                                                #
+  - action_pending_pr
+  - action_pr_itemlist
+  - action_pr_description
+  - action_pr_approve
+  - action_pr_reject
+#                                     PURCHASE REQUEST                                                #
+
+#                                          PURCHASE ORDER                                                  #
+  - action_pending_po
+  - action_po_itemlist
+  - action_po_description
+  - action_po_approve
+  - action_po_reject
+#                                          PURCHASE ORDER                                                  #
+
+#                                          LEAVE REQUEST                                                  #
+  - action_pending_leave
+  - action_leave_description
+  - action_pl_approve
+  - action_pl_reject
+#                                          LEAVE REQUEST                                                  #
+
+#                                 BUSINESS TRIP REQUEST                                                  #
+  - action_pending_trip
+  - action_trip_description
+  - action_bt_approve
+  - action_bt_reject
+#                                 BUSINESS TRIP REQUEST                                                  #
+
 
 session_config:
   session_expiration_time: 60

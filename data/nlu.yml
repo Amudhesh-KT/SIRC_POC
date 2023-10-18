@@ -89,3 +89,1497 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+#                                         PURCHASE REQUEST                                                #
+- intent: pending_pr
+  examples: |
+    - show me the list of my pending PR
+    - List the pending PR
+    - List the pending pr
+    - can you show me the list of Pur req
+    - Pur req
+    - can you list my pending Pur req
+    - pending Pur req
+    - my pending Pur req
+    - show me my pending Pur req
+    - list of pending Pur req
+    - can you show me the list of pr
+    - pr
+    - can you list my pending pr
+    - pending pr
+    - my pending pr
+    - show me my pending pr
+    - list of pending pr
+    - can you show me the list of purchase req
+    - purchase req
+    - can you list my pending purchase req
+    - pending purchase req
+    - my pending purchase req
+    - show me my pending purchase req
+    - list of pending purchase req
+    - can you show me the list of PR
+    - PR
+    - can you list my pending PR
+    - pending PR
+    - my pending PR
+    - show me my pending PR
+    - list of pending PR
+    - can you show me the list of purchase requisition
+    - purchase requisition
+    - can you list my pending purchase requisition
+    - pending purchase requisition
+    - my pending purchase requisition
+    - show me my pending purchase requisition
+    - list of pending purchase requisition
+    - can you show me the list of Purchase requisition
+    - Purchase requisition
+    - can you list my pending Purchase requisition
+    - pending Purchase requisition
+    - my pending Purchase requisition
+    - show me my pending Purchase requisition
+    - list of pending Purchase requisition
+    - can you show me the list of Purchase Requisition
+    - Purchase Requisition
+    - can you list my pending Purchase Requisition
+    - pending Purchase Requisition
+    - my pending Purchase Requisition
+    - show me my pending Purchase Requisition
+    - list of pending Purchase Requisition
+    - could you show me the list of Pur req
+    - Pur req
+    - could you list my pending Pur req
+    - pending Pur req
+    - my pending Pur req
+    - show me my pending Pur req
+    - list of pending Pur req
+    - could you show me the list of pr
+    - pr
+    - could you list my pending pr
+    - pending pr
+    - my pending pr
+    - show me my pending pr
+    - list of pending pr
+    - could you show me the list of purchase req
+    - purchase req
+    - could you list my pending purchase req
+    - pending purchase req
+    - my pending purchase req
+    - show me my pending purchase req
+    - list of pending purchase req
+    - could you show me the list of PR
+    - PR
+    - could you list my pending PR
+    - pending PR
+    - my pending PR
+    - show me my pending PR
+    - list of pending PR
+    - could you show me the list of purchase requisition
+    - purchase requisition
+    - could you list my pending purchase requisition
+    - pending purchase requisition
+    - my pending purchase requisition
+    - show me my pending purchase requisition
+    - list of pending purchase requisition
+    - could you show me the list of Purchase requisition
+    - Purchase requisition
+    - could you list my pending Purchase requisition
+    - pending Purchase requisition
+    - my pending Purchase requisition
+    - show me my pending Purchase requisition
+    - list of pending Purchase requisition
+    - could you show me the list of Purchase Requisition
+    - Purchase Requisition
+    - could you list my pending Purchase Requisition
+    - pending Purchase Requisition
+    - my pending Purchase Requisition
+    - show me my pending Purchase Requisition
+    - list of pending Purchase Requisition
+    - please show me the list of Pur req
+    - Pur req
+    - please list my pending Pur req
+    - pending Pur req
+    - my pending Pur req
+    - show me my pending Pur req
+    - list of pending Pur req
+    - please show me the list of pr
+    - pr
+    - please list my pending pr
+    - pending pr
+    - my pending pr
+    - show me my pending pr
+    - list of pending pr
+    - please show me the list of purchase req
+    - purchase req
+    - please list my pending purchase req
+    - pending purchase req
+    - my pending purchase req
+    - show me my pending purchase req
+    - list of pending purchase req
+    - please show me the list of PR
+    - PR
+    - please list my pending PR
+    - pending PR
+    - my pending PR
+    - show me my pending PR
+    - list of pending PR
+    - please show me the list of purchase requisition
+    - purchase requisition
+    - please list my pending purchase requisition
+    - pending purchase requisition
+    - my pending purchase requisition
+    - show me my pending purchase requisition
+    - list of pending purchase requisition
+    - please show me the list of Purchase requisition
+    - Purchase requisition
+    - please list my pending Purchase requisition
+    - pending Purchase requisition
+    - my pending Purchase requisition
+    - show me my pending Purchase requisition
+    - list of pending Purchase requisition
+    - please show me the list of Purchase Requisition
+    - Purchase Requisition
+    - please list my pending Purchase Requisition
+    - pending Purchase Requisition
+    - my pending Purchase Requisition
+    - show me my pending Purchase Requisition
+    - list of pending Purchase Requisition
+
+- intent: pr_itemlist
+  examples: |
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - PR [40009212](pr_number)
+    - Pur req [40001235](pr_number)
+    - Pur req item list of [40001235](pr_number)
+    - show me Pur req [40001235](pr_number)
+    - Pur req [40001235](pr_number)
+    - list the items of Pur req [40001235](pr_number)
+    - Pur req [40000123](pr_number)
+    - Pur req item list of [40000123](pr_number)
+    - show me Pur req [40000123](pr_number)
+    - Pur req [40000123](pr_number)
+    - list the items of Pur req [40000123](pr_number)
+    - pr [40001235](pr_number)
+    - pr item list of [40001235](pr_number)
+    - show me pr [40001235](pr_number)
+    - pr [40001235](pr_number)
+    - list the items of pr [40001235](pr_number)
+    - pr [40000123](pr_number)
+    - pr item list of [40000123](pr_number)
+    - show me pr [40000123](pr_number)
+    - pr [40000123](pr_number)
+    - list the items of pr [40000123](pr_number)
+    - purchase req [40001235](pr_number)
+    - purchase req item list of [40001235](pr_number)
+    - show me purchase req [40001235](pr_number)
+    - purchase req [40001235](pr_number)
+    - list the items of purchase req [40001235](pr_number)
+    - purchase req [40000123](pr_number)
+    - purchase req item list of [40000123](pr_number)
+    - show me purchase req [40000123](pr_number)
+    - purchase req [40000123](pr_number)
+    - list the items of purchase req [40000123](pr_number)
+    - PR [40001235](pr_number)
+    - PR item list of [40001235](pr_number)
+    - show me PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - list the items of PR [40001235](pr_number)
+    - PR [40000123](pr_number)
+    - PR item list of [40000123](pr_number)
+    - show me PR [40000123](pr_number)
+    - PR [40000123](pr_number)
+    - list the items of PR [40000123](pr_number)
+    - purchase requisition [40001235](pr_number)
+    - purchase requisition item list of [40001235](pr_number)
+    - show me purchase requisition [40001235](pr_number)
+    - purchase requisition [40001235](pr_number)
+    - list the items of purchase requisition [40001235](pr_number)
+    - purchase requisition [40000123](pr_number)
+    - purchase requisition item list of [40000123](pr_number)
+    - show me purchase requisition [40000123](pr_number)
+    - purchase requisition [40000123](pr_number)
+    - list the items of purchase requisition [40000123](pr_number)
+    - Purchase requisition [40001235](pr_number)
+    - Purchase requisition item list of [40001235](pr_number)
+    - show me Purchase requisition [40001235](pr_number)
+    - Purchase requisition [40001235](pr_number)
+    - list the items of Purchase requisition [40001235](pr_number)
+    - Purchase requisition [40000123](pr_number)
+    - Purchase requisition item list of [40000123](pr_number)
+    - show me Purchase requisition [40000123](pr_number)
+    - Purchase requisition [40000123](pr_number)
+    - list the items of Purchase requisition [40000123](pr_number)
+    - Purchase Requisition [40001235](pr_number)
+    - Purchase Requisition item list of [40001235](pr_number)
+    - show me Purchase Requisition [40001235](pr_number)
+    - Purchase Requisition [40001235](pr_number)
+    - list the items of Purchase Requisition [40001235](pr_number)
+    - Purchase Requisition [40000123](pr_number)
+    - Purchase Requisition item list of [40000123](pr_number)
+    - show me Purchase Requisition [40000123](pr_number)
+    - Purchase Requisition [40000123](pr_number)
+    - list the items of Purchase Requisition [40000123](pr_number)
+
+- intent: pr_description
+  examples: |
+    - pr [40001235](pr_number) item [1234](pr_itemnumber)
+    - show me pr [40001235](pr_number) Item [1234](pr_itemnumber)
+    - display pr [40001235](pr_number) itm [1234](pr_itemnumber)
+    - pr [40001235](pr_number) item [012](pr_itemnumber)
+    - show me pr [40001235](pr_number) Item [012](pr_itemnumber)
+    - display pr [40001235](pr_number) itm [012](pr_itemnumber)
+    - pr [40000123](pr_number) item [1234](pr_itemnumber)
+    - show me pr [40000123](pr_number) Item [1234](pr_itemnumber)
+    - display pr [40000123](pr_number) itm [1234](pr_itemnumber)
+    - pr [40000123](pr_number) item [012](pr_itemnumber)
+    - show me pr [40000123](pr_number) Item [012](pr_itemnumber)
+    - display pr [40000123](pr_number) itm [012](pr_itemnumber)
+    - purchase req [40001235](pr_number) item [1234](pr_itemnumber)
+    - show me purchase req [40001235](pr_number) Item [1234](pr_itemnumber)
+    - display purchase req [40001235](pr_number) itm [1234](pr_itemnumber)
+    - purchase req [40001235](pr_number) item [012](pr_itemnumber)
+    - show me purchase req [40001235](pr_number) Item [012](pr_itemnumber)
+    - display purchase req [40001235](pr_number) itm [012](pr_itemnumber)
+    - purchase req [40000123](pr_number) item [1234](pr_itemnumber)
+    - show me purchase req [40000123](pr_number) Item [1234](pr_itemnumber)
+    - display purchase req [40000123](pr_number) itm [1234](pr_itemnumber)
+    - purchase req [40000123](pr_number) item [012](pr_itemnumber)
+    - show me purchase req [40000123](pr_number) Item [012](pr_itemnumber)
+    - display purchase req [40000123](pr_number) itm [012](pr_itemnumber)
+    - PR [40001235](pr_number) item [1234](pr_itemnumber)
+    - show me PR [40001235](pr_number) Item [1234](pr_itemnumber)
+    - display PR [40001235](pr_number) itm [1234](pr_itemnumber)
+    - PR [40001235](pr_number) item [012](pr_itemnumber)
+    - show me PR [40001235](pr_number) Item [012](pr_itemnumber)
+    - display PR [40001235](pr_number) itm [012](pr_itemnumber)
+    - PR [40000123](pr_number) item [1234](pr_itemnumber)
+    - show me PR [40000123](pr_number) Item [1234](pr_itemnumber)
+    - display PR [40000123](pr_number) itm [1234](pr_itemnumber)
+    - PR [40000123](pr_number) item [012](pr_itemnumber)
+    - show me PR [40000123](pr_number) Item [012](pr_itemnumber)
+    - display PR [40000123](pr_number) itm [012](pr_itemnumber)
+    - purchase requisition [40001235](pr_number) item [1234](pr_itemnumber)
+    - show me purchase requisition [40001235](pr_number) Item [1234](pr_itemnumber)
+    - display purchase requisition [40001235](pr_number) itm [1234](pr_itemnumber)
+    - purchase requisition [40001235](pr_number) item [012](pr_itemnumber)
+    - show me purchase requisition [40001235](pr_number) Item [012](pr_itemnumber)
+    - display purchase requisition [40001235](pr_number) itm [012](pr_itemnumber)
+    - purchase requisition [40000123](pr_number) item [1234](pr_itemnumber)
+    - show me purchase requisition [40000123](pr_number) Item [1234](pr_itemnumber)
+    - display purchase requisition [40000123](pr_number) itm [1234](pr_itemnumber)
+    - purchase requisition [40000123](pr_number) item [012](pr_itemnumber)
+    - show me purchase requisition [40000123](pr_number) Item [012](pr_itemnumber)
+    - display purchase requisition [40000123](pr_number) itm [012](pr_itemnumber)
+    - Purchase Requisition [40001235](pr_number) item [1234](pr_itemnumber)
+    - show me Purchase Requisition [40001235](pr_number) Item [1234](pr_itemnumber)
+    - display Purchase Requisition [40001235](pr_number) itm [1234](pr_itemnumber)
+    - Purchase Requisition [40001235](pr_number) item [012](pr_itemnumber)
+    - show me Purchase Requisition [40001235](pr_number) Item [012](pr_itemnumber)
+    - display Purchase Requisition [40001235](pr_number) itm [012](pr_itemnumber)
+    - Purchase Requisition [40000123](pr_number) item [1234](pr_itemnumber)
+    - show me Purchase Requisition [40000123](pr_number) Item [1234](pr_itemnumber)
+    - display Purchase Requisition [40000123](pr_number) itm [1234](pr_itemnumber)
+    - Purchase Requisition [40000123](pr_number) item [012](pr_itemnumber)
+    - show me Purchase Requisition [40000123](pr_number) Item [012](pr_itemnumber)
+    - display Purchase Requisition [40000123](pr_number) itm [012](pr_itemnumber)
+
+- intent: pr_approve
+  examples: |
+    - approve PR [40000123](pr_number)
+    - approve PR [40000123](pr_number)
+    - approve PR [40000123](pr_number)
+    - approve PR [40000123](pr_number)
+    - approve PR [40000123](pr_number)
+    - approve PR [40000123](pr_number)
+    - approve PR [40000123](pr_number)
+    - approve PR [40000123](pr_number)
+    - approve pR [40000123](pr_number)
+    - approve pR [40000123](pr_number)
+    - approve pR [40000123](pr_number)
+    - approve pR [40000123](pr_number)
+    - approve pR [40000123](pr_number)
+    - approve pr [40000123](pr_number)
+    - approve pr [40000123](pr_number)
+    - approve pr [40000123](pr_number)
+    - approve pr [40000123](pr_number)
+    - approve pR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve PR [40000123](pr_number)
+    - Approve pR [40000123](pr_number)
+    - Approve pR [40000123](pr_number)
+    - Approve pR [40000123](pr_number)
+    - Approve pR [40000123](pr_number)
+    - Approve pR [40000123](pr_number)
+    - Approve pr [40000123](pr_number)
+    - Approve pr [40000123](pr_number)
+    - Approve pr [40000123](pr_number)
+    - Approve pr [40000123](pr_number)
+    - Approve pr [40000123](pr_number)
+    - Approve pr [40000123](pr_number)
+    - Approve pr [40000123](pr_number)
+
+- intent: pr_reject
+  examples: |
+    - Reject PR [40000123](pr_number)
+    - Reject PR [40000123](pr_number)
+    - Reject PR [40000123](pr_number)
+    - Reject PR [40000123](pr_number)
+    - Reject PR [40000123](pr_number)
+    - Reject PR [40000123](pr_number)
+    - Reject PR [40000123](pr_number)
+    - Reject PR [40000123](pr_number)
+    - Reject pR [40000123](pr_number)
+    - Reject pR [40000123](pr_number)
+    - Reject pR [40000123](pr_number)
+    - Reject pR [40000123](pr_number)
+    - Reject pR [40000123](pr_number)
+    - Reject pr [40000123](pr_number)
+    - Reject pr [40000123](pr_number)
+    - Reject pr [40000123](pr_number)
+    - Reject pr [40000123](pr_number)
+    - reject pR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject PR [40000123](pr_number)
+    - reject pR [40000123](pr_number)
+    - reject pR [40000123](pr_number)
+    - reject pR [40000123](pr_number)
+    - reject pR [40000123](pr_number)
+    - reject pR [40000123](pr_number)
+    - reject pr [40000123](pr_number)
+    - reject pr [40000123](pr_number)
+    - reject pr [40000123](pr_number)
+    - reject pr [40000123](pr_number)
+    - reject pr [40000123](pr_number)
+    - reject pr [40000123](pr_number)
+    - reject pr [40000123](pr_number)
+#                                          PURCHASE REQUEST                                                #
+
+
+#                                          PURCHASE ORDER                                                  #
+- intent: pending_po
+  examples: |
+    - can you show me the list of PO
+    - PO
+    - can you list my pending PO
+    - pending PO
+    - my pending PO
+    - show me my pending PO
+    - list of pending PO
+    - can you show me the list of Purchase order
+    - Purchase order
+    - can you list my pending Purchase order
+    - pending Purchase order
+    - my pending Purchase order
+    - show me my pending Purchase order
+    - list of pending Purchase order
+    - can you show me the list of Pur ord
+    - Pur ord
+    - can you list my pending Pur ord
+    - pending Pur ord
+    - my pending Pur ord
+    - show me my pending Pur ord
+    - list of pending Pur ord
+    - can you show me the list of po
+    - po
+    - can you list my pending po
+    - pending po
+    - my pending po
+    - show me my pending po
+    - list of pending po
+    - can you show me the list of purchase order
+    - purchase order
+    - can you list my pending purchase order
+    - pending purchase order
+    - my pending purchase order
+    - show me my pending purchase order
+    - list of pending purchase order
+    - can you show me the list of purchase ord
+    - purchase ord
+    - can you list my pending purchase ord
+    - pending purchase ord
+    - my pending purchase ord
+    - show me my pending purchase ord
+    - list of pending purchase ord
+    - can you show me the list of Purchase Order
+    - Purchase Order
+    - can you list my pending Purchase Order
+    - pending Purchase Order
+    - my pending Purchase Order
+    - show me my pending Purchase Order
+    - list of pending Purchase Order
+    - could you show me the list of PO
+    - PO
+    - could you list my pending PO
+    - pending PO
+    - my pending PO
+    - show me my pending PO
+    - list of pending PO
+    - could you show me the list of Purchase order
+    - Purchase order
+    - could you list my pending Purchase order
+    - pending Purchase order
+    - my pending Purchase order
+    - show me my pending Purchase order
+    - list of pending Purchase order
+    - could you show me the list of Pur ord
+    - Pur ord
+    - could you list my pending Pur ord
+    - pending Pur ord
+    - my pending Pur ord
+    - show me my pending Pur ord
+    - list of pending Pur ord
+    - could you show me the list of po
+    - po
+    - could you list my pending po
+    - pending po
+    - my pending po
+    - show me my pending po
+    - list of pending po
+    - could you show me the list of purchase order
+    - purchase order
+    - could you list my pending purchase order
+    - pending purchase order
+    - my pending purchase order
+    - show me my pending purchase order
+    - list of pending purchase order
+    - could you show me the list of purchase ord
+    - purchase ord
+    - could you list my pending purchase ord
+    - pending purchase ord
+    - my pending purchase ord
+    - show me my pending purchase ord
+    - list of pending purchase ord
+    - could you show me the list of Purchase Order
+    - Purchase Order
+    - could you list my pending Purchase Order
+    - pending Purchase Order
+    - my pending Purchase Order
+    - show me my pending Purchase Order
+    - list of pending Purchase Order
+    - please show me the list of PO
+    - PO
+    - please list my pending PO
+    - pending PO
+    - my pending PO
+    - show me my pending PO
+    - list of pending PO
+    - please show me the list of Purchase order
+    - Purchase order
+    - please list my pending Purchase order
+    - pending Purchase order
+    - my pending Purchase order
+    - show me my pending Purchase order
+    - list of pending Purchase order
+    - please show me the list of Pur ord
+    - Pur ord
+    - please list my pending Pur ord
+    - pending Pur ord
+    - my pending Pur ord
+    - show me my pending Pur ord
+    - list of pending Pur ord
+    - please show me the list of po
+    - po
+    - please list my pending po
+    - pending po
+    - my pending po
+    - show me my pending po
+    - list of pending po
+    - please show me the list of purchase order
+    - purchase order
+    - please list my pending purchase order
+    - pending purchase order
+    - my pending purchase order
+    - show me my pending purchase order
+    - list of pending purchase order
+    - please show me the list of purchase ord
+    - purchase ord
+    - please list my pending purchase ord
+    - pending purchase ord
+    - my pending purchase ord
+    - show me my pending purchase ord
+    - list of pending purchase ord
+    - please show me the list of Purchase Order
+    - Purchase Order
+    - please list my pending Purchase Order
+    - pending Purchase Order
+    - my pending Purchase Order
+    - show me my pending Purchase Order
+    - list of pending Purchase Order
+
+- intent: po_itemlist
+  examples: |
+    - PO [45001235](po_number)
+    - PO item list of [45001235](po_number)
+    - show me PO [45001235](po_number)
+    - PO [45001235](po_number)
+    - list the items of PO [45001235](po_number)
+    - PO [45000123](po_number)
+    - PO item list of [45000123](po_number)
+    - show me PO [45000123](po_number)
+    - PO[45000123](po_number)
+    - list the items of PO [45000123](po_number)
+    - Purchase order [45001235](po_number)
+    - Purchase order item list of [45001235](po_number)
+    - show me Purchase order [45001235](po_number)
+    - Purchase order[45001235](po_number)
+    - list the items of Purchase order [45001235](po_number)
+    - Purchase order [45000123](po_number)
+    - Purchase order item list of [45000123](po_number)
+    - show me Purchase order [45000123](po_number)
+    - Purchase order [45000123](po_number)
+    - list the items of Purchase order [45000123](po_number)
+    - Pur ord [45001235](po_number)
+    - Pur ord item list of [45001235](po_number)
+    - show me Pur ord [45001235](po_number)
+    - Pur ord [45001235](po_number)
+    - list the items of Pur ord [45001235](po_number)
+    - Pur ord [45000123](po_number)
+    - Pur ord item list of [45000123](po_number)
+    - show me Pur ord [45000123](po_number)
+    - Pur ord [45000123](po_number)
+    - list the items of Pur ord [45000123](po_number)
+    - po [45001235](po_number)
+    - po item list of [45001235](po_number)
+    - show me po [45001235](po_number)
+    - po [45001235](po_number)
+    - list the items of po [45001235](po_number)
+    - po [45000123](po_number)
+    - po item list of [45000123](po_number)
+    - show me po [45000123](po_number)
+    - po [45000123](po_number)
+    - list the items of po [45000123](po_number)
+    - purchase order [45001235](po_number)
+    - purchase order item list of [45001235](po_number)
+    - show me purchase order [45001235](po_number)
+    - purchase order [45001235](po_number)
+    - list the items of purchase order [45001235](po_number)
+    - purchase order [45000123](po_number)
+    - purchase order item list of [45000123](po_number)
+    - show me purchase order [45000123](po_number)
+    - purchase order [45000123](po_number)
+    - list the items of purchase order [45000123](po_number)
+    - purchase ord [45001235](po_number)
+    - purchase ord item list of [45001235](po_number)
+    - show me purchase ord [45001235](po_number)
+    - purchase ord [45001235](po_number)
+    - list the items of purchase ord [45001235](po_number)
+    - purchase ord [45000123](po_number)
+    - purchase ord item list of [45000123](po_number)
+    - show me purchase ord [45000123](po_number)
+    - purchase ord [45000123](po_number)
+    - list the items of purchase ord [45000123](po_number)
+    - Purchase Order [45001235](po_number)
+    - Purchase Order item list of [45001235](po_number)
+    - show me Purchase Order [45001235](po_number)
+    - Purchase Order [45001235](po_number)
+    - list the items of Purchase Order [45001235](po_number)
+    - Purchase Order [45000123](po_number)
+    - Purchase Order item list of [45000123](po_number)
+    - show me Purchase Order [45000123](po_number)
+    - Purchase Order [45000123](po_number)
+    - list the items of Purchase Order [45000123](po_number)
+
+- intent: po_description
+  examples: |
+    - PO [45001235](po_number) item [1234](po_itemnumber)
+    - show me PO [45001235](po_number) Item [1234](po_itemnumber)
+    - display PO [45001235](po_number) itm [1234](po_itemnumber)
+    - PO [45001235](po_number) item [012](po_itemnumber)
+    - show me PO [45001235](po_number) Item [012](po_itemnumber)
+    - display PO [45001235](po_number) itm [012](po_itemnumber)
+    - PO [45000123](po_number) item [1234](po_itemnumber)
+    - show me PO [45000123](po_number) Item [1234](po_itemnumber)
+    - display PO [45000123](po_number) itm [1234](po_itemnumber)
+    - PO [45000123](po_number) item [012](po_itemnumber)
+    - show me PO [45000123](po_number) Item [012](po_itemnumber)
+    - display PO [45000123](po_number) itm [012](po_itemnumber)
+    - po [45001235](po_number) item [1234](po_itemnumber)
+    - show me po [45001235](po_number) Item [1234](po_itemnumber)
+    - display po [45001235](po_number) itm [1234](po_itemnumber)
+    - po [45001235](po_number) item [012](po_itemnumber)
+    - show me po [45001235](po_number) Item [012](po_itemnumber)
+    - display po [45001235](po_number) itm [012](po_itemnumber)
+    - po [45000123](po_number) item [1234](po_itemnumber)
+    - show me po [45000123](po_number) Item [1234](po_itemnumber)
+    - display po [45000123](po_number) itm [1234](po_itemnumber)
+    - po [45000123](po_number) item [012](po_itemnumber)
+    - show me po [45000123](po_number) Item [012](po_itemnumber)
+    - display po [45000123](po_number) itm [012](po_itemnumber)
+    - purchase order [45001235](po_number) item [1234](po_itemnumber)
+    - show me purchase order [45001235](po_number) Item [1234](po_itemnumber)
+    - display purchase order [45001235](po_number) itm [1234](po_itemnumber)
+    - purchase order [45001235](po_number) item [012](po_itemnumber)
+    - show me purchase order [45001235](po_number) Item [012](po_itemnumber)
+    - display purchase order [45001235](po_number) itm [012](po_itemnumber)
+    - purchase order [45000123](po_number) item [1234](po_itemnumber)
+    - show me purchase order [45000123](po_number) Item [1234](po_itemnumber)
+    - display purchase order [45000123](po_number) itm [1234](po_itemnumber)
+    - purchase order [45000123](po_number) item [012](po_itemnumber)
+    - show me purchase order [45000123](po_number) Item [012](po_itemnumber)
+    - display purchase order [45000123](po_number) itm [012](po_itemnumber)
+    - purchase ord [45001235](po_number) item [1234](po_itemnumber)
+    - show me purchase ord [45001235](po_number) Item [1234](po_itemnumber)
+    - display purchase ord [45001235](po_number) itm [1234](po_itemnumber)
+    - purchase ord [45001235](po_number) item [012](po_itemnumber)
+    - show me purchase ord [45001235](po_number) Item [012](po_itemnumber)
+    - display purchase ord [45001235](po_number) itm [012](po_itemnumber)
+    - purchase ord [45000123](po_number) item [1234](po_itemnumber)
+    - show me purchase ord [45000123](po_number) Item [1234](po_itemnumber)
+    - display purchase ord [45000123](po_number) itm [1234](po_itemnumber)
+    - purchase ord [45000123](po_number) item [012](po_itemnumber)
+    - show me purchase ord [45000123](po_number) Item [012](po_itemnumber)
+    - display purchase ord [45000123](po_number) itm [012](po_itemnumber)
+    - Purchase Order [45001235](po_number) item [1234](po_itemnumber)
+    - show me Purchase Order [45001235](po_number) Item [1234](po_itemnumber)
+    - display Purchase Order [45001235](po_number) itm [1234](po_itemnumber)
+    - Purchase Order [45001235](po_number) item [012](po_itemnumber)
+    - show me Purchase Order [45001235](po_number) Item [012](po_itemnumber)
+    - display Purchase Order [45001235](po_number) itm [012](po_itemnumber)
+    - Purchase Order [45000123](po_number) item [1234](po_itemnumber)
+    - show me Purchase Order [45000123](po_number) Item [1234](po_itemnumber)
+    - display Purchase Order [45000123](po_number) itm [1234](po_itemnumber)
+    - Purchase Order [45000123](po_number) item [012](po_itemnumber)
+    - show me Purchase Order [45000123](po_number) Item [012](po_itemnumber)
+    - display Purchase Order [45000123](po_number) itm [012](po_itemnumber)
+
+- intent: po_approve
+  examples: |
+    - approve PO [45000123](po_number)
+    - approve PO [45000123](po_number)
+    - approve PO [45000123](po_number)
+    - approve PO [45000123](po_number)
+    - approve PO [45000123](po_number)
+    - approve PO [45000123](po_number)
+    - approve PO [45000123](po_number)
+    - approve PO [45000123](po_number)
+    - approve Po [45000123](po_number)
+    - approve Po [45000123](po_number)
+    - approve Po [45000123](po_number)
+    - approve Po [45000123](po_number)
+    - approve Po [45000123](po_number)
+    - approve Po [45000123](po_number)
+    - approve Po [45000123](po_number)
+    - approve pO [45000123](po_number)
+    - approve pO [45000123](po_number)
+    - approve pO [45000123](po_number)
+    - Approve pO [45000123](po_number)
+    - Approve pO [45000123](po_number)
+    - Approve pO [45000123](po_number)
+    - Approve pO [45000123](po_number)
+    - Approve pO [45000123](po_number)
+    - Approve pO [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+    - Approve po [45000123](po_number)
+
+- intent: po_reject
+  examples: |
+    - Reject PO [45000123](po_number)
+    - Reject PO [45000123](po_number)
+    - Reject PO [45000123](po_number)
+    - Reject PO [45000123](po_number)
+    - Reject PO [45000123](po_number)
+    - Reject PO [45000123](po_number)
+    - Reject PO [45000123](po_number)
+    - Reject Po [45000123](po_number)
+    - Reject Po [45000123](po_number)
+    - Reject Po [45000123](po_number)
+    - Reject Po [45000123](po_number)
+    - Reject Po [45000123](po_number)
+    - Reject Po [45000123](po_number)
+    - Reject Po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - Reject po [45000123](po_number)
+    - reject po [45000123](po_number)
+    - reject po [45000123](po_number)
+    - reject po [45000123](po_number)
+    - reject po [45000123](po_number)
+    - reject PO [45000123](po_number)
+    - reject PO [45000123](po_number)
+    - reject PO [45000123](po_number)
+    - reject PO [45000123](po_number)
+    - reject Po [45000123](po_number)
+    - reject Po [45000123](po_number)
+    - reject Po [45000123](po_number)
+#                                        PURCHASE ORDER                                                  #
+
+
+#                                        LEAVE REQUEST                                                  #
+- intent: pending_leave
+  examples: |
+    - please show me the list of PL
+    - PL
+    - please list my pending PL
+    - pending PL
+    - my pending PL
+    - show me my pending PL
+    - list of pending PL
+    - please show me the list of Leaves for approval
+    - Leaves for approval
+    - please list my pending Leaves for approval
+    - pending Leaves for approval
+    - my pending Leaves for approval
+    - show me my pending Leaves for approval
+    - list of pending Leaves for approval
+    - please show me the list of pl
+    - pl
+    - please list my pending pl
+    - pending pl
+    - my pending pl
+    - show me my pending pl
+    - list of pending pl
+    - please show me the list of Leave req
+    - Leave req
+    - please list my pending Leave req
+    - pending Leave req
+    - my pending Leave req
+    - show me my pending Leave req
+    - list of pending Leave req
+    - please show me the list of Leave Request
+    - Leave Request
+    - please list my pending Leave Request
+    - pending Leave Request
+    - my pending Leave Request
+    - show me my pending Leave Request
+    - list of pending Leave Request
+    - can you show me the list of PL
+    - PL
+    - can you list my pending PL
+    - pending PL
+    - my pending PL
+    - show me my pending PL
+    - list of pending PL
+    - can you show me the list of Leaves for approval
+    - Leaves for approval
+    - can you list my pending Leaves for approval
+    - pending Leaves for approval
+    - my pending Leaves for approval
+    - show me my pending Leaves for approval
+    - list of pending Leaves for approval
+    - can you show me the list of pl
+    - pl
+    - can you list my pending pl
+    - pending pl
+    - my pending pl
+    - show me my pending pl
+    - list of pending pl
+    - can you show me the list of Leave req
+    - Leave req
+    - can you list my pending Leave req
+    - pending Leave req
+    - my pending Leave req
+    - show me my pending Leave req
+    - list of pending Leave req
+    - can you show me the list of Leave Request
+    - Leave Request
+    - can you list my pending Leave Request
+    - pending Leave Request
+    - my pending Leave Request
+    - show me my pending Leave Request
+    - list of pending Leave Request
+    - could you show me the list of PL
+    - PL
+    - could you list my pending PL
+    - pending PL
+    - my pending PL
+    - show me my pending PL
+    - list of pending PL
+    - could you show me the list of Leaves for approval
+    - Leaves for approval
+    - could you list my pending Leaves for approval
+    - pending Leaves for approval
+    - my pending Leaves for approval
+    - show me my pending Leaves for approval
+    - list of pending Leaves for approval
+    - could you show me the list of pl
+    - pl
+    - could you list my pending pl
+    - pending pl
+    - my pending pl
+    - show me my pending pl
+    - list of pending pl
+    - could you show me the list of Leave req
+    - Leave req
+    - could you list my pending Leave req
+    - pending Leave req
+    - my pending Leave req
+    - show me my pending Leave req
+    - list of pending Leave req
+    - could you show me the list of Leave Request
+    - Leave Request
+    - could you list my pending Leave Request
+    - pending Leave Request
+    - my pending Leave Request
+    - show me my pending Leave Request
+    - list of pending Leave Request
+    - show me pending leave to approve
+    - pending leave
+    - what are my pending leave
+    - what are pending leave to approve
+    - what are pending leave
+    - can you show me my pending leave
+    - get me my pending leave
+    - display pending leave
+    - display my pending leave
+    - what are all pending leave
+    - display pending leave to approve
+    - display my pending leave to approve
+    - show me leave requests to approve
+    - leave requests
+    - what are my leave requests
+    - what are leave requests to approve
+    - what are leave requests
+    - can you show me my leave requests
+    - get me my leave requests
+    - display leave requests
+    - display my leave requests
+    - what are all leave requests
+    - display leave requests to approve
+    - display my leave requests to approve
+    - show me pending leave request to approve
+    - pending leave request
+    - what are my pending leave request
+    - what are pending leave request to approve
+    - what are pending leave request
+    - can you show me my pending leave request
+    - get me my pending leave request
+    - display pending leave request
+    - display my pending leave request
+    - what are all pending leave request
+    - display pending leave request to approve
+    - display my pending leave request to approve
+
+- intent: leave_description
+  examples: |
+    - PL [15105L](LeaveId)
+    - PL [15106L](LeaveId)
+    - PL [15107L](LeaveId)
+    - PL [15105L](LeaveId)
+    - PL [15106L](LeaveId)
+    - PL [15107L](LeaveId)
+    - PL [15105L](LeaveId)
+    - PL [15106L](LeaveId)
+    - PL [15107L](LeaveId)
+    - PL [14105L](LeaveId)
+    - PL [14106L](LeaveId)
+    - PL [14107L](LeaveId)
+    - PL [14105L](LeaveId)
+    - PL [14106L](LeaveId)
+    - PL [14107L](LeaveId)
+    - PL [14105L](LeaveId)
+    - PL [14106L](LeaveId)
+    - PL [14107L](LeaveId)
+    - PL [13105L](LeaveId)
+    - PL [13106L](LeaveId)
+    - PL [13107L](LeaveId)
+    - PL [13105L](LeaveId)
+    - PL [13106L](LeaveId)
+    - PL [13107L](LeaveId)
+    - PL [13105L](LeaveId)
+    - PL [13106L](LeaveId)
+    - PL [13107L](LeaveId)
+    - PL [18105L](LeaveId)
+    - PL [18106L](LeaveId)
+    - PL [18107L](LeaveId)
+    - PL [18105L](LeaveId)
+    - PL [18106L](LeaveId)
+    - PL [18107L](LeaveId)
+    - PL [18105L](LeaveId)
+    - PL [18106L](LeaveId)
+    - PL [18107L](LeaveId)
+    - PL [15105L](LeaveId)
+    - PL [15106L](LeaveId)
+    - PL [15107L](LeaveId)
+    - PL [15125L](LeaveId)
+    - PL [15126L](LeaveId)
+    - PL [15127L](LeaveId)
+    - PL [15125L](LeaveId)
+    - PL [15126L](LeaveId)
+    - PL [15127L](LeaveId)
+    - PL [15125L](LeaveId)
+    - PL [15126L](LeaveId)
+    - PL [15127L](LeaveId)
+    - PL [15122L](LeaveId)
+    - PL [15123L](LeaveId)
+    - PL [15124L](LeaveId)
+    - PL [15125L](LeaveId)
+    - PL [15126L](LeaveId)
+    - PL [15127L](LeaveId)
+    - PL [15128L](LeaveId)
+    - PL [15129L](LeaveId)
+    - PL [15130L](LeaveId)
+    - PL [15125L](LeaveId)
+    - PL [15126L](LeaveId)
+    - PL [15225L](LeaveId)
+    - PL [15226L](LeaveId)
+    - PL [15227L](LeaveId)
+    - PL [15222L](LeaveId)
+    - PL [15223L](LeaveId)
+    - PL [15224L](LeaveId)
+    - PL [15225L](LeaveId)
+    - PL [15226L](LeaveId)
+    - PL [15227L](LeaveId)
+    - PL [15228L](LeaveId)
+    - PL [15229L](LeaveId)
+    - PL [15253L](LeaveId)
+    - PL [15264L](LeaveId)
+    - PL [15275L](LeaveId)
+    - PL [15286L](LeaveId)
+    - PL [15257L](LeaveId)
+    - PL [15268L](LeaveId)
+    - PL [15279L](LeaveId)
+    - PL [15126L](LeaveId)
+    - PL [15225L](LeaveId)
+    - PL [15226L](LeaveId)
+    - PL [15227L](LeaveId)
+    - PL [15222L](LeaveId)
+    - PL [15223L](LeaveId)
+
+- intent: pl_approve
+  examples: |
+    - approve PL [14805L](LeaveId)
+    - approve PL [14805L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - Approve PL [15078L](LeaveId)
+    - approve PL [25078L](LeaveId)
+    - approve PL [21278L](LeaveId)
+    - approve PL [22228L](LeaveId)
+    - approve PL [23338L](LeaveId)
+    - Approve PL [22988L](LeaveId)
+    - approve PL [15278L](LeaveId)
+    - approve PL [15278L](LeaveId)
+    - approve PL [15278L](LeaveId)
+    - approve PL [15275L](LeaveId)
+    - approve PL [15276L](LeaveId)
+    - approve PL [15277L](LeaveId)
+    - approve PL [15275L](LeaveId)
+    - Approve PL [15274L](LeaveId)
+    - Approve PL [15273L](LeaveId)
+    - Approve PL [15271L](LeaveId)
+    - Approve PL [15268L](LeaveId)
+    - Approve PL [15258L](LeaveId)
+    - Approve PL [15278L](LeaveId)
+    - Approve PL [15268L](LeaveId)
+    - approve PL [15258L](LeaveId)
+    - approve PL [15248L](LeaveId)
+    - approve PL [15268L](LeaveId)
+    - approve PL [15258L](LeaveId)
+    - approve PL [15248L](LeaveId)
+    - approve PL [15070L](LeaveId)
+    - approve PL [15072L](LeaveId)
+    - approve PL [15073L](LeaveId)
+    - Approve PL [15058L](LeaveId)
+    - Approve PL [15052L](LeaveId)
+    - Approve PL [15074L](LeaveId)
+    - Approve PL [15062L](LeaveId)
+    - Approve PL [15064L](LeaveId)
+    - Approve PL [15054L](LeaveId)
+    - Approve PL [15062L](LeaveId)
+    - Approve PL [15051L](LeaveId)
+    - Approve PL [15252L](LeaveId)
+    - Approve PL [15273L](LeaveId)
+    - Approve PL [15254L](LeaveId)
+    - Approve PL [15264L](LeaveId)
+    - Approve PL [15258L](LeaveId)
+    - Approve PL [15261L](LeaveId)
+    - Approve PL [15252L](LeaveId)
+    - Approve PL [15274L](LeaveId)
+    - Approve PL [15262L](LeaveId)
+    - Approve PL [15264L](LeaveId)
+    - Approve PL [15254L](LeaveId)
+    - Approve PL [15262L](LeaveId)
+    - Approve PL [15251L](LeaveId)
+    - Approve PL [15252L](LeaveId)
+    - Approve PL [15273L](LeaveId)
+    - Approve PL [15254L](LeaveId)
+    - Approve PL [15264L](LeaveId)
+    - Approve PL [15258L](LeaveId)
+    - Approve PL [15261L](LeaveId)
+
+- intent: pl_reject
+  examples: |
+    - reject PL [14805L](LeaveId)
+    - reject PL [14805L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - Reject PL [15078L](LeaveId)
+    - reject PL [25078L](LeaveId)
+    - reject PL [21278L](LeaveId)
+    - reject PL [22228L](LeaveId)
+    - reject PL [23338L](LeaveId)
+    - Reject PL [22988L](LeaveId)
+#                                        LEAVE REQUEST                                                  #
+
+#                                 BUSINESS TRIP REQUEST                                                  #
+- intent: pending_trip
+  examples: |
+    - please show me the list of Business trips for approval
+    - Business trips for approval
+    - please list my pending Business trips for approval
+    - pending Business trips for approval for approval
+    - my pending Business trips for approval
+    - show me my pending Business trips for approval
+    - list of pending Business trips for approval
+    - please show me the list of business trips
+    - business trips
+    - please list my pending business trips
+    - pending business trips for approval
+    - my pending business trips
+    - show me my pending business trips
+    - list of pending business trips
+    - please show me the list of BT
+    - BT
+    - please list my pending BT
+    - pending BT for approval
+    - my pending BT
+    - show me my pending BT
+    - list of pending BT
+    - please show me the list of Business Trip Request
+    - Business Trip Request
+    - please list my pending Business Trip Request
+    - pending Business Trip Request for approval
+    - my pending Business Trip Request
+    - show me my pending Business Trip Request
+    - list of pending Business Trip Request
+    - please show me the list of bt
+    - bt
+    - please list my pending bt
+    - pending bt for approval
+    - my pending bt
+    - show me my pending bt
+    - list of pending bt
+    - can you show me the list of Business trips for approval
+    - Business trips for approval
+    - can you list my pending Business trips for approval
+    - pending Business trips for approval for approval
+    - my pending Business trips for approval
+    - show me my pending Business trips for approval
+    - list of pending Business trips for approval
+    - can you show me the list of business trips
+    - business trips
+    - can you list my pending business trips
+    - pending business trips for approval
+    - my pending business trips
+    - show me my pending business trips
+    - list of pending business trips
+    - can you show me the list of BT
+    - BT
+    - can you list my pending BT
+    - pending BT for approval
+    - my pending BT
+    - show me my pending BT
+    - list of pending BT
+    - can you show me the list of Business Trip Request
+    - Business Trip Request
+    - can you list my pending Business Trip Request
+    - pending Business Trip Request for approval
+    - my pending Business Trip Request
+    - show me my pending Business Trip Request
+    - list of pending Business Trip Request
+    - can you show me the list of bt
+    - bt
+    - can you list my pending bt
+    - pending bt for approval
+    - my pending bt
+    - show me my pending bt
+    - list of pending bt
+    - could you show me the list of Business trips for approval
+    - Business trips for approval
+    - could you list my pending Business trips for approval
+    - pending Business trips for approval for approval
+    - my pending Business trips for approval
+    - show me my pending Business trips for approval
+    - list of pending Business trips for approval
+    - could you show me the list of business trips
+    - business trips
+    - could you list my pending business trips
+    - pending business trips for approval
+    - my pending business trips
+    - show me my pending business trips
+    - list of pending business trips
+    - could you show me the list of BT
+    - BT
+    - could you list my pending BT
+    - pending BT for approval
+    - my pending BT
+    - show me my pending BT
+    - list of pending BT
+    - could you show me the list of Business Trip Request
+    - Business Trip Request
+    - could you list my pending Business Trip Request
+    - pending Business Trip Request for approval
+    - my pending Business Trip Request
+    - show me my pending Business Trip Request
+    - list of pending Business Trip Request
+    - could you show me the list of bt
+    - bt
+    - could you list my pending bt
+    - pending bt for approval
+    - my pending bt
+    - show me my pending bt
+    - list of pending bt
+
+- intent: trip_description
+  examples: |
+    - BT [15105T](TripId)
+    - BT [15106T](TripId)
+    - BT [15107T](TripId)
+    - BT [15105T](TripId)
+    - BT [15106T](TripId)
+    - BT [15107T](TripId)
+    - BT [15105T](TripId)
+    - BT [15106T](TripId)
+    - BT [15107T](TripId)
+    - BT [14105T](TripId)
+    - BT [14106T](TripId)
+    - BT [14107T](TripId)
+    - BT [14105T](TripId)
+    - BT [14106T](TripId)
+    - BT [14107T](TripId)
+    - BT [14105T](TripId)
+    - BT [14106T](TripId)
+    - BT [14107T](TripId)
+    - BT [13105T](TripId)
+    - BT [13106T](TripId)
+    - BT [13107T](TripId)
+    - BT [13105T](TripId)
+    - BT [13106T](TripId)
+    - BT [13107T](TripId)
+    - BT [13105T](TripId)
+    - BT [13106T](TripId)
+    - BT [13107T](TripId)
+    - BT [18105T](TripId)
+    - BT [18106T](TripId)
+    - BT [18107T](TripId)
+    - BT [18105T](TripId)
+    - BT [18106T](TripId)
+    - BT [18107T](TripId)
+    - BT [18105T](TripId)
+    - BT [18106T](TripId)
+    - BT [18107T](TripId)
+    - BT [15105T](TripId)
+    - BT [15106T](TripId)
+    - BT [15107T](TripId)
+    - BT [15125T](TripId)
+    - BT [15126T](TripId)
+    - BT [15127T](TripId)
+    - BT [15125T](TripId)
+    - BT [15126T](TripId)
+    - BT [15127T](TripId)
+    - BT [15125T](TripId)
+    - BT [15126T](TripId)
+    - BT [15127T](TripId)
+    - BT [15122T](TripId)
+    - BT [15123T](TripId)
+    - BT [15124T](TripId)
+    - BT [15125T](TripId)
+    - BT [15126T](TripId)
+    - BT [15127T](TripId)
+    - BT [15128T](TripId)
+    - BT [15129T](TripId)
+    - BT [15130T](TripId)
+    - BT [15125T](TripId)
+    - BT [15126T](TripId)
+    - BT [15225T](TripId)
+    - BT [15226T](TripId)
+    - BT [15227T](TripId)
+    - BT [15222T](TripId)
+    - BT [15223T](TripId)
+    - BT [15224T](TripId)
+    - BT [15225T](TripId)
+    - BT [15226T](TripId)
+    - BT [15227T](TripId)
+    - BT [15228T](TripId)
+    - BT [15229T](TripId)
+    - BT [15253T](TripId)
+    - BT [15264T](TripId)
+    - BT [15275T](TripId)
+    - BT [15286T](TripId)
+    - BT [15257T](TripId)
+    - BT [15268T](TripId)
+    - BT [15279T](TripId)
+    - BT [15126T](TripId)
+    - BT [15225T](TripId)
+    - BT [15226T](TripId)
+    - BT [15227T](TripId)
+    - BT [15222T](TripId)
+    - BT [15223T](TripId)
+      
+- intent: bt_approve
+  examples: |
+    - approve BT [14805T](TripId)
+    - approve BT [14805T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - Approve BT [15078T](TripId)
+    - approve BT [25078T](TripId)
+    - approve BT [21278T](TripId)
+    - approve BT [22228T](TripId)
+    - approve BT [23338T](TripId)
+    - Approve BT [22988T](TripId)
+    - approve BT [15278T](TripId)
+    - approve BT [15278T](TripId)
+    - approve BT [15278T](TripId)
+    - approve BT [15275T](TripId)
+    - approve BT [15276T](TripId)
+    - approve BT [15277T](TripId)
+    - approve BT [15275T](TripId)
+    - Approve BT [15274T](TripId)
+    - Approve BT [15273T](TripId)
+    - Approve BT [15271T](TripId)
+    - Approve BT [15268T](TripId)
+    - Approve BT [15258T](TripId)
+    - Approve BT [15278T](TripId)
+    - Approve BT [15268T](TripId)
+    - approve BT [15258T](TripId)
+    - approve BT [15248T](TripId)
+    - approve BT [15268T](TripId)
+    - approve BT [15258T](TripId)
+    - approve BT [15248T](TripId)
+    - approve BT [15070T](TripId)
+    - approve BT [15072T](TripId)
+    - approve BT [15073T](TripId)
+    - Approve BT [15058T](TripId)
+    - Approve BT [15052T](TripId)
+    - Approve BT [15074T](TripId)
+    - Approve BT [15062T](TripId)
+    - Approve BT [15064T](TripId)
+    - Approve BT [15054T](TripId)
+    - Approve BT [15062T](TripId)
+    - Approve BT [15051T](TripId)
+    - Approve BT [15252T](TripId)
+    - Approve BT [15273T](TripId)
+    - Approve BT [15254T](TripId)
+    - Approve BT [15264T](TripId)
+    - Approve BT [15258T](TripId)
+    - Approve BT [15261T](TripId)
+    - Approve BT [15252T](TripId)
+    - Approve BT [15274T](TripId)
+    - Approve BT [15262T](TripId)
+    - Approve BT [15264T](TripId)
+    - Approve BT [15254T](TripId)
+    - Approve BT [15262T](TripId)
+    - Approve BT [15251T](TripId)
+    - Approve BT [15252T](TripId)
+    - Approve BT [15273T](TripId)
+    - Approve BT [15254T](TripId)
+    - Approve BT [15264T](TripId)
+    - Approve BT [15258T](TripId)
+    - Approve BT [15261T](TripId)
+
+- intent: bt_reject
+  examples: |
+    - reject BT [14805T](TripId)
+    - reject BT [14805T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - Reject BT [15078T](TripId)
+    - reject BT [25078T](TripId)
+    - reject BT [21278T](TripId)
+    - reject BT [22228T](TripId)
+    - reject BT [23338T](TripId)
+    - Reject BT [22988T](TripId)
+#                                 BUSINESS TRIP REQUEST                                                  #

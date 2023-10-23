@@ -1,6 +1,6 @@
 # created by virtualenv automatically
-Scripts
-Lib
-pyvenv
-.rasa
-actions/__pycache__
+/SIRC-Rasa-Bot/Scripts
+/SIRC-Rasa-Bot/Lib
+/SIRC-Rasa-Bot/pyvenv
+/SIRC-Rasa-Bot/.rasa
+/SIRC-Rasa-Bot/actions/__pycache__

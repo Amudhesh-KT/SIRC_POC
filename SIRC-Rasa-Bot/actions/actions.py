@@ -25,7 +25,7 @@ class ActionPendingPR(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         list = pending_pr_list()
-        pendingpr = ['PR '+str(i) for i in list]
+        pendingpr = [str(i) for i in list]
         send = {"requests": pendingpr,
                     "msg": "The Pending PR lists are given below. Choose Any one to see PR Items",
                     }

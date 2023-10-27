@@ -23,12 +23,15 @@ def pending_pr_list():
 
 def pr_item_list(pr_no):
     item_list = []
+    
     res = pr_details.find_one({'pr_num':int(pr_no)})
     # print(res['Item_10_number'])
     i = 10
     while(i<30):
-        item_list.append("Item "+str(res[f'Item_{i}_number']))
+        item = {'text':"Item "+str(res[f'Item_{i}_number']), 'intent': f"PR {pr_no} Item {str(res[f'Item_{i}_number'])}" }
+        item_list.append(item)
         i=i+10
+     
     print(item_list)
     return item_list
 
@@ -76,7 +79,7 @@ def pr_approval(pr_no,status,comments):
 def pending_po_list():
     po_list = []
     for i in po_details.find():
-        item = 'PO ' + str(i['Po_num'])
+        item = i['Po_num']
         po_list.append(item)
     
     res = po_list

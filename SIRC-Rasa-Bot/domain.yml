@@ -30,6 +30,7 @@ intents:
   - leave_description
   - pl_approve
   - pl_reject
+  - Leave_balance_intent
 
 #                                          LEAVE REQUEST                                                   #
 
@@ -216,6 +217,7 @@ actions:
   - action_leave_description
   - action_pl_approve
   - action_pl_reject
+  - Leave_balance_action
 #                                          LEAVE REQUEST                                                  #
 
 #                                 BUSINESS TRIP REQUEST                                                  #

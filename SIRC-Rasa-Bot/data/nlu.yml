@@ -354,6 +354,70 @@ nlu:
 
 - intent: pr_description
   examples: |
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
+    - pr item [1234](pr_itemnumber)
     - pr [40001235](pr_number) item [1234](pr_itemnumber)
     - show me pr [40001235](pr_number) Item [1234](pr_itemnumber)
     - display pr [40001235](pr_number) itm [1234](pr_itemnumber)
@@ -725,6 +789,36 @@ nlu:
 
 - intent: po_description
   examples: |
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
+    - po item [123](po_itemnumber)
     - PO [45001235](po_number) item [1234](po_itemnumber)
     - show me PO [45001235](po_number) Item [1234](po_itemnumber)
     - display PO [45001235](po_number) itm [1234](po_itemnumber)
@@ -2521,13 +2615,56 @@ nlu:
   examples: |
     - Show me the Policies
     - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policy
+    - Policy
+    - Policy
+    - Policy
+    - Policy
+    - Policy
+    - Policy
     - Policy
     - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policy
+    - Company Policy
+    - Company Policy
+    - Company Policy
+    - Company Policy
+    - Company Policy
     - Company Policy
     - company policy
     - policy
+    - policy
+    - policy
+    - policy
+    - policy
+    - policy
+    - Show me the Company Policies
+    - Show me the Company Policies
+    - Show me the Company Policies
+    - Show me the Company Policies
+    - Show me the Company Policies
     - Show me the Company Policies
     - Could you share the Company Policies
+    - Could you share the Company Policies
+    - Could you share the Company Policies
+    - Could you share the Company Policies
+    - May I see the Policies
+    - May I see the Policies
+    - May I see the Policies
+    - May I see the Policies
     - May I see the Policies
 
 - intent: leavepolicies
@@ -2571,7 +2708,7 @@ nlu:
     - What is the company's policy on obtaining visas for business travel?
     - What is the company's policy on travel security and safety?
 
-intent: SeparationPolicy
+- intent: SeparationPolicy
   examples: |
     - What is the process for initiating a separation?
     - Separation Policy
@@ -2761,3 +2898,26 @@ intent: SeparationPolicy
     - How does the company ensure the alignment of individual goals with the organization's objectives?
     - Can you explain the communication process for updating employees on organizational changes and developments?
     - What is the company's policy for maintaining organizational stability during periods of growth or transition?
+
+- intent: Leave_balance_intent
+  examples : |
+    - Display my current leave balance
+    - I would like to know how much leave I have left
+    - show me my remaining leave days?
+    - Leave balance
+    - Remaining leave days
+    - show me the number of days off I have left 
+    - display my unused leave balance
+    - Would you be able to tell me the remaining days of my leave
+    - Can you let me know my leave balance
+    - What's my remaining leave?
+    - How many days off do I have left?
+    - Can you check my vacation days balance?
+    - What's my current leave status?
+    - Could you tell me how much leave I have left?
+    - I need to know my remaining leave
+    - What's my available leave?
+    - Can you give me an update on my vacation days balance?
+    - unused leave days
+    - Tell me my leave balance
+    - May i know my leave balance

@@ -150,7 +150,7 @@ def leave_description(pl_no):
         }
 
     print(des)
-    return(des)
+    return des
 
 def leave_approval(pl_no,status,comments):
     req = pl_details.find_one({'Leave_ID':pl_no})
@@ -214,7 +214,7 @@ def bt_approval(bt_no,status,comments):
 def fundcentre_list():
     fc_list = []
     for i in budget_details.find():
-        fc = i['Fund_centre']
+        fc = 'FC '+str(i['Fund_centre'])
         fc_list.append(fc)
     fc_final = list(set(fc_list))
     print(fc_final)

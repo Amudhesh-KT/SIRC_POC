@@ -379,7 +379,7 @@ class ActionPendingTrip(Action):
         resp = pending_bt_list()
         pendingbt = [str(i) for i in resp]
         send = {"requests": pendingbt,
-                    "msg": "The Pending Business trip request lists are given below. Choose Any one to see PO Items",
+                    "msg": "The Pending Business trip request lists are given below. Choose Any one to see details",
                     }
 
         my_json = json.dumps(send)

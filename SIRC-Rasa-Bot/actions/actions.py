@@ -513,7 +513,7 @@ class ActionLearningAndDevelopmentPoliciesPolicy(Action):
             "links": [
                 {
                     "tag": "Learning And Development Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+                    "link": "http://localhost:8000/static_files/Learning%20and%20Development.pdf",
                 }
             ]
         }
@@ -536,7 +536,7 @@ class ActionTalentAcquisitionPolicyPolicy(Action):
             "links": [
                 {
                     "tag": "Talent Acquisition Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+                    "link": "http://localhost:8000/static_files/Talent%20Acquisition.pdf",
                 }
             ]
         }
@@ -559,7 +559,7 @@ class ActionOrganizationalDevelopmentPolicies(Action):
             "links": [
                 {
                     "tag": "Organizational Development Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
+                    "link": "http://localhost:8000/static_files/Organizational%20Development.pdf",
                 }
             ]
         }
@@ -583,7 +583,7 @@ class ActionLeavePolicy(Action):
             "links": [
                 {
                     "tag": "Leave Management Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+                    "link": "http://localhost:8000/static_files/Leave%20Management%20Polcies.pdf",
                 }
             ]
         }
@@ -607,7 +607,7 @@ class ActionGrievancePolicy(Action):
             "links": [
                 {
                     "tag": "Grievance Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Leave%20Policy%20-%20India.pdf?csf=1&web=1&e=h6mBdS, Others- https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Leave%20Policy.pdf?csf=1&web=1&e=hres42",
+                    "link": "http://localhost:8000/static_files/Grievance_Policies.pdf",
                 }
             ]
         }
@@ -631,7 +631,7 @@ class ActionPersonnelPolicies(Action):
             "links": [
                 {
                     "tag": "Personnel Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Travel%20Policy.pdf?csf=1&web=1&e=ia4gK9",
+                    "link": "http://localhost:8000/static_files/Personnel%20Records%20Policies.pdf",
                 }
             ]
         }
@@ -655,7 +655,7 @@ class ActionPayrollPolicies(Action):
             "links": [
                 {
                     "tag": "Payroll Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Additional%20Billing%20Hours%20Policy%20-%20UK%202.0.pdf?csf=1&web=1&e=i373nJ",
+                    "link": "http://localhost:8000/static_files/Payroll%20Policies.pdf",
                 }
             ]
         }
@@ -679,7 +679,7 @@ class ActionWorkingHoursPolicy(Action):
             "links": [
                 {
                     "tag": "Working Hours Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Expenses%20Management%20System%20Policy.pdf?csf=1&web=1&e=Hwue5A",
+                    "link": "http://localhost:8000/static_files/Working%20Hours%20Policies.pdf",
                 }
             ]
         }
@@ -703,7 +703,7 @@ class ActionSeparationPolicy(Action):
             "links": [
                 {
                     "tag": "Separation Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20FTF%20Buckets%20Policy.pdf?csf=1&web=1&e=BYTeTJ",
+                    "link": "http://localhost:8000/static_files/Separation%20Employment%20Policies.pdf",
                 }
             ]
         }
@@ -727,7 +727,7 @@ class Actiontravelpolicies(Action):
             "links": [
                 {
                     "tag": "Travel and Business Trip Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20FTF%20Buckets%20Policy.pdf?csf=1&web=1&e=BYTeTJ",
+                    "link": "http://localhost:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf",
                 }
             ]
         }
@@ -751,25 +751,25 @@ class ActionPolicies(Action):
             "links": [
                 {
                     "tag": "Travel and Business Trip Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20FTF%20Buckets%20Policy.pdf?csf=1&web=1&e=BYTeTJ",
+                    "link": "http://localhost:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf",
                     "tag": "Learning And Development Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+                    "link": "http://localhost:8000/static_files/Learning%20and%20Development.pdf",
                     "tag": "Talent Acquisition Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
-                     "tag": "Organizational Development Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Corporate%20Attire%20Policy.pdf?csf=1&web=1&e=nhNR98",
+                    "link": "http://localhost:8000/static_files/Talent%20Acquisition.pdf",
+                    "tag": "Organizational Development Policies",
+                    "link": "http://localhost:8000/static_files/Organizational%20Development.pdf",
                     "tag": "Leave Management Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Overtime%20Policy.pdf?csf=1&web=1&e=gy7927",
+                    "link": "http://localhost:8000/static_files/Leave%20Management%20Polcies.pdf",
                     "tag": "Grievance Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Leave%20Policy%20-%20India.pdf?csf=1&web=1&e=h6mBdS, Others- https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Leave%20Policy.pdf?csf=1&web=1&e=hres42",
+                    "link": "http://localhost:8000/static_files/Grievance_Policies.pdf",
                     "tag": "Personnel Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/KaarTech%20-%20Travel%20Policy.pdf?csf=1&web=1&e=ia4gK9",
+                    "link": "http://localhost:8000/static_files/Personnel%20Records%20Policies.pdf",
                     "tag": "Payroll Policies",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Additional%20Billing%20Hours%20Policy%20-%20UK%202.0.pdf?csf=1&web=1&e=i373nJ",
+                    "link": "http://localhost:8000/static_files/Payroll%20Policies.pdf",
                     "tag": "Working Hours Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20Expenses%20Management%20System%20Policy.pdf?csf=1&web=1&e=Hwue5A",
+                    "link": "http://localhost:8000/static_files/Working%20Hours%20Policies.pdf",
                     "tag": "Separation Policy",
-                    "link": "https://kaartechit-my.sharepoint.com/:b:/r/personal/damudhesh_kaartech_com/Documents/Documents/Kaar_policies/POLICIES/Kaar%20FTF%20Buckets%20Policy.pdf?csf=1&web=1&e=BYTeTJ",
+                    "link": "http://localhost:8000/static_files/Separation%20Employment%20Policies.pdf",
                 }
             ]
         }

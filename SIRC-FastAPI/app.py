@@ -339,32 +339,67 @@ async def Approve_reject(data:Approve_reject):
     request_type = data.Request_id[-2]
     request_no = data.Request_id[-1]
 
+    print(request_no,request_type)
+
     if request_type == "PL":
         req = pl_details.find_one({'Leave_ID':request_no})
 
         if(req['Status'] == "Pending"):
             update = pl_details.update_one({'Leave_ID':request_no},{"$set":{'Status':data.Status}})
-            print(update.res)
+
+            # Check if the update was acknowledged
+            if update.acknowledged:
+                res = "Approved successfully"
 
         else:
             res = "PL has been already approved or rejected"
     
 
-    if request_type == "PR":
-        a = pr_details.find_one({'pr_num' : request_no})
+    if (request_type == "PR"):
+        a = pr_details.find_one({'pr_num' : int(request_no)})
 
         if a['Status'] == "Pending":
-            pr_details.update_one({'pr_num': request_no}, {"$set": {'Status': data.Status}})
-            
+            update = pr_details.update_one({'pr_num': int(request_no)}, {"$set": {'Status': data.Status}})
+
+            # Check if the update was acknowledged
+            if update.acknowledged:
+                res = "Approved successfully"
 
         else:
             res =  "PR has been already approved or rejected"
 
+
     if request_type == "PO":
-        print("PO")
+        a = po_details.find_one({'Po_num' : int(request_no)})
+
+        if a['Status'] == "Pending":
+            update = po_details.update_one({'Po_num': int(request_no)}, {"$set": {'Status': data.Status}})
+
+            # Check if the update was acknowledged
+            if update.acknowledged:
+                res = "Approved successfully"
+        
+        else:
+            res =  "PO has been already approved or rejected"
+
+       
 
     if request_type == "BT":
-        print("BT")
+        req = bt_details.find_one({'Business Trip No': int(request_no)})
+
+        if(req['Status'] == "Pending"):
+
+            update = bt_details.update_one({'Business Trip No': int(request_no)},{"$set":{'Status':data.Status}})
+
+            # Check if the update was acknowledged
+            if update.acknowledged:
+                res = "Approved successfully"
+
+        
+
+        else:
+
+            res =  "BT has been already approved or rejected"
 
 
 

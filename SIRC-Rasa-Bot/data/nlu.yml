@@ -2615,13 +2615,56 @@ nlu:
   examples: |
     - Show me the Policies
     - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policies
+    - Policy
+    - Policy
+    - Policy
+    - Policy
+    - Policy
+    - Policy
+    - Policy
     - Policy
     - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policies
+    - Company Policy
+    - Company Policy
+    - Company Policy
+    - Company Policy
+    - Company Policy
+    - Company Policy
     - Company Policy
     - company policy
     - policy
+    - policy
+    - policy
+    - policy
+    - policy
+    - policy
+    - Show me the Company Policies
+    - Show me the Company Policies
+    - Show me the Company Policies
+    - Show me the Company Policies
+    - Show me the Company Policies
     - Show me the Company Policies
     - Could you share the Company Policies
+    - Could you share the Company Policies
+    - Could you share the Company Policies
+    - Could you share the Company Policies
+    - May I see the Policies
+    - May I see the Policies
+    - May I see the Policies
+    - May I see the Policies
     - May I see the Policies
 
 - intent: leavepolicies

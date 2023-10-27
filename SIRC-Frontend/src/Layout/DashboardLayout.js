@@ -11,6 +11,10 @@ import {
   TextField,
   Chip,
   Button,
+  TextareaAutosize,
+  Dialog,
+  DialogTitle,
+  DialogContent,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import HeaderNavbar from "./HeaderNavbar/HeaderNavbar";
@@ -19,7 +23,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { BsFillChatLeftTextFill } from "react-icons/bs";
 import SimpleBar from "simplebar-react";
 import { FaTelegramPlane } from "react-icons/fa";
-import { FiSettings, FiX } from "react-icons/fi";
+import { FiInfo, FiSettings, FiX } from "react-icons/fi";
 import ChatLogo from "../../assets/Chat-Logo.png";
 import ChatLogo1 from "../../assets/Chat1.png";
 import ChatLogoWhite from "../../assets/ChatLogoWhite.png";
@@ -152,7 +156,7 @@ function DashboardLayout({ children }) {
       body: JSON.stringify({
         sender: name,
         message: msg,
-        // metadata: { ...form, comment: comment },
+        metadata: { comments: openDialog.comment },
       }),
     })
       .then((response) => response.json())
@@ -643,6 +647,13 @@ function DashboardLayout({ children }) {
       </div>
     );
   }
+
+  const [openDialog, setOpenDialog] = useState({
+    open: false,
+    comment: "",
+    value: "",
+    type: "",
+  });
   return (
     <MainWrapper>
       <HeaderNavbar
@@ -811,13 +822,6 @@ function DashboardLayout({ children }) {
                                     flexDirection={"column"}
                                     sx={{ px: 2, maxWidth: "75%" }}
                                   >
-                                    <Typography
-                                      variant="caption"
-                                      color="grey"
-                                      fontSize={"10px"}
-                                    >
-                                      10/22/2023 11:09:06 AM
-                                    </Typography>
                                     <Box
                                       display={"flex"}
                                       alignItems={"center"}
@@ -899,15 +903,7 @@ function DashboardLayout({ children }) {
                           )}
 
                           {chatContent.actions ? (
-                            <div
-                              className="chatscreen-content-actions"
-                              style={{
-                                justifyContent:
-                                  chatContent.sender === "bot"
-                                    ? "flex-start"
-                                    : "flex-end",
-                              }}
-                            >
+                            <Box px={2}>
                               {chatContent.actions
                                 .slice(
                                   0,
@@ -976,20 +972,12 @@ function DashboardLayout({ children }) {
                               ) : (
                                 <></>
                               )}
-                            </div>
+                            </Box>
                           ) : (
                             <></>
                           )}
                           {chatContent.data ? (
-                            <div
-                              className="chatscreen-content-actions"
-                              style={{
-                                justifyContent:
-                                  chatContent.sender === "bot"
-                                    ? "flex-start"
-                                    : "flex-end",
-                              }}
-                            >
+                            <Box px={2}>
                               {chatContent.data
                                 .slice(
                                   0,
@@ -1058,17 +1046,20 @@ function DashboardLayout({ children }) {
                               ) : (
                                 <></>
                               )}
-                            </div>
+                            </Box>
                           ) : (
                             <></>
                           )}
                           {chatContent.details &&
                           chatContent.details.data &&
                           Object.keys(chatContent.details.data).length > 0 ? (
-                            <div
-                              className="chatscreen-content-details"
-                              style={{
-                                background: "rgb(90 89 94 / 18%)",
+                            <Box
+                              mx={2}
+                              sx={{
+                                background: "#f2f1f9",
+                                border: "1px solid #6e6da8",
+                                borderRadius: "18px 18px 18px 0px",
+                                p: 1,
                               }}
                             >
                               {Object.keys(chatContent.details.data).map(
@@ -1076,7 +1067,9 @@ function DashboardLayout({ children }) {
                                   <div>
                                     <span
                                       style={{
-                                        color: "#820000",
+                                        color: "#000",
+                                        fontSize: "14px",
+                                        fontWeight: 500,
                                       }}
                                     >
                                       {key?.replace(/_/g, " ")}
@@ -1084,6 +1077,7 @@ function DashboardLayout({ children }) {
                                     <span
                                       style={{
                                         margin: "0px 4px",
+                                        fontSize: "14px",
                                         color: darkMode ? "lightskyblue" : "",
                                       }}
                                     >
@@ -1091,6 +1085,7 @@ function DashboardLayout({ children }) {
                                     </span>
                                     <span
                                       style={{
+                                        fontSize: "14px",
                                         color: darkMode ? "#e5ebff" : "",
                                       }}
                                     >
@@ -1100,38 +1095,40 @@ function DashboardLayout({ children }) {
                                 )
                               )}
                               {chatContent.details.showButtons ? (
-                                <div
-                                  className="chatscreen-content-details-buttons"
-                                  style={{
-                                    display: "flex",
-                                    width: "100%",
-                                    padding: "5px 0px",
-                                    alignItems: "center",
-                                    justifyContent: "space-evenly",
-                                  }}
+                                <Box
+                                  diaplay="flex"
+                                  alignItems={"center"}
+                                  sx={{ mt: 1 }}
                                 >
                                   <Button
                                     variant={"contained"}
                                     size="medium"
-                                    sx={{
-                                      backgroundColor: "#1b5e20",
-                                      fontWeight: "bold",
-                                    }}
-                                    style={{
-                                      margin: "5px 0px",
-                                      textTransform: "capitalize",
-                                      letterSpacing: "1px",
-                                      fontSize: "11px",
-                                      fontWeight: "550",
-                                      width: "30%",
-                                    }}
-                                    color="success"
+                                    color="primary"
                                     onClick={
                                       () => {
-                                        if (chatContent.details.type === "PR")
+                                        if (chatContent.details.type === "PR") {
                                           handleButtonRequest(
                                             `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
                                           );
+                                          setOpenDialog({
+                                            open: false,
+                                            value: "",
+                                            comment: "",
+                                            type: "",
+                                          });
+                                        } else if (
+                                          chatContent.details.type === "PO"
+                                        ) {
+                                          handleButtonRequest(
+                                            `Approve PO ${chatContent.details.data["Purchase Requisition Number"]}`
+                                          );
+                                          setOpenDialog({
+                                            open: false,
+                                            value: "",
+                                            comment: "",
+                                            type: "",
+                                          });
+                                        }
                                       }
                                       // setOpenDialog({
                                       //   ...openDialog,
@@ -1173,32 +1170,37 @@ function DashboardLayout({ children }) {
                                     Approve
                                   </Button>
                                   <Button
+                                    sx={{ mx: 1 }}
                                     variant={"contained"}
                                     size="medium"
-                                    sx={{
-                                      backgroundColor: "#c62828",
-                                    }}
-                                    style={{
-                                      margin: "5px 0px",
-                                      textTransform: "capitalize",
-                                      letterSpacing: "1px",
-                                      fontSize: "11px",
-                                      fontWeight: "550",
-                                      width: "30%",
-                                    }}
                                     color="error"
                                     onClick={() => {
+                                      setOpenDialog({
+                                        ...openDialog,
+                                        open: true,
+                                        type: chatContent.details.type,
+                                        value:
+                                          chatContent.details.type === "PR"
+                                            ? chatContent.details.data[
+                                                "Purchase Requisition Number"
+                                              ]
+                                            : chatContent.details.type === "PO"
+                                            ? chatContent.details.data[
+                                                "Purchase Order Number"
+                                              ]
+                                            : "",
+                                      });
                                       // setOpenDialog({
                                       //   ...openDialog,
                                       //   open: true,
                                       //   type: chatContent.details.type,
                                       //   buttonType: "reject",
-                                      //   value:
-                                      //     chatContent.details.type === "PR"
-                                      //       ? chatContent.details.data[
-                                      //           "Purchase Requisition Number"
-                                      //         ]
-                                      //       : chatContent.details.type === "PL"
+                                      // value:
+                                      //   chatContent.details.type === "PR"
+                                      //     ? chatContent.details.data[
+                                      //         "Purchase Requisition Number"
+                                      //       ]
+                                      //     : chatContent.details.type === "PL"
                                       //       ? chatContent.details.data[
                                       //           "Leave Id"
                                       //         ]
@@ -1227,11 +1229,11 @@ function DashboardLayout({ children }) {
                                   >
                                     Reject
                                   </Button>
-                                </div>
+                                </Box>
                               ) : (
                                 <></>
                               )}
-                            </div>
+                            </Box>
                           ) : (
                             <></>
                           )}
@@ -1355,6 +1357,114 @@ function DashboardLayout({ children }) {
                 </IconButton>
               </Box>
             </div>
+
+            {openDialog.open && (
+              <Dialog
+                open={openDialog.open}
+                PaperProps={{
+                  style: {
+                    borderRadius: "20px",
+                    width: "405px",
+                  },
+                }}
+                maxWidth={"sm"}
+                fullWidth={"sm"}
+                aria-describedby="alert-dialog-slide-description"
+              >
+                <DialogTitle
+                  sx={{
+                    background: "#F90C0C",
+                    color: "#fff",
+                    height: "54px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Box display={"flex"} alignItems={"center"}>
+                    <IconButton sx={{ color: "#fff" }}>
+                      <FiInfo />
+                    </IconButton>
+
+                    <Typography variant="h5" sx={{ color: "#fff" }}>
+                      Confirm Decline
+                    </Typography>
+                  </Box>
+                  <Box display="flex" alignItems={"center"}>
+                    <IconButton
+                      sx={{ color: "#fff" }}
+                      size="small"
+                      onClick={() =>
+                        setOpenDialog({ ...openDialog, open: false })
+                      }
+                    >
+                      <FiX />
+                    </IconButton>
+                  </Box>
+                </DialogTitle>
+                <DialogContent
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <Typography variant="h5" color={"#45546E"} sx={{ my: 2 }}>
+                    Are you sure want to Decline this Request
+                  </Typography>
+                  <TextareaAutosize
+                    onChange={(e) =>
+                      setOpenDialog({ ...openDialog, comment: e.target.value })
+                    }
+                    minRows={3}
+                    style={{
+                      width: "100%",
+                      borderRadius: "10px",
+                      padding: "10px",
+                      border: "1px solid #D0D3D9",
+                    }}
+                    placeholder="Comments"
+                  />
+                  <Button
+                    sx={{
+                      borderRadius: "20px",
+                      background: "#f90c0c",
+                      letterSpacing: 1.2,
+                      px: 2,
+                      my: 2,
+                      color: "#fff",
+                      boxShadow: "none",
+                      "&:hover": {
+                        background: "#f90c0c",
+                        boxShadow: "none",
+                      },
+                    }}
+                    onClick={async () => {
+                      if (openDialog.type !== "PO") {
+                        handleButtonRequest(`Reject PR ${openDialog.value}`);
+                        setOpenDialog({
+                          open: false,
+                          value: "",
+                          comment: "",
+                          type: "",
+                        });
+                      } else {
+                        handleButtonRequest(`Reject PO ${openDialog.value}`);
+                        setOpenDialog({
+                          open: false,
+                          value: "",
+                          comment: "",
+                          type: "",
+                        });
+                      }
+                    }}
+                  >
+                    Decline
+                  </Button>
+                </DialogContent>
+              </Dialog>
+            )}
           </Box>
         </Box>
       </ContentWrapper>

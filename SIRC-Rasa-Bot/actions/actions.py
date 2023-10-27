@@ -497,11 +497,13 @@ class CommitmentItemsList(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # fc_no = tracker.get_slot("fc_no")
-        fc_notext = tracker.latest_message("text")
+        fc_notext = tracker.latest_message["text"]
+        print(fc_notext)
         fc_no = fc_notext.split()[-1]
+        print(fc_no)
         resp = commititem_list(fc_no)
-        ciitem = [str(i) for i in resp]
-        send = {"requests": ciitem,
+        print(resp)
+        send = {"data": resp,
                     "msg": "The Commitment Items are given below. Choose Any one to see details",
                     }
 
@@ -519,10 +521,13 @@ class BudgetDetails(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        budget_notext = tracker.latest_message("text")
+        budget_notext = tracker.latest_message["text"]
         fc_no = budget_notext.split()[1]
+        print(fc_no)
         ci_no = budget_notext.split()[-1]
+        print(ci_no)
         resp = budget_description(fc_no,ci_no)
+        print(resp)
         send = {
             "msg": "Here is the Details for the Business Trip... ",
             "details": {

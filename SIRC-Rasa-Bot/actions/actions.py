@@ -397,7 +397,7 @@ class BudgetDetails(Action):
         # ci_no = tracker.get_slot("ci_no")
         fc_no = 1014000
         ci_no = 810006
-        resp = fundcentre_list()
+        resp = budget_description()
         res = json.dumps(resp)
         dispatcher.utter_message(text=res)
 

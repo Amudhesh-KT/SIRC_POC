@@ -25,8 +25,13 @@ app = FastAPI()
 
 
 # Check the mounted routes
-for route in app.routes:
-    print(route)
+# for route in app.routes:
+#     print(route)
+
+class Approve_reject(BaseModel):
+    Request_id: str
+    Status: str
+
 
 
 origins = ["*"]
@@ -66,8 +71,9 @@ async def overall_data():
             'name': i['Employee Name'],
             'shortText': i['Leave type'],
             'priority': i['priority'],
-            'Created_on': datetime.strptime(str(i['creation_date']), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y'),
+            'Created_on': i['creation_date'],
             'overall_status': "Ready",
+            'Status': i["Status"],
             'levels': [
                 {
                     'dept': i['Approver_1_Approval_Level'],
@@ -83,17 +89,14 @@ async def overall_data():
             'details': {
                 'id': i['Leave_ID'],
                 'name': i['Employee Name'],
-                'leave duration': datetime.strptime(str(i['Leave Duration']), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y'),
+                'leave duration': i['Leave Duration'],
                 'leaveType': i['Leave type']
             }
     }
-
-        overall_list.append(pl_des)
+        if pl_des['Status'] == "Pending":
+            overall_list.append(pl_des)
     
     
-
-
-
 
 
     bt = bt_details.find({})
@@ -104,8 +107,9 @@ async def overall_data():
             'name': i['Employee Name'],
             'shortText': i['Travel Type'],
             'priority': i['priority'],
-            'Created_on': datetime.strptime(str(i['creation_date']), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y'),
+            'Created_on': i['creation_date'],
             'overall_status': "Ready",
+            'Status': i["Status"],
             'levels': [
                 {
                     'dept': i['Approver_1_Approval_Level'],
@@ -121,22 +125,23 @@ async def overall_data():
             'details': {
                 'Business Trip No': i['Business Trip No'],
                 'Employee Name': i['Employee Name'],
-                'Travel start Date': datetime.strptime(str(i['Travel start Date']), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y'),
-                'Travel End Date': datetime.strptime(str(i['Travel End Date']), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y'),
+                'Travel start Date': i['Travel start Date'],
+                'Travel End Date': i['Travel End Date'],
                 'Travel Type': i['Travel Type'],
                 'No. of Locations': i['No. of Locations'],
                 'Visa Required': i['Visa Required'],
                 'Required Visa Exit & Re-Entry': i['Required Visa Exit & Re-Entry'],
                 'Passport Number': i['Passport Number'],
-                'Passport Expiry Date': datetime.strptime(str(i['Passport Expiry Date']), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y'),
+                'Passport Expiry Date': i['Passport Expiry Date'],
                 'Stay': i['Stay'],
-                'National ID/Iqama Expiry': datetime.strptime(str(i['National ID/Iqama Expiry']), '%Y-%m-%d %H:%M:%S').strftime('%d/%m/%Y'),
+                'National ID/Iqama Expiry': i['National ID/Iqama Expiry'],
                 'Total No. of International Days': i['Total No. of International Days'],
                 'Total No. of Domestic Days': i['Total No. of Domestic Days'],
                 'Total No. of Days': i['Total No. of Days']
             }
         }
-        overall_list.append(bt_des)
+        if bt_des['Status'] == "Pending":
+            overall_list.append(bt_des)
 
 
     po = po_details.find({})
@@ -149,6 +154,7 @@ async def overall_data():
             'priority': i['priority'],
             'Created_on': datetime.strptime(i['Creation_date'], '%d.%m.%Y').strftime('%d/%m/%Y'),
             'overall_status': "Ready",
+            'Status': i["Status"],
             'levels': [
                 {
                     'dept': i['Approver_1_Approval_Level'],
@@ -210,7 +216,8 @@ async def overall_data():
                 },
             ],
         }
-        overall_list.append(po_des)
+        if po_des['Status'] == "Pending":
+            overall_list.append(po_des)
 
 
     pr = pr_details.find({})
@@ -223,6 +230,7 @@ async def overall_data():
             'priority': i['priority'],
             'Created_on': datetime.strptime(i['creation_date'], '%d.%m.%Y').strftime('%d/%m/%Y'),
             'overall_status': "Ready",
+            'Status': i["Status"],
             'levels': [
                 {
                     'dept': i['Approver_1_Approval_Level'],
@@ -307,12 +315,31 @@ async def overall_data():
                 }
             ],
         }
-        overall_list.append(pr_des)
-
-
-
-
+        if pr_des['Status'] == "Pending":
+            overall_list.append(pr_des)
+    
     return overall_list
+
+
+@app.post('/Approve_reject')
+async def Approve_reject(data:Approve_reject):
+
+    word = data.Request_id.split() 
+
+    print(word)
+
+    print(word[-1],word[-2])
+
+
+
+
+
+    return "Aprroved and reject working fine"
+
+
+
+
+    
 
 
 

@@ -217,7 +217,7 @@ actions:
   - action_leave_description
   - action_pl_approve
   - action_pl_reject
-  - Leave_balance_action
+  - action_leave_balance
 #                                          LEAVE REQUEST                                                  #
 
 #                                 BUSINESS TRIP REQUEST                                                  #

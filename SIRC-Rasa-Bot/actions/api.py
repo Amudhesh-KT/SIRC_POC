@@ -81,34 +81,33 @@ def pr_approval(pr_no,status,comments):
 def pending_po_list():
     po_list = []
     for i in po_details.find():
-        item = i['Po_num']
+        item = 'PO ' + str(i['pr_num'])
         po_list.append(item)
-    
     res = po_list
     print(res)
     return res
 
 def po_item_list(po_no):
     item_list = []
-    res = po_details.find_one({'Po_num':po_no})
-    # print(res['Item_10_number'])
-    item_list.append(res[f'Item_10_Pr_item'])
-
+    res = po_details.find_one({'Po_num':int(po_no)})
+    item = {'text':"Item "+str(res[f'Item_10_Pr_item']), 'intent': f"PO {po_no} Item {str(res[f'Item_10_Pr_item'])}" }
+    item_list.append(item)
     print(item_list)
     return item_list
 
 def po_item_description(po_no):
     des = {}
-    res = po_details.find_one({'Po_num':po_no})
+    res = po_details.find_one({'Po_num':int(po_no)})
     des = {
-        'Item Number':res['Item_10_Pr_item'],
+        'Purchase Order Number': po_no,
+        'PO Item Number' : res['Item_10_Pr_item'],
         'Plant':res['Item_10_Plant'],
         'Total Price':res['Item_10_Total_Price'],
         'UOM':res['Item_10_Uom'],
         'Quantity':res['Item_10_Quantity'],
         'Description':res['short_info'],
-        'PR' : res['Item_10_Pr_number'],
-        'PR_Item' : res['Item_10_Pr_item']
+        'PR Number' : res['Item_10_Pr_number'],
+        'PR Item Number' : res['Item_10_Pr_item']
     }
 
 
@@ -116,15 +115,14 @@ def po_item_description(po_no):
     return des
 
 def po_approval(po_no,status,comments):
-    a = po_details.find_one({'Po_num' : po_no})
+    a = po_details.find_one({'Po_num' : int(po_no)})
     if a['Status'] == "Pending":
-        res = status
-        po_details.update_one({'Po_num': po_no}, {"$set": {'Status': status}})
-        po_details.update_one({'Po_num': po_no}, {"$set": {'Comments': comments}})
+        res = True
+        po_details.update_one({'Po_num': int(po_no)}, {"$set": {'Status': status}})
+        po_details.update_one({'Po_num': int(po_no)}, {"$set": {'Comments': comments}})
 
-        
     else:
-        res =  "Action can't be done"
+        res =  False
     print(res)
     return res
 #                                          PURCHASE ORDER                                                  #
@@ -145,6 +143,7 @@ def leave_description(pl_no):
     res = pl_details.find_one({'Leave_ID':pl_no})
     if res:
         des = {
+            'Leave ID' : pl_no,
             'Employee Name' : res['Employee Name'],
             'Leave Type' : res['Leave type'],
             'Leave Duration' : res['Leave Duration']
@@ -158,10 +157,9 @@ def leave_approval(pl_no,status,comments):
     if(req['Status'] == "Pending"):
         pl_details.update_one({'Leave_ID':pl_no},{"$set":{'Status':status}})
         pl_details.update_one({'Leave_ID': pl_no}, {"$set": {'Comments': comments}})
-
-        res = status
+        res = True
     else:
-        res = "Action cannot be performed"
+        res = False
 
     print(res)
     return(res)

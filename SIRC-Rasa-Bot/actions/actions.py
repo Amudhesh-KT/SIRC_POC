@@ -29,10 +29,8 @@ class ActionPendingPR(Action):
         send = {"requests": pendingpr,
                     "msg": "The Pending PR lists are given below. Choose Any one to see PR Items",
                     }
-
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
-
         return []
     
 class ActionPRItemList(Action):
@@ -43,27 +41,15 @@ class ActionPRItemList(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        global prno
-        # prno = tracker.get_slot("pr_number")
         prnotext = tracker.latest_message["text"]
         prno = prnotext.split()[-1]
-
-
-
-        print(prno)
-
         itemlist = pr_item_list(prno)
-
         send = {
-            "id": prno,
             "data": itemlist,
             "msg": "The PR items lists are given below. Choose Any one to see the Item description",
         }
-        
         my_json = json.dumps(send)
-
         dispatcher.utter_message(text=my_json)
-
         return []
     
 class ActionPRItemDescription(Action):
@@ -74,25 +60,12 @@ class ActionPRItemDescription(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        print("inside item descp")
-        # global Pending_PR_Flag 
         Pending_PR_Flag = 1
-        
-        global pritemno, prno
-        # prno = tracker.get_slot("pr_number")
-        # pritemno = tracker.get_slot("pr_itemnumber")
-        # metadata = tracker.latest_message.get("metadata")
-
         prnotext = tracker.latest_message["text"]
         print(prnotext)
-        # prno = metadata['prnumber']
-        # pritemno = metadata['pritem']
         pritemno = prnotext.split()[-1]
         prno = prnotext.split()[1]
-
         print(prno,pritemno)
-
         resp = pr_item_description(prno,pritemno)
         send = {
             "msg": "Here is the Details of Purchase Requisition... ",
@@ -114,21 +87,16 @@ class ActionPRApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # pr_no = tracker.get_slot("prnumber")
-        # print("PR approve",pr_no)
-        prnotext = tracker.latest_message["text"]
 
-        # metadata = tracker.latest_message.get("metadata")
+        prnotext = tracker.latest_message["text"]
         prno = prnotext.split()[-1]
-        # prno = tracker.get_slot("pr_number")
-        # prno = metadata['pr_number']
         status = 'Approved'
         comments = 'Nil'
         res = pr_approval(prno,status,comments)
         if res:
             dispatcher.utter_message(text=f'PR {prno} was Approved Successfully')
         else:
-            dispatcher.utter_message(text='Error')
+            dispatcher.utter_message(text=f'PR {prno} has already been Approved/Rejected')
 
         return []
     
@@ -140,15 +108,10 @@ class ActionPRReject(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # pr_no = tracker.get_slot("prnumber")
-        # print("PR reject",pr_no)
-        # dispatcher.utter_message(text="Purchase Request Rejected")
+
         prnotext = tracker.latest_message["text"]
         metadata = tracker.latest_message.get("metadata")
         prno = prnotext.split()[-1]
-        # prno = tracker.get_slot("pr_number")
-        # prno = metadata['pr_number']
-        # prno = prno.split()[-1]
         status = 'Rejected'
         if metadata:
             comments = metadata['comments']
@@ -158,7 +121,7 @@ class ActionPRReject(Action):
         if res:
             dispatcher.utter_message(text=f'PR {prno} was Rejected Successfully')
         else:
-            dispatcher.utter_message(text='Error')
+            dispatcher.utter_message(text=f'PR {prno} has already been Approved/Rejected')
 
         return []
     
@@ -193,32 +156,16 @@ class ActionPOItemList(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # print("PO itemlist",po_no)
-        # global Pending_PO_Flag 
-        # Pending_PO_Flag = 1
-        
-        # global pono
 
         ponotext = tracker.latest_message["text"]
         pono = ponotext.split()[-1]
-
-        # pono = tracker.get_slot("po_number")
-
-        # print(pono)
-
-        # dispatcher.utter_message(text = f"{pono} is working fine")
-
         itemlist = po_item_list(pono)
-
         send = {
-            "requests": itemlist,
+            "data": itemlist,
             "msg": "The PO items lists are given below. Choose Any one to see the Item description",
         }
-        
         my_json = json.dumps(send)
-
         dispatcher.utter_message(text=my_json)
-
         return []
     
 class ActionPOItemDescription(Action):
@@ -232,19 +179,16 @@ class ActionPOItemDescription(Action):
         # global Pending_PO_Flag 
         Pending_PO_Flag = 1
         
-        # global poitemno, pono
-        metadata = tracker.latest_message.get("metadata")
-        pono = metadata['ponumber']
-        poitemno = metadata['poitem']
-        poitemno = poitemno.split()[-1]
-        pono = pono.split()[-1]
+        ponotext = tracker.latest_message["text"]
+        poitemno = ponotext.split()[-1]
+        pono = ponotext.split()[1]
         # pono = tracker.get_slot("po_number")
         # poitemno = tracker.get_slot("po_itemnumber")
         resp = po_item_description(pono,poitemno)
         send = {
             "msg": "Here is the Details of Purchase Requisition... ",
             "details": {
-                "data":resp,"flag":Pending_PO_Flag,"type":"PR"
+                "data":resp,"flag":Pending_PO_Flag,"type":"PO"
                 }
         }
         
@@ -261,21 +205,16 @@ class ActionPOApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # po_no = tracker.get_slot("ponumber")
-        # print("PO Approve",po_no)
-        # dispatcher.utter_message(text="Purchase Order Approved")
-        # ponotext = tracker.latest_message["text"]
-        pono = tracker.get_slot("po_number")
-        metadata = tracker.latest_message.get("metadata")
-        # pono = ponotext.split()[-1]
-        status = metadata['status']
-        comments = metadata['comments']
-
+        ponotext = tracker.latest_message["text"]
+        pono = ponotext.split()[-1]
+        status = 'Approved'
+        comments = 'Nil'
         res = po_approval(pono,status,comments)
         if res:
-            dispatcher.utter_message(text=f'PR {pono} was Approved Successfully')
+            dispatcher.utter_message(text=f'PO {pono} was Approved Successfully')
         else:
-            dispatcher.utter_message(text='Error')
+            dispatcher.utter_message(text=f'PO {pono} has already been Approved/Rejected')
+
 
         return []
         
@@ -287,20 +226,19 @@ class ActionPOReject(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        pono = tracker.get_slot("po_number")
-        # print("PO Reject",po_no)
-        # dispatcher.utter_message(text="Purchase Order Rejected")
-        # ponotext = tracker.latest_message["text"]
+        ponotext = tracker.latest_message["text"]
         metadata = tracker.latest_message.get("metadata")
-        # pono = ponotext.split()[-1]
-        status = metadata['status']
-        comments = metadata['comments']
-
+        pono = ponotext.split()[-1]
+        status = 'Rejected'
+        if metadata:
+            comments = metadata['comments']
+        else:
+            comments = 'Nil'
         res = po_approval(pono,status,comments)
         if res:
-            dispatcher.utter_message(text=f'PR {pono} was Rejected Successfully')
+            dispatcher.utter_message(text=f'PO {pono} was Rejected Successfully')
         else:
-            dispatcher.utter_message(text='Error')
+            dispatcher.utter_message(text=f'PO {pono} has already been Approved/Rejected')
 
         return []
     
@@ -335,18 +273,16 @@ class ActionLeaveDescription(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # pl_no = tracker.get_slot("LeaveId")
-        # print("Leave Description",pl_no)
+
         plnotext = tracker.latest_message["text"]
         plno = plnotext.split()[-1]
         leave_req_details = leave_description(plno)
         flag_variable = True
-        type_flag = "PL"
         send = {
             "msg": "Here is the Details for the Leave request... ",
             "details": {
                 "data":leave_req_details,"flag":flag_variable,
-                "type": type_flag
+                "type": "PL"
                 }
         }
         return []
@@ -359,14 +295,15 @@ class ActionPLApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        plno = tracker.get_slot("LeaveId")
-        # print("PL Approve",pl_no)
-        # dispatcher.utter_message(text="Leave Request Approved")
-        # pl_no = "6862L"
-        metadata = tracker.latest_message.get("metadata")
-        status = metadata['status']
-        comments = metadata['comments']
-
+        plnotext = tracker.latest_message["text"]
+        plno = plnotext.split()[-1]
+        status = 'Approved'
+        comments = 'Nil'
+        res = leave_approval(plno,status,comments)
+        if res:
+            dispatcher.utter_message(text=f'PL {plno} was Approved Successfully')
+        else:
+            dispatcher.utter_message(text=f'PL {plno} has already been Approved/Rejected')
 
 
         return []
@@ -382,18 +319,27 @@ class ActionPLReject(Action):
         # pl_no = tracker.get_slot("LeaveId")
         # print("PL Reject",pl_no)
         # dispatcher.utter_message(text="Leave Request Rejected")
-        pl_no = "6862L"
-        status = 'Rejected'        
-        resp = leave_approval(pl_no,status)
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
+        plnotext = tracker.latest_message["text"]
+        metadata = tracker.latest_message.get("metadata")
+        plno = plnotext.split()[-1]
+        status = 'Rejected'
+        if metadata:
+            comments = metadata['comments']
+        else:
+            comments = 'Nil'
+        res = leave_approval(plno,status,comments)
+        if res:
+            dispatcher.utter_message(text=f'PL {plno} was Rejected Successfully')
+        else:
+            dispatcher.utter_message(text=f'PL {plno} has already been Approved/Rejected')
+
 
         return []
     
-class ActionPLReject(Action):
+class ActionLeaveBalance(Action):
 
     def name(self) -> Text:
-        return "Leave_balance_action"
+        return "action_leave_balance"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,

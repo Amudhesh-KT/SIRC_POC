@@ -223,8 +223,9 @@ def fundcentre_list():
 def commititem_list(fc_no):
     ci_item = []
     for i in budget_details.find({'Fund_centre':fc_no}):
-        ci = i['Commitment_item']
+        ci = 'CI '+str(i['Commitment_item'])
         ci_item.append(ci)
+    return ci_item
 
     print(ci_item)
     return ci_item

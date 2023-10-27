@@ -46,6 +46,23 @@ intents:
   - commit_item
 #                                 BUDGET DETAILS REQUEST                                                  #
 
+#                                 POLICIES                                                  #
+
+  - policies
+  - travelpolicies
+  - leavepolicies
+  - SeparationPolicy
+  - WorkingHoursPolicy
+  - PayrollPolicies
+  - PersonnelPolicies
+  - GrievancePolicy
+  - TalentAcquisitionPolicy
+  - LearningAndDevelopmentPolicies
+  - OrganizationalDevelopmentPolicies
+
+#                                 POLICIES                                                  #
+
+
 entities:
 #                                     PURCHASE REQUEST                                                #
   - pr_number:
@@ -213,6 +230,22 @@ actions:
   - action_commit_item
   - action_budget_details
 #                                 BUDGET DETAILS REQUEST                                                  #
+#                                 POLICIES                                                  #
+
+  - action_policies
+  - action_travelpolicies
+  - action_leavepolicies
+  - action_SeparationPolicy
+  - action_WorkingHoursPolicy
+  - action_PayrollPolicies
+  - action_PersonnelPolicies
+  - action_GrievancePolicy
+  - action_TalentAcquisitionPolicy
+  - action_LearningAndDevelopmentPolicies
+  - action_OrganizationalDevelopmentPolicies
+
+#                                 POLICIES                                                  #
+
 
 
 session_config:

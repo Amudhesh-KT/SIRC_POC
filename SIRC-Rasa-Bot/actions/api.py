@@ -2,7 +2,8 @@ import pandas as pd
 from pymongo import MongoClient
 from datetime import datetime
 
-client = MongoClient('mongodb://sircchatbot:Sirc%40123@172.29.106.60:27017/?authMechanism=DEFAULT&authSource=admin')  # Provide appropriate MongoDB connection details
+# client = MongoClient('mongodb://sircchatbot:Sirc%40123@172.29.106.60:27017/?authMechanism=DEFAULT&authSource=admin')  # Provide appropriate MongoDB connection details
+client = MongoClient('mongodb+srv://damudheshkt:Amudhesh@cluster0.nujdztc.mongodb.net/')
 db = client['SIRC_POC']
 pl_details = db['pl_details']
 pr_details = db['pr_details']
@@ -56,14 +57,15 @@ def pr_item_description(pr_no,pr_item):
     print(des)
     return des
 
-def pr_approval(pr_no,status):
+def pr_approval(pr_no,status,comments):
     a = pr_details.find_one({'pr_num' : pr_no})
     if a['Status'] == "Pending":
-        res = status
+        res = True
         pr_details.update_one({'pr_num': pr_no}, {"$set": {'Status': status}})
+        pr_details.update_one({'pr_num': pr_no}, {"$set": {'Comments': comments}})
         
     else:
-        res =  "Action can't be done"
+        res =  False
     print(res)
     return res
 #                                     PURCHASE REQUEST                                                #
@@ -108,11 +110,13 @@ def po_item_description(po_no):
     print(des)
     return des
 
-def po_approval(po_no,status):
+def po_approval(po_no,status,comments):
     a = po_details.find_one({'Po_num' : po_no})
     if a['Status'] == "Pending":
         res = status
         po_details.update_one({'Po_num': po_no}, {"$set": {'Status': status}})
+        po_details.update_one({'Po_num': po_no}, {"$set": {'Comments': comments}})
+
         
     else:
         res =  "Action can't be done"
@@ -144,10 +148,12 @@ def leave_description(pl_no):
     print(des)
     return(des)
 
-def leave_approval(pl_no,status):
+def leave_approval(pl_no,status,comments):
     req = pl_details.find_one({'Leave_ID':pl_no})
     if(req['Status'] == "Pending"):
         pl_details.update_one({'Leave_ID':pl_no},{"$set":{'Status':status}})
+        pl_details.update_one({'Leave_ID': pl_no}, {"$set": {'Comments': comments}})
+
         res = status
     else:
         res = "Action cannot be performed"
@@ -186,10 +192,12 @@ def bt_description(bt_no):
     print(bt_des)
     return bt_des
 
-def bt_approval(bt_no,status):
+def bt_approval(bt_no,status,comments):
     req = bt_details.find_one({'Business Trip No':bt_no})
     if(req['Status'] == "Pending"):
         bt_details.update_one({'Business Trip No':bt_no},{"$set":{'Status':status}})
+        bt_details.update_one({'Business Trip No': bt_no}, {"$set": {'Comments': comments}})
+
         res = status
     else:
         res = "Action cannot be performed"
@@ -205,9 +213,9 @@ def fundcentre_list():
     for i in budget_details.find():
         fc = i['Fund_centre']
         fc_list.append(fc)
-
-    print(fc_list)
-    return fc_list
+    fc_final = list(set(fc_list))
+    print(fc_final)
+    return fc_final
 
 def commititem_list(fc_no):
     ci_item = []

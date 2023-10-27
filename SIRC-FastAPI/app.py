@@ -7,6 +7,7 @@ from fastapi import FastAPI, Request,Response
 
 from fastapi.staticfiles import StaticFiles
 
+
 import pandas as pd
 from pymongo import MongoClient
 from datetime import datetime
@@ -31,6 +32,7 @@ app = FastAPI()
 class Approve_reject(BaseModel):
     Request_id: str
     Status: str
+    comment: str
 
 
 
@@ -45,6 +47,7 @@ app.add_middleware(
 
 )
 
+app.mount("/static_files", StaticFiles(directory="Policies"), name="Policies")
 
 
 
@@ -346,10 +349,14 @@ async def Approve_reject(data:Approve_reject):
 
         if(req['Status'] == "Pending"):
             update = pl_details.update_one({'Leave_ID':request_no},{"$set":{'Status':data.Status}})
+            comment_update = pl_details.update_one({'Leave_ID': request_no}, {"$set": {'Comments': data.comment}})
 
             # Check if the update was acknowledged
-            if update.acknowledged:
-                res = "Approved successfully"
+            if update.acknowledged and comment_update.acknowledged:
+                if(data.Status == "Approved"):
+                    res = "Approved successfully"
+                else:
+                    res = "Rejected successfully"
 
         else:
             res = "PL has been already approved or rejected"
@@ -360,10 +367,15 @@ async def Approve_reject(data:Approve_reject):
 
         if a['Status'] == "Pending":
             update = pr_details.update_one({'pr_num': int(request_no)}, {"$set": {'Status': data.Status}})
+            comment_update = pr_details.update_one({'pr_num': int(request_no)}, {"$set": {'Comments': data.comment}})
+
 
             # Check if the update was acknowledged
-            if update.acknowledged:
-                res = "Approved successfully"
+            if update.acknowledged and comment_update.acknowledged:
+                if(data.Status == "Approved"):
+                    res = "Approved successfully"
+                else:
+                    res = "Rejected successfully"
 
         else:
             res =  "PR has been already approved or rejected"
@@ -374,10 +386,15 @@ async def Approve_reject(data:Approve_reject):
 
         if a['Status'] == "Pending":
             update = po_details.update_one({'Po_num': int(request_no)}, {"$set": {'Status': data.Status}})
+            comment_update = po_details.update_one({'Po_num': int(request_no)}, {"$set": {'Comments': data.comment}})
+
 
             # Check if the update was acknowledged
-            if update.acknowledged:
-                res = "Approved successfully"
+            if update.acknowledged and comment_update.acknowledged:
+                if(data.Status == "Approved"):
+                    res = "Approved successfully"
+                else:
+                    res = "Rejected successfully"
         
         else:
             res =  "PO has been already approved or rejected"
@@ -390,12 +407,16 @@ async def Approve_reject(data:Approve_reject):
         if(req['Status'] == "Pending"):
 
             update = bt_details.update_one({'Business Trip No': int(request_no)},{"$set":{'Status':data.Status}})
+            comment_update = bt_details.update_one({'Business Trip No': int(request_no)}, {"$set": {'Comments': data.comment}})
+
 
             # Check if the update was acknowledged
-            if update.acknowledged:
-                res = "Approved successfully"
+            if update.acknowledged and comment_update.acknowledged:
+                if(data.Status == "Approved"):
+                    res = "Approved successfully"
+                else:
+                    res = "Rejected successfully"
 
-        
 
         else:
 
@@ -410,12 +431,9 @@ async def Approve_reject(data:Approve_reject):
 
 
 
-    
 
 
 
-
-# app.mount("/static_files", StaticFiles(directory="static"), name="static")
 
 
 if __name__ == '__main__':

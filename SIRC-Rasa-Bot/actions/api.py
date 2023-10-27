@@ -131,7 +131,7 @@ def po_approval(po_no,status,comments):
 def pending_leave_id():
     pl_list = []
     for i in pl_details.find():
-        item = (i['Leave_ID'])
+        item = 'PL '+(i['Leave_ID'])
         pl_list.append(item)
     
     res = pl_list
@@ -150,7 +150,7 @@ def leave_description(pl_no):
         }
 
     print(des)
-    return(des)
+    return des
 
 def leave_approval(pl_no,status,comments):
     req = pl_details.find_one({'Leave_ID':pl_no})

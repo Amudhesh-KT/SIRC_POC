@@ -799,7 +799,7 @@ function DashboardLayout({ children }) {
               <Box
                 ref={chatScreenContent}
                 sx={{
-                  maxHeight: { xs: "300px", md: "381px" },
+                  minHeight: { xs: "300px", md: "381px" },
                   overflowY: "auto",
                 }}
               >

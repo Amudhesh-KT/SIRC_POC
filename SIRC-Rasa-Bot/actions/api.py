@@ -23,19 +23,19 @@ def pending_pr_list():
 
 def pr_item_list(pr_no):
     item_list = []
-    res = pr_details.find_one({'pr_num':pr_no})
+    res = pr_details.find_one({'pr_num':int(pr_no)})
     # print(res['Item_10_number'])
     i = 10
     while(i<30):
-        item_list.append(res[f'Item_{i}_number'])
+        item_list.append("Item "+str(res[f'Item_{i}_number']))
         i=i+10
     print(item_list)
     return item_list
 
 def pr_item_description(pr_no,pr_item):
     des = {}
-    res = pr_details.find_one({'pr_num':pr_no})
-    if(pr_item == 10):
+    res = pr_details.find_one({'pr_num':int(pr_no)})
+    if(int(pr_item) == 10):
         des = {
             'Item Number':res['Item_10_number'],
             'Plant':res['Item_10_Plant'],
@@ -58,7 +58,7 @@ def pr_item_description(pr_no,pr_item):
     return des
 
 def pr_approval(pr_no,status,comments):
-    a = pr_details.find_one({'pr_num' : pr_no})
+    a = pr_details.find_one({'pr_num' : int(pr_no)})
     if a['Status'] == "Pending":
         res = True
         pr_details.update_one({'pr_num': pr_no}, {"$set": {'Status': status}})

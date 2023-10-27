@@ -55,6 +55,7 @@ class ActionPRItemList(Action):
         itemlist = pr_item_list(prno)
 
         send = {
+            "id": prno,
             "requests": itemlist,
             "msg": "The PR items lists are given below. Choose Any one to see the Item description",
         }
@@ -73,6 +74,8 @@ class ActionPRItemDescription(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        print("inside item descp")
         # global Pending_PR_Flag 
         Pending_PR_Flag = 1
         
@@ -80,10 +83,15 @@ class ActionPRItemDescription(Action):
         # prno = tracker.get_slot("pr_number")
         # pritemno = tracker.get_slot("pr_itemnumber")
         metadata = tracker.latest_message.get("metadata")
+
+        # prnotext = tracker.latest_message["text"]
+
         prno = metadata['prnumber']
         pritemno = metadata['pritem']
         pritemno = pritemno.split()[-1]
         prno = prno.split()[-1]
+
+        print(prno,pritemno)
 
         resp = pr_item_description(prno,pritemno)
         send = {

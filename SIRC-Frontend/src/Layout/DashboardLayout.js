@@ -1478,7 +1478,7 @@ function DashboardLayout({ children }) {
                           type: "",
                         });
                       } else if (openDialog.type === "BT") {
-                        handleButtonRequest(`Reject BT ${openDialog.value}`);
+                        handleButtonRequest(`Reject BT ${openDialog.value}T`);
                         setOpenDialog({
                           open: false,
                           value: "",

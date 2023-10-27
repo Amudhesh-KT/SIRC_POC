@@ -109,3 +109,22 @@ rules:
   - intent: bt_reject
   - action: action_bt_reject
 #                                      BUSINESS TRIP REQUEST                                                #
+
+#                                       BUDGET DETAILS                                                   #
+
+- rule: Fund centre list
+  steps:
+  - intent: fund_centre
+  - action: action_fund_centre
+
+- rule: Commitment Item list
+  steps:
+  - intent: commit_item
+  - action: action_commit_item
+
+- rule: Budget Details
+  steps:
+  - intent: budget_details
+  - action: action_budget_details
+
+#                                       BUDGET DETAILS                                                   #

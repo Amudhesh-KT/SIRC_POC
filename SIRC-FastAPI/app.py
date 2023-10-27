@@ -87,7 +87,7 @@ async def overall_data():
                 }
             ],
             'details': {
-                'id': i['Leave_ID'],
+                'Leave_id': i['Leave_ID'],
                 'name': i['Employee Name'],
                 'leave duration': i['Leave Duration'],
                 'leaveType': i['Leave type']

@@ -40,6 +40,12 @@ intents:
   - bt_reject
 #                                 BUSINESS TRIP REQUEST                                                  #
 
+#                                 BUDGET DETAILS REQUEST                                                  #
+  - budget_details
+  - fund_centre
+  - commit_item
+#                                 BUDGET DETAILS REQUEST                                                  #
+
 entities:
 #                                     PURCHASE REQUEST                                                #
   - pr_number:
@@ -70,6 +76,16 @@ entities:
   - TripId:
       type: text
 #                                 BUSINESS TRIP REQUEST                                                  #
+
+#                                          BUDGET DETAILS                                                  #
+  - fc_number:
+      type: regex
+      pattern: "[0-9]{7}"
+
+  - ci_number:
+      type: regex
+      pattern: "^[0-9]{6}}$"
+#                                          BUDGET DETAILS                                                  #
 
 slots:
 #                                     PURCHASE REQUEST                                                #
@@ -124,6 +140,22 @@ slots:
       entity: TripId
 #                                 BUSINESS TRIP REQUEST                                                  #
 
+#                                     BUDEGET DETAILS                                                  #
+  fcnumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: fc_number
+
+  cinumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: ci_number
+
+#                                     BUDEGET DETAILS                                                  #
 
 responses:
   utter_greet:
@@ -175,6 +207,12 @@ actions:
   - action_bt_approve
   - action_bt_reject
 #                                 BUSINESS TRIP REQUEST                                                  #
+
+#                                 BUDGET DETAILS REQUEST                                                  #
+  - action_fund_centre
+  - action_commit_item
+  - action_budget_details
+#                                 BUDGET DETAILS REQUEST                                                  #
 
 
 session_config:

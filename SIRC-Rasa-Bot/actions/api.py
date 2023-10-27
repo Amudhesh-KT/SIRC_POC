@@ -227,8 +227,6 @@ def commititem_list(fc_no):
         ci_item.append(ci)
     return ci_item
 
-    print(ci_item)
-    return ci_item
 
 def budget_description(fc_no,ci_no):
     budget_des = {}

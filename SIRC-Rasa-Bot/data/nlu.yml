@@ -2898,3 +2898,26 @@ nlu:
     - How does the company ensure the alignment of individual goals with the organization's objectives?
     - Can you explain the communication process for updating employees on organizational changes and developments?
     - What is the company's policy for maintaining organizational stability during periods of growth or transition?
+
+- intent: Leave_balance_intent
+  examples : |
+    - Display my current leave balance
+    - I would like to know how much leave I have left
+    - show me my remaining leave days?
+    - Leave balance
+    - Remaining leave days
+    - show me the number of days off I have left 
+    - display my unused leave balance
+    - Would you be able to tell me the remaining days of my leave
+    - Can you let me know my leave balance
+    - What's my remaining leave?
+    - How many days off do I have left?
+    - Can you check my vacation days balance?
+    - What's my current leave status?
+    - Could you tell me how much leave I have left?
+    - I need to know my remaining leave
+    - What's my available leave?
+    - Can you give me an update on my vacation days balance?
+    - unused leave days
+    - Tell me my leave balance
+    - May i know my leave balance

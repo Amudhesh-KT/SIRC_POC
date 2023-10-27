@@ -186,3 +186,8 @@ rules:
   steps:
   - intent: OrganizationalDevelopmentPolicies
   - action: action_OrganizationalDevelopmentPolicies
+
+- rule: leave balance
+  steps:
+  - intent: Leave_balance_intent
+  - action: Leave_balance_action

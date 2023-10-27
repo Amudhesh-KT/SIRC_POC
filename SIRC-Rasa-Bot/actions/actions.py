@@ -526,7 +526,7 @@ class BudgetDetails(Action):
         send = {
             "msg": "Here is the Details for the Business Trip... ",
             "details": {
-                "data":resp,"flag":True,
+                "data":resp,"flag":False,
                 "type": "BD"
                 }
         }

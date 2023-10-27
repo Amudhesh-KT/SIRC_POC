@@ -377,8 +377,13 @@ class ActionPendingTrip(Action):
 
         # dispatcher.utter_message(text="Trip Request")
         resp = pending_bt_list()
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
+        pendingbt = [str(i) for i in resp]
+        send = {"requests": pendingbt,
+                    "msg": "The Pending Business trip request lists are given below. Choose Any one to see PO Items",
+                    }
+
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
 
@@ -390,13 +395,17 @@ class ActionTripDescription(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # bt_no = tracker.get_slot("TripId")
-        # print("Trip Description",bt_no)
-        # dispatcher.utter_message(text="Business Trip Description")
-        bt_no = 1300539
-        resp = bt_description(bt_no)
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
+        btnotext = tracker.latest_message["text"]
+        btno = btnotext.split()[-1][0:-1]
+        trip_req_details = bt_description(btno)
+        flag_variable = True
+        send = {
+            "msg": "Here is the Details for the Business Trip... ",
+            "details": {
+                "data":trip_req_details,"flag":flag_variable,
+                "type": "BT"
+                }
+        }
 
         return []
     
@@ -408,15 +417,7 @@ class ActionBTApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # BT_no = tracker.get_slot("TripId")
-        # print("BT Approve",BT_no)
-        # dispatcher.utter_message(text="Business Trip Request Approved")
-        bt_no = 1300539
-        status = 'Approved'        
-        resp = bt_approval(bt_no,status)
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
-
+        
         return []
         
 class ActionBTReject(Action):
@@ -430,11 +431,20 @@ class ActionBTReject(Action):
         # BT_no = tracker.get_slot("TripId")
         # print("BT Reject",BT_no)
         # dispatcher.utter_message(text="Business Trip Request Rejected")
-        bt_no = 1300539
-        status = 'Rejected'        
-        resp = bt_approval(bt_no,status)
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
+        btnotext = tracker.latest_message["text"]
+        metadata = tracker.latest_message.get("metadata")
+        btno = btnotext.split()[-1][0:-1]
+        status = 'Rejected'
+        if metadata:
+            comments = metadata['comments']
+        else:
+            comments = 'Nil'
+        res = leave_approval(btno,status,comments)
+        if res:
+            dispatcher.utter_message(text=f'PL {btno} was Rejected Successfully')
+        else:
+            dispatcher.utter_message(text=f'PL {btno} has already been Approved/Rejected')
+
 
         return []
     

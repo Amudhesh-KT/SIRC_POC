@@ -171,7 +171,7 @@ def leave_approval(pl_no,status,comments):
 def pending_bt_list():
     bt_list = []
     for i in bt_details.find():
-        item = (i['Business Trip No'])
+        item = ('BT' +str(i['Business Trip No']))
         bt_list.append(item)
     
     res = bt_list
@@ -180,9 +180,10 @@ def pending_bt_list():
 
 def bt_description(bt_no):
     bt_des = {}
-    res = bt_details.find_one({'Business Trip No':bt_no})
+    res = bt_details.find_one({'Business Trip No':int(bt_no)})
     if res:
         bt_des = {
+            'Business Trip Number' : bt_no,
             'Employee Name' : res['Employee Name'],
             'Travel start Date' : res['Travel start Date'],
             'Travel End Date' : res['Travel End Date'],
@@ -196,14 +197,13 @@ def bt_description(bt_no):
     return bt_des
 
 def bt_approval(bt_no,status,comments):
-    req = bt_details.find_one({'Business Trip No':bt_no})
+    req = bt_details.find_one({'Business Trip No':int(bt_no)})
     if(req['Status'] == "Pending"):
-        bt_details.update_one({'Business Trip No':bt_no},{"$set":{'Status':status}})
-        bt_details.update_one({'Business Trip No': bt_no}, {"$set": {'Comments': comments}})
-
-        res = status
+        bt_details.update_one({'Business Trip No':int(bt_no)},{"$set":{'Status':status}})
+        bt_details.update_one({'Business Trip No': int(bt_no)}, {"$set": {'Comments': comments}})
+        res = True
     else:
-        res = "Action cannot be performed"
+        res = False
 
     print(res)
     return(res)

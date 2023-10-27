@@ -84,6 +84,11 @@ async def overall_data():
                     'dept': i['Approver_2_Approval_Level'],
                     'name': i['Approver_2_Approver_Name'],
                     'status': i['Approver_2_Status']
+                },
+                {
+                    'dept': i['Approver_3_Approval_Level'],
+                    'name': i['Approver_3_Approver_Name'],
+                    'status': i['Approver_3_Status']
                 }
             ],
             'details': {
@@ -120,6 +125,11 @@ async def overall_data():
                     'dept': i['Approver_2_Approval_Level'],
                     'name': i['Approver_2_Approver_Name'],
                     'status': i['Approver_2_Status']
+                },
+                {
+                    'dept': i['Approver_3_Approval_Level'],
+                    'name': i['Approver_3_Approver_Name'],
+                    'status': i['Approver_3_Status']
                 }
             ],
             'details': {

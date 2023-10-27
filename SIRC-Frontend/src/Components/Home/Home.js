@@ -98,6 +98,34 @@ const Home = ({
       .join(" ");
   }
 
+  function formatDate(inputDateStr) {
+    const dateParts = inputDateStr.split(".");
+    const day = dateParts[0];
+    const month = dateParts[1];
+    const year = dateParts[2];
+
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    const date = new Date(`${month}/${day}/${year}`);
+    const monthName = monthNames[date.getMonth()];
+    const formattedDate = `${monthName} ${day}, ${year}`;
+
+    return formattedDate;
+  }
+
   return (
     <>
       <div>
@@ -280,17 +308,17 @@ const Home = ({
 
                   <Box display="flex" flexDirection={"column"}>
                     <FormControlLabel
+                      value="Critical"
+                      control={<Checkbox />}
+                      label={"Critical"}
+                      checked={selectedPriority.includes("Critical")}
+                      onChange={handlePriorityChange}
+                    />
+                    <FormControlLabel
                       value="High"
                       control={<Checkbox />}
                       label={"High"}
                       checked={selectedPriority.includes("High")}
-                      onChange={handlePriorityChange}
-                    />
-                    <FormControlLabel
-                      value="Medium"
-                      control={<Checkbox />}
-                      label={"Medium"}
-                      checked={selectedPriority.includes("Medium")}
                       onChange={handlePriorityChange}
                     />
                     <FormControlLabel
@@ -415,7 +443,6 @@ const Home = ({
                                     }
                                   >
                                     {e.id}
-                                    {i}
                                   </Typography>
                                   <Box display="flex" alignItems={"center"}>
                                     <Typography
@@ -431,7 +458,12 @@ const Home = ({
                                     </Typography>
                                     <GoDotFill
                                       style={{
-                                        color: "red",
+                                        color:
+                                          e.priority === "High"
+                                            ? "red"
+                                            : e.priority === "Low"
+                                            ? "#FFB800"
+                                            : "#7000FF",
                                         margin: "0px 0px 0px 5px",
                                       }}
                                     />
@@ -446,15 +478,34 @@ const Home = ({
                                 >
                                   {e.name}
                                 </Typography>
-                                <Typography
-                                  variant="h6"
-                                  fontWeight={500}
-                                  color={
-                                    currentItem.id === e.id ? "#fff" : "#5c6980"
-                                  }
+                                <Box
+                                  display={"flex"}
+                                  alignItems={"center"}
+                                  justifyContent={"space-between"}
                                 >
-                                  {e.shortText}
-                                </Typography>
+                                  <Typography
+                                    variant="h6"
+                                    fontWeight={500}
+                                    color={
+                                      currentItem.id === e.id
+                                        ? "#fff"
+                                        : "#5c6980"
+                                    }
+                                  >
+                                    {e.shortText}
+                                  </Typography>
+                                  <Typography
+                                    variant="h6"
+                                    fontWeight={400}
+                                    color={
+                                      currentItem.id === e.id
+                                        ? "#fff"
+                                        : "#5c6980"
+                                    }
+                                  >
+                                    {formatDate(e.Created_on)}
+                                  </Typography>
+                                </Box>
                               </Box>
                             </Box>
                             <Divider sx={{ my: 1 }} />
@@ -500,258 +551,151 @@ const Home = ({
                   </Button>
                 </Box>
                 <Box p={1}>
-                  <Button
-                    disableTouchRipple
-                    sx={{
-                      textAlign: "start",
-                      background: "#00A885",
-                      "&:hover": {
-                        background: "#00A885",
-                      },
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <Box
-                      display={"flex"}
-                      alignItems={"center"}
-                      sx={{ p: 1, cursor: "pointer" }}
-                    >
-                      <IconButton
-                        size="small"
-                        sx={{
-                          height: "45px",
-                          width: "45px",
-                          p: 1.3,
-                          color: "#00A885",
-                          background: "#fff",
-                          "&:hover": {
-                            color: "#00A885",
-                            background: "#fff",
-                          },
-                        }}
-                      >
-                        <FiFile size={30} />
-                      </IconButton>
-                      <Box
-                        display="flex"
-                        flexDirection={"column"}
-                        sx={{ px: 2 }}
-                      >
+                  {[...state].map((e, i) => {
+                    return (
+                      <>
                         <Box
-                          display="flex"
+                          display={"flex"}
                           alignItems={"center"}
-                          justifyContent={"space-between"}
+                          sx={{
+                            px: 1,
+                            py: 2,
+                            cursor: "pointer",
+                            background:
+                              currentItem.id === e.id ? "#00A885" : "",
+                            "&:hover": {
+                              background:
+                                currentItem.id === e.id ? "" : "#f7f7f7",
+                            },
+                            borderRadius: "8px",
+                          }}
+                          onClick={() => setCurrentItem(e)}
                         >
-                          <Typography
-                            variant="subtitle2"
-                            fontWeight={300}
-                            color="#fff"
+                          <Box
+                            display="flex"
+                            alignItems={"center"}
+                            justifyContent={"space-between"}
+                            flexDirection={"column"}
                           >
-                            PO 98329382
-                          </Typography>
-                          <Box display="flex" alignItems={"center"}>
-                            <Typography
-                              variant="caption"
-                              fontWeight={400}
-                              color="#fff"
-                            >
-                              Critical
-                            </Typography>
                             <GoDotFill
                               style={{
-                                color: "#fff",
+                                color: "#f59616",
                                 margin: "0px 0px 0px 5px",
                               }}
                             />
+                            <IconButton
+                              size="small"
+                              sx={{
+                                height: "45px",
+                                width: "45px",
+                                p: 1.3,
+                                background:
+                                  currentItem.id === e.id ? "#fff" : "#00A885",
+                                color:
+                                  currentItem.id === e.id ? "#00A885" : "#fff",
+                                "&:hover": {
+                                  background:
+                                    currentItem.id === e.id
+                                      ? "#fff"
+                                      : "#00A885",
+                                  color:
+                                    currentItem.id === e.id
+                                      ? "#00A885"
+                                      : "#fff",
+                                },
+                              }}
+                            >
+                              {e.id.startsWith("PO") ? (
+                                <FiFileText size={30} />
+                              ) : e.id.startsWith("PR") ? (
+                                <BsClipboard size={30} />
+                              ) : e.id.startsWith("PL") ? (
+                                <BsCalendarX size={30} />
+                              ) : e.id.startsWith("BT") ? (
+                                <MdFlightTakeoff size={30} />
+                              ) : (
+                                ""
+                              )}
+                            </IconButton>
                           </Box>
-                        </Box>
-                        <Typography variant="h6" fontWeight={400} color="#fff">
-                          Hamza Al Nezer
-                        </Typography>
-                        <Box
-                          display="flex"
-                          alignItems={"center"}
-                          justifyContent={"space-between"}
-                        >
-                          <Typography
-                            variant="h6"
-                            fontWeight={500}
-                            color="#fff"
-                          >
-                            PO for Safety Management
-                          </Typography>
-                          <IoIosAttach
-                            style={{ color: "#fff", fontSize: "0.975rem" }}
-                          />
-                        </Box>
 
-                        <Box
-                          display="flex"
-                          alignItems={"center"}
-                          justifyContent={"space-between"}
-                        >
-                          <Typography
-                            variant="subtitle2"
-                            fontWeight={300}
-                            color="#fff"
-                            sx={{
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                              display: "-webkit-box",
-                              WebkitLineClamp: "1",
-                              WebkitBoxOrient: "vertical",
-                              width: "75%",
-                            }}
-                          >
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s
-                          </Typography>
-                          <Typography
-                            variant="subtitle2"
-                            fontWeight={300}
-                            color="#fff"
-                          >
-                            12.49 PM
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Button>
-                  <Divider sx={{ my: 1 }} />
-                  {[1, 2, 3, 4, 5].map((e) => {
-                    return (
-                      <>
-                        <Button sx={{ textAlign: "start" }}>
                           <Box
-                            display={"flex"}
-                            alignItems={"center"}
-                            sx={{ p: 1, cursor: "pointer" }}
+                            display="flex"
+                            flexDirection={"column"}
+                            sx={{ px: 2, width: "100%" }}
                           >
                             <Box
                               display="flex"
                               alignItems={"center"}
                               justifyContent={"space-between"}
-                              flexDirection={"column"}
                             >
-                              <GoDotFill
-                                style={{
-                                  color: "#f59616",
-                                  margin: "0px 0px 0px 5px",
-                                }}
-                              />
-                              <IconButton
-                                size="small"
-                                sx={{
-                                  height: "45px",
-                                  width: "45px",
-                                  p: 1.3,
-                                  background: "#00A885",
-                                  color: "#fff",
-                                  "&:hover": {
-                                    background: "#00A885",
-                                    color: "#fff",
-                                  },
-                                }}
-                              >
-                                <FiFile size={30} />
-                              </IconButton>
-                            </Box>
-
-                            <Box
-                              display="flex"
-                              flexDirection={"column"}
-                              sx={{ px: 2 }}
-                            >
-                              <Box
-                                display="flex"
-                                alignItems={"center"}
-                                justifyContent={"space-between"}
-                              >
-                                <Typography
-                                  variant="subtitle2"
-                                  fontWeight={300}
-                                  color="#5c6980"
-                                >
-                                  PO 98329382
-                                </Typography>
-                                <Box display="flex" alignItems={"center"}>
-                                  <Typography
-                                    variant="caption"
-                                    fontWeight={400}
-                                    color="#5c6980"
-                                  >
-                                    High
-                                  </Typography>
-                                  <GoDotFill
-                                    style={{
-                                      color: "red",
-                                      margin: "0px 0px 0px 5px",
-                                    }}
-                                  />
-                                </Box>
-                              </Box>
                               <Typography
-                                variant="h6"
-                                fontWeight={400}
-                                color="#5c6980"
+                                variant="subtitle2"
+                                fontWeight={300}
+                                color={
+                                  currentItem.id === e.id ? "#fff" : "#5c6980"
+                                }
                               >
-                                Hamza Al Nezer
+                                {e.id}
                               </Typography>
-
-                              <Box
-                                display="flex"
-                                alignItems={"center"}
-                                justifyContent={"space-between"}
-                              >
+                              <Box display="flex" alignItems={"center"}>
                                 <Typography
-                                  variant="h6"
-                                  fontWeight={500}
-                                  color="#5c6980"
+                                  variant="caption"
+                                  fontWeight={400}
+                                  color={
+                                    currentItem.id === e.id ? "#fff" : "#5c6980"
+                                  }
                                 >
-                                  PO for Safety Management
+                                  {e.priority}
                                 </Typography>
-                                <IoIosAttach
+                                <GoDotFill
                                   style={{
-                                    color: "#5c6980",
-                                    fontSize: "0.975rem",
+                                    color:
+                                      e.priority === "High"
+                                        ? "red"
+                                        : e.priority === "Low"
+                                        ? "#FFB800"
+                                        : "#7000FF",
+                                    margin: "0px 0px 0px 5px",
                                   }}
                                 />
                               </Box>
-                              <Box
-                                display="flex"
-                                alignItems={"center"}
-                                justifyContent={"space-between"}
+                            </Box>
+                            <Typography
+                              variant="h6"
+                              fontWeight={400}
+                              color={
+                                currentItem.id === e.id ? "#fff" : "#5c6980"
+                              }
+                            >
+                              {e.name}
+                            </Typography>
+                            <Box
+                              display={"flex"}
+                              alignItems={"center"}
+                              justifyContent={"space-between"}
+                            >
+                              <Typography
+                                variant="h6"
+                                fontWeight={500}
+                                color={
+                                  currentItem.id === e.id ? "#fff" : "#5c6980"
+                                }
                               >
-                                <Typography
-                                  variant="subtitle2"
-                                  fontWeight={300}
-                                  color="#5c6980"
-                                  sx={{
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    display: "-webkit-box",
-                                    WebkitLineClamp: "1",
-                                    WebkitBoxOrient: "vertical",
-                                    width: "75%",
-                                  }}
-                                >
-                                  Lorem Ipsum is simply dummy text of the
-                                  printing and typesetting industry. Lorem Ipsum
-                                  has been the industry's standard dummy text
-                                  ever since the 1500s
-                                </Typography>
-                                <Typography
-                                  variant="subtitle2"
-                                  fontWeight={300}
-                                  color="#5c6980"
-                                >
-                                  12.49 PM
-                                </Typography>
-                              </Box>
+                                {e.shortText}
+                              </Typography>
+                              <Typography
+                                variant="h6"
+                                fontWeight={400}
+                                color={
+                                  currentItem.id === e.id ? "#fff" : "#5c6980"
+                                }
+                              >
+                                {formatDate(e.Created_on)}
+                              </Typography>
                             </Box>
                           </Box>
-                        </Button>
+                        </Box>
                         <Divider sx={{ my: 1 }} />
                       </>
                     );
@@ -993,7 +937,7 @@ const Home = ({
                           width: "0.6px",
                           backgroundColor: "#000",
                           height: "25px",
-                          mx: 1,
+                          mx: 1.5,
                           display: { xs: "none", sm: "flex" },
                         }}
                       />
@@ -1019,7 +963,7 @@ const Home = ({
                           width: "0.6px",
                           backgroundColor: "#000",
                           height: "25px",
-                          mx: 1,
+                          mx: 1.5,
                           display: { xs: "none", sm: "flex" },
                         }}
                       />
@@ -1037,7 +981,15 @@ const Home = ({
                           {currentItem.priority}
                         </Typography>
                         <GoDotFill
-                          style={{ color: "red", margin: "0px 0px 0px 5px" }}
+                          style={{
+                            color:
+                              currentItem.priority === "High"
+                                ? "red"
+                                : currentItem.priority === "Low"
+                                ? "#FFB800"
+                                : "#7000FF",
+                            margin: "0px 0px 0px 5px",
+                          }}
                         />
                       </Box>
                     </Box>

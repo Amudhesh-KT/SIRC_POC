@@ -14,8 +14,8 @@ const index = ({ data }) => {
   ]);
 
   const [selectedPriority, setSelectedPriority] = useState([
+    "Critical",
     "High",
-    "Medium",
     "Low",
   ]);
 
@@ -48,7 +48,7 @@ const index = ({ data }) => {
         .filter((e) =>
           selectedCheckboxes.includes(e.id.split(" ")[0].toLocaleUpperCase())
         )
-        .filter((e) => selectedCheckboxes.includes(e.priority))
+        .filter((e) => selectedPriority.includes(e.priority))
         .filter((e) =>
           e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
         )}
@@ -70,7 +70,7 @@ export const getServerSideProps = async () => {
   const response = await fetch(`http://127.0.0.1:8000/overall_data`);
   const data = await response.json();
 
-  console.log(data)
+  console.log(data);
   return {
     props: {
       data,

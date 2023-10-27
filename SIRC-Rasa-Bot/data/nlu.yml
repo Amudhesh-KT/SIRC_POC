@@ -1583,3 +1583,932 @@ nlu:
     - reject BT [23338T](TripId)
     - Reject BT [22988T](TripId)
 #                                 BUSINESS TRIP REQUEST                                                  #
+
+#                                       BUDGET DETAILS                                                  #
+
+- intent: fund_centre
+  examples: |
+    - can you list the bdgt dtails
+    - show me bdgt dtails
+    - list bdgt dtails
+    - finance bdgt dtails
+    - show me cost centre bdgt dtails
+    - cost bdgt dtails
+    - please show me bdgt dtails
+    - can you list the bdgt Details
+    - show me bdgt Details
+    - list bdgt Details
+    - finance bdgt Details
+    - show me cost centre bdgt Details
+    - cost bdgt Details
+    - please show me bdgt Details
+    - can you list the bdgt dtls
+    - show me bdgt dtls
+    - list bdgt dtls
+    - finance bdgt dtls
+    - show me cost centre bdgt dtls
+    - cost bdgt dtls
+    - please show me bdgt dtls
+    - can you list the bdgt DET
+    - show me bdgt DET
+    - list bdgt DET
+    - finance bdgt DET
+    - show me cost centre bdgt DET
+    - cost bdgt DET
+    - please show me bdgt DET
+    - can you list the bdgt details
+    - show me bdgt details
+    - list bdgt details
+    - finance bdgt details
+    - show me cost centre bdgt details
+    - cost bdgt details
+    - please show me bdgt details
+    - can you list the bdgt det
+    - show me bdgt det
+    - list bdgt det
+    - finance bdgt det
+    - show me cost centre bdgt det
+    - cost bdgt det
+    - please show me bdgt det
+    - can you list the bdjt dtails
+    - show me bdjt dtails
+    - list bdjt dtails
+    - finance bdjt dtails
+    - show me cost centre bdjt dtails
+    - cost bdjt dtails
+    - please show me bdjt dtails
+    - can you list the bdjt Details
+    - show me bdjt Details
+    - list bdjt Details
+    - finance bdjt Details
+    - show me cost centre bdjt Details
+    - cost bdjt Details
+    - please show me bdjt Details
+    - can you list the bdjt dtls
+    - show me bdjt dtls
+    - list bdjt dtls
+    - finance bdjt dtls
+    - show me cost centre bdjt dtls
+    - cost bdjt dtls
+    - please show me bdjt dtls
+    - can you list the bdjt DET
+    - show me bdjt DET
+    - list bdjt DET
+    - finance bdjt DET
+    - show me cost centre bdjt DET
+    - cost bdjt DET
+    - please show me bdjt DET
+    - can you list the bdjt details
+    - show me bdjt details
+    - list bdjt details
+    - finance bdjt details
+    - show me cost centre bdjt details
+    - cost bdjt details
+    - please show me bdjt details
+    - can you list the bdjt det
+    - show me bdjt det
+    - list bdjt det
+    - finance bdjt det
+    - show me cost centre bdjt det
+    - cost bdjt det
+    - please show me bdjt det
+    - can you list the budget dtails
+    - show me budget dtails
+    - list budget dtails
+    - finance budget dtails
+    - show me cost centre budget dtails
+    - cost budget dtails
+    - please show me budget dtails
+    - can you list the budget Details
+    - show me budget Details
+    - list budget Details
+    - finance budget Details
+    - show me cost centre budget Details
+    - cost budget Details
+    - please show me budget Details
+    - can you list the budget dtls
+    - show me budget dtls
+    - list budget dtls
+    - finance budget dtls
+    - show me cost centre budget dtls
+    - cost budget dtls
+    - please show me budget dtls
+    - can you list the budget DET
+    - show me budget DET
+    - list budget DET
+    - finance budget DET
+    - show me cost centre budget DET
+    - cost budget DET
+    - please show me budget DET
+    - can you list the budget details
+    - show me budget details
+    - list budget details
+    - finance budget details
+    - show me cost centre budget details
+    - cost budget details
+    - please show me budget details
+    - can you list the budget det
+    - show me budget det
+    - list budget det
+    - finance budget det
+    - show me cost centre budget det
+    - cost budget det
+    - please show me budget det
+    - can you list the BUDGET dtails
+    - show me BUDGET dtails
+    - list BUDGET dtails
+    - finance BUDGET dtails
+    - show me cost centre BUDGET dtails
+    - cost BUDGET dtails
+    - please show me BUDGET dtails
+    - can you list the BUDGET Details
+    - show me BUDGET Details
+    - list BUDGET Details
+    - finance BUDGET Details
+    - show me cost centre BUDGET Details
+    - cost BUDGET Details
+    - please show me BUDGET Details
+    - can you list the BUDGET dtls
+    - show me BUDGET dtls
+    - list BUDGET dtls
+    - finance BUDGET dtls
+    - show me cost centre BUDGET dtls
+    - cost BUDGET dtls
+    - please show me BUDGET dtls
+    - can you list the BUDGET DET
+    - show me BUDGET DET
+    - list BUDGET DET
+    - finance BUDGET DET
+    - show me cost centre BUDGET DET
+    - cost BUDGET DET
+    - please show me BUDGET DET
+    - can you list the BUDGET details
+    - show me BUDGET details
+    - list BUDGET details
+    - finance BUDGET details
+    - show me cost centre BUDGET details
+    - cost BUDGET details
+    - please show me BUDGET details
+    - can you list the BUDGET det
+    - show me BUDGET det
+    - list BUDGET det
+    - finance BUDGET det
+    - show me cost centre BUDGET det
+    - cost BUDGET det
+    - please show me BUDGET det
+    - can you list the Budget dtails
+    - show me Budget dtails
+    - list Budget dtails
+    - finance Budget dtails
+    - show me cost centre Budget dtails
+    - cost Budget dtails
+    - please show me Budget dtails
+    - can you list the Budget Details
+    - show me Budget Details
+    - list Budget Details
+    - finance Budget Details
+    - show me cost centre Budget Details
+    - cost Budget Details
+    - please show me Budget Details
+    - can you list the Budget dtls
+    - show me Budget dtls
+    - list Budget dtls
+    - finance Budget dtls
+    - show me cost centre Budget dtls
+    - cost Budget dtls
+    - please show me Budget dtls
+    - can you list the Budget DET
+    - show me Budget DET
+    - list Budget DET
+    - finance Budget DET
+    - show me cost centre Budget DET
+    - cost Budget DET
+    - please show me Budget DET
+    - can you list the Budget details
+    - show me Budget details
+    - list Budget details
+    - finance Budget details
+    - show me cost centre Budget details
+    - cost Budget details
+    - please show me Budget details
+    - can you list the Budget det
+    - show me Budget det
+    - list Budget det
+    - finance Budget det
+    - show me cost centre Budget det
+    - cost Budget det
+    - please show me Budget det
+
+
+- intent: commit_item
+  examples: |
+    - FC [1013000](fc_number)
+    - FC [1013000](fc_number)
+    - FC [1013000](fc_number)
+    - FC [1013000](fc_number)
+    - FC [1013000](fc_number)
+    - FC [1013000](fc_number)
+    - Fc [1013000](fc_number)
+    - Fc [1013000](fc_number)
+    - Fc [1013000](fc_number)
+    - Fc [1013000](fc_number)
+    - Fc [1013000](fc_number)
+    - Fc [1013000](fc_number)
+    - fc [1013000](fc_number)
+    - fc [1013000](fc_number)
+    - fc [1013000](fc_number)
+    - fc [1013000](fc_number)
+    - fc [1013000](fc_number)
+    - fc [1013000](fc_number)
+    - fc [1013000](fc_number)
+    - fC [1013000](fc_number)
+    - fC [1013000](fc_number)
+    - fC [1013000](fc_number)
+    - fC [1013000](fc_number)
+    - fC [1013000](fc_number)
+    - fC [1013000](fc_number)
+    - fC [1013000](fc_number)
+    - f cen [1013000](fc_number)
+    - items of F cen [1013000](fc_number)
+    - show me commitment items F cen [1013000](fc_number)
+    - budget details of F cen[1013000](fc_number)
+    - budget of F cen [1013000](fc_number)
+    - list commit items of F cen [1013000](fc_number)
+    - F cen [1032901](fc_number)
+    - items of F cen [1032901](fc_number)
+    - show me commitment items F cen [1032901](fc_number)
+    - budget details of F cen[1032901](fc_number)
+    - budget of F cen [1032901](fc_number)
+    - list commit items of F cen [1032901](fc_number)
+    - f centre [1013000](fc_number)
+    - items of f centre [1013000](fc_number)
+    - show me commitment items f centre [1013000](fc_number)
+    - budget details of f centre[1013000](fc_number)
+    - budget of f centre [1013000](fc_number)
+    - list commit items of f centre [1013000](fc_number)
+    - f centre [1032901](fc_number)
+    - items of f centre [1032901](fc_number)
+    - show me commitment items f centre [1032901](fc_number)
+    - budget details of f centre[1032901](fc_number)
+    - budget of f centre [1032901](fc_number)
+    - list commit items of f centre [1032901](fc_number)
+    - fund cen [1013000](fc_number)
+    - items of fund cen [1013000](fc_number)
+    - show me commitment items fund cen [1013000](fc_number)
+    - budget details of fund cen[1013000](fc_number)
+    - budget of fund cen [1013000](fc_number)
+    - list commit items of fund cen [1013000](fc_number)
+    - fund cen [1032901](fc_number)
+    - items of fund cen [1032901](fc_number)
+    - show me commitment items fund cen [1032901](fc_number)
+    - budget details of fund cen[1032901](fc_number)
+    - budget of fund cen [1032901](fc_number)
+    - list commit items of fund cen [1032901](fc_number)
+    - Fund centre [1013000](fc_number)
+    - items of Fund centre [1013000](fc_number)
+    - show me commitment items Fund centre [1013000](fc_number)
+    - budget details of Fund centre[1013000](fc_number)
+    - budget of Fund centre [1013000](fc_number)
+    - list commit items of Fund centre [1013000](fc_number)
+    - Fund centre [1032901](fc_number)
+    - items of Fund centre [1032901](fc_number)
+    - show me commitment items Fund centre [1032901](fc_number)
+    - budget details of Fund centre[1032901](fc_number)
+    - budget of Fund centre [1032901](fc_number)
+    - list commit items of Fund centre [1032901](fc_number)
+    - fc [1013000](fc_number)
+    - items of fc [1013000](fc_number)
+    - show me commitment items fc [1013000](fc_number)
+    - budget details of fc[1013000](fc_number)
+    - budget of fc [1013000](fc_number)
+    - list commit items of fc [1013000](fc_number)
+    - fc [1032901](fc_number)
+    - items of fc [1032901](fc_number)
+    - show me commitment items fc [1032901](fc_number)
+    - budget details of fc[1032901](fc_number)
+    - budget of fc [1032901](fc_number)
+    - list commit items of fc [1032901](fc_number)
+    - fund centre [1013000](fc_number)
+    - items of fund centre [1013000](fc_number)
+    - show me commitment items fund centre [1013000](fc_number)
+    - budget details of fund centre[1013000](fc_number)
+    - budget of fund centre [1013000](fc_number)
+    - list commit items of fund centre [1013000](fc_number)
+    - fund centre [1032901](fc_number)
+    - items of fund centre [1032901](fc_number)
+    - show me commitment items fund centre [1032901](fc_number)
+    - budget details of fund centre[1032901](fc_number)
+    - budget of fund centre [1032901](fc_number)
+    - list commit items of fund centre [1032901](fc_number)
+    - FC [1013000](fc_number)
+    - items of FC [1013000](fc_number)
+    - show me commitment items FC [1013000](fc_number)
+    - budget details of FC[1013000](fc_number)
+    - budget of FC [1013000](fc_number)
+    - list commit items of FC [1013000](fc_number)
+    - FC [1032901](fc_number)
+    - items of FC [1032901](fc_number)
+    - show me commitment items FC [1032901](fc_number)
+    - budget details of FC[1032901](fc_number)
+    - budget of FC [1032901](fc_number)
+    - list commit items of FC [1032901](fc_number)
+
+    
+- intent: budget_details
+  examples: |
+    - FC [1013000](fc_number) CI [815012](ci_number)
+    - FC [1013000](fc_number) CI [815012](ci_number)
+    - FC [1013000](fc_number) cI [815012](ci_number)
+    - FC [1013000](fc_number) cI [815012](ci_number)
+    - FC [1013000](fc_number) cI [815012](ci_number)
+    - FC [1013000](fc_number) cI [815012](ci_number)
+    - Fc [1013000](fc_number) ci [815012](ci_number)
+    - Fc [1013000](fc_number) ci [815012](ci_number)
+    - Fc [1013000](fc_number) ci [815012](ci_number)
+    - Fc [1013000](fc_number) ci [815012](ci_number)
+    - Fc [1013000](fc_number) Ci [815012](ci_number)
+    - Fc [1013000](fc_number) Ci [815012](ci_number)
+    - Fc [1013000](fc_number) Ci [815012](ci_number)
+    - Fc [1013000](fc_number) Ci [815012](ci_number)
+    - FC [1013000](fc_number) CI [815012](ci_number)
+    - fC [1013000](fc_number) CI [815012](ci_number)
+    - fC [1013000](fc_number) CI [815012](ci_number)
+    - fC [1013000](fc_number) CI [815012](ci_number)
+    - fC [1013000](fc_number) CI [815012](ci_number)
+    - fC [1013000](fc_number) CI [815012](ci_number)
+    - fC [1013000](fc_number) CI [815012](ci_number)
+    - fc [1013000](fc_number) Ci [815012](ci_number)
+    - fc [1013000](fc_number) Ci [815012](ci_number)
+    - fc [1013000](fc_number) Ci [815012](ci_number)
+    - fc [1013000](fc_number) Ci [815012](ci_number)
+    - fc [1013000](fc_number) cI [815012](ci_number)
+    - fc [1013000](fc_number) cI [815012](ci_number)
+    - fc [1013000](fc_number) cI [815012](ci_number)
+    - fc [1013000](fc_number) cI [815012](ci_number)
+    - fc [1013000](fc_number) CI [815012](ci_number)
+    - fc [1013000](fc_number) CI [815012](ci_number)
+    - fc [1013000](fc_number) ci [815012](ci_number)
+    - fc [1013000](fc_number) ci [815012](ci_number)
+    - F cen [1013000](fc_number) commitment item [807213](ci_number)
+    - budget of F cen [1013000](fc_number) commitment item [807213](ci_number)
+    - budget details of F cen[1013000](fc_number) commitment item [807213](ci_number)
+    - show me the budget of F cen [1013000](fc_number) commitment item [807213](ci_number)
+    - list budget of F cen [1013000](fc_number) commitment item [807213](ci_number)
+    - F cen [1013000](fc_number) commitment item [441234](ci_number)
+    - budget of F cen [1013000](fc_number) commitment item [441234](ci_number)
+    - budget details of F cen[1013000](fc_number) commitment item [441234](ci_number)
+    - show me the budget of F cen [1013000](fc_number) commitment item [441234](ci_number)
+    - list budget of F cen [1013000](fc_number) commitment item [441234](ci_number)
+    - F cen [1013000](fc_number) CI [807213](ci_number)
+    - budget of F cen [1013000](fc_number) CI [807213](ci_number)
+    - budget details of F cen[1013000](fc_number) CI [807213](ci_number)
+    - show me the budget of F cen [1013000](fc_number) CI [807213](ci_number)
+    - list budget of F cen [1013000](fc_number) CI [807213](ci_number)
+    - F cen [1013000](fc_number) CI [441234](ci_number)
+    - budget of F cen [1013000](fc_number) CI [441234](ci_number)
+    - budget details of F cen[1013000](fc_number) CI [441234](ci_number)
+    - show me the budget of F cen [1013000](fc_number) CI [441234](ci_number)
+    - list budget of F cen [1013000](fc_number) CI [441234](ci_number)
+    - F cen [1013000](fc_number) ci [807213](ci_number)
+    - budget of F cen [1013000](fc_number) ci [807213](ci_number)
+    - budget details of F cen[1013000](fc_number) ci [807213](ci_number)
+    - show me the budget of F cen [1013000](fc_number) ci [807213](ci_number)
+    - list budget of F cen [1013000](fc_number) ci [807213](ci_number)
+    - F cen [1013000](fc_number) ci [441234](ci_number)
+    - budget of F cen [1013000](fc_number) ci [441234](ci_number)
+    - budget details of F cen[1013000](fc_number) ci [441234](ci_number)
+    - show me the budget of F cen [1013000](fc_number) ci [441234](ci_number)
+    - list budget of F cen [1013000](fc_number) ci [441234](ci_number)
+    - F cen [1013000](fc_number) commit item [807213](ci_number)
+    - budget of F cen [1013000](fc_number) commit item [807213](ci_number)
+    - budget details of F cen[1013000](fc_number) commit item [807213](ci_number)
+    - show me the budget of F cen [1013000](fc_number) commit item [807213](ci_number)
+    - list budget of F cen [1013000](fc_number) commit item [807213](ci_number)
+    - F cen [1013000](fc_number) commit item [441234](ci_number)
+    - budget of F cen [1013000](fc_number) commit item [441234](ci_number)
+    - budget details of F cen[1013000](fc_number) commit item [441234](ci_number)
+    - show me the budget of F cen [1013000](fc_number) commit item [441234](ci_number)
+    - list budget of F cen [1013000](fc_number) commit item [441234](ci_number)
+    - F cen [1032901](fc_number) commitment item [807213](ci_number)
+    - budget of F cen [1032901](fc_number) commitment item [807213](ci_number)
+    - budget details of F cen[1032901](fc_number) commitment item [807213](ci_number)
+    - show me the budget of F cen [1032901](fc_number) commitment item [807213](ci_number)
+    - list budget of F cen [1032901](fc_number) commitment item [807213](ci_number)
+    - F cen [1032901](fc_number) commitment item [441234](ci_number)
+    - budget of F cen [1032901](fc_number) commitment item [441234](ci_number)
+    - budget details of F cen[1032901](fc_number) commitment item [441234](ci_number)
+    - show me the budget of F cen [1032901](fc_number) commitment item [441234](ci_number)
+    - list budget of F cen [1032901](fc_number) commitment item [441234](ci_number)
+    - F cen [1032901](fc_number) CI [807213](ci_number)
+    - budget of F cen [1032901](fc_number) CI [807213](ci_number)
+    - budget details of F cen[1032901](fc_number) CI [807213](ci_number)
+    - show me the budget of F cen [1032901](fc_number) CI [807213](ci_number)
+    - list budget of F cen [1032901](fc_number) CI [807213](ci_number)
+    - F cen [1032901](fc_number) CI [441234](ci_number)
+    - budget of F cen [1032901](fc_number) CI [441234](ci_number)
+    - budget details of F cen[1032901](fc_number) CI [441234](ci_number)
+    - show me the budget of F cen [1032901](fc_number) CI [441234](ci_number)
+    - list budget of F cen [1032901](fc_number) CI [441234](ci_number)
+    - F cen [1032901](fc_number) ci [807213](ci_number)
+    - budget of F cen [1032901](fc_number) ci [807213](ci_number)
+    - budget details of F cen[1032901](fc_number) ci [807213](ci_number)
+    - show me the budget of F cen [1032901](fc_number) ci [807213](ci_number)
+    - list budget of F cen [1032901](fc_number) ci [807213](ci_number)
+    - F cen [1032901](fc_number) ci [441234](ci_number)
+    - budget of F cen [1032901](fc_number) ci [441234](ci_number)
+    - budget details of F cen[1032901](fc_number) ci [441234](ci_number)
+    - show me the budget of F cen [1032901](fc_number) ci [441234](ci_number)
+    - list budget of F cen [1032901](fc_number) ci [441234](ci_number)
+    - F cen [1032901](fc_number) commit item [807213](ci_number)
+    - budget of F cen [1032901](fc_number) commit item [807213](ci_number)
+    - budget details of F cen[1032901](fc_number) commit item [807213](ci_number)
+    - show me the budget of F cen [1032901](fc_number) commit item [807213](ci_number)
+    - list budget of F cen [1032901](fc_number) commit item [807213](ci_number)
+    - F cen [1032901](fc_number) commit item [441234](ci_number)
+    - budget of F cen [1032901](fc_number) commit item [441234](ci_number)
+    - budget details of F cen[1032901](fc_number) commit item [441234](ci_number)
+    - show me the budget of F cen [1032901](fc_number) commit item [441234](ci_number)
+    - list budget of F cen [1032901](fc_number) commit item [441234](ci_number)
+    - f centre [1013000](fc_number) commitment item [807213](ci_number)
+    - budget of f centre [1013000](fc_number) commitment item [807213](ci_number)
+    - budget details of f centre[1013000](fc_number) commitment item [807213](ci_number)
+    - show me the budget of f centre [1013000](fc_number) commitment item [807213](ci_number)
+    - list budget of f centre [1013000](fc_number) commitment item [807213](ci_number)
+    - f centre [1013000](fc_number) commitment item [441234](ci_number)
+    - budget of f centre [1013000](fc_number) commitment item [441234](ci_number)
+    - budget details of f centre[1013000](fc_number) commitment item [441234](ci_number)
+    - show me the budget of f centre [1013000](fc_number) commitment item [441234](ci_number)
+    - list budget of f centre [1013000](fc_number) commitment item [441234](ci_number)
+    - f centre [1013000](fc_number) CI [807213](ci_number)
+    - budget of f centre [1013000](fc_number) CI [807213](ci_number)
+    - budget details of f centre[1013000](fc_number) CI [807213](ci_number)
+    - show me the budget of f centre [1013000](fc_number) CI [807213](ci_number)
+    - list budget of f centre [1013000](fc_number) CI [807213](ci_number)
+    - f centre [1013000](fc_number) CI [441234](ci_number)
+    - budget of f centre [1013000](fc_number) CI [441234](ci_number)
+    - budget details of f centre[1013000](fc_number) CI [441234](ci_number)
+    - show me the budget of f centre [1013000](fc_number) CI [441234](ci_number)
+    - list budget of f centre [1013000](fc_number) CI [441234](ci_number)
+    - f centre [1013000](fc_number) ci [807213](ci_number)
+    - budget of f centre [1013000](fc_number) ci [807213](ci_number)
+    - budget details of f centre[1013000](fc_number) ci [807213](ci_number)
+    - show me the budget of f centre [1013000](fc_number) ci [807213](ci_number)
+    - list budget of f centre [1013000](fc_number) ci [807213](ci_number)
+    - f centre [1013000](fc_number) ci [441234](ci_number)
+    - budget of f centre [1013000](fc_number) ci [441234](ci_number)
+    - budget details of f centre[1013000](fc_number) ci [441234](ci_number)
+    - show me the budget of f centre [1013000](fc_number) ci [441234](ci_number)
+    - list budget of f centre [1013000](fc_number) ci [441234](ci_number)
+    - f centre [1013000](fc_number) commit item [807213](ci_number)
+    - budget of f centre [1013000](fc_number) commit item [807213](ci_number)
+    - budget details of f centre[1013000](fc_number) commit item [807213](ci_number)
+    - show me the budget of f centre [1013000](fc_number) commit item [807213](ci_number)
+    - list budget of f centre [1013000](fc_number) commit item [807213](ci_number)
+    - f centre [1013000](fc_number) commit item [441234](ci_number)
+    - budget of f centre [1013000](fc_number) commit item [441234](ci_number)
+    - budget details of f centre[1013000](fc_number) commit item [441234](ci_number)
+    - show me the budget of f centre [1013000](fc_number) commit item [441234](ci_number)
+    - list budget of f centre [1013000](fc_number) commit item [441234](ci_number)
+    - f centre [1032901](fc_number) commitment item [807213](ci_number)
+    - budget of f centre [1032901](fc_number) commitment item [807213](ci_number)
+    - budget details of f centre[1032901](fc_number) commitment item [807213](ci_number)
+    - show me the budget of f centre [1032901](fc_number) commitment item [807213](ci_number)
+    - list budget of f centre [1032901](fc_number) commitment item [807213](ci_number)
+    - f centre [1032901](fc_number) commitment item [441234](ci_number)
+    - budget of f centre [1032901](fc_number) commitment item [441234](ci_number)
+    - budget details of f centre[1032901](fc_number) commitment item [441234](ci_number)
+    - show me the budget of f centre [1032901](fc_number) commitment item [441234](ci_number)
+    - list budget of f centre [1032901](fc_number) commitment item [441234](ci_number)
+    - f centre [1032901](fc_number) CI [807213](ci_number)
+    - budget of f centre [1032901](fc_number) CI [807213](ci_number)
+    - budget details of f centre[1032901](fc_number) CI [807213](ci_number)
+    - show me the budget of f centre [1032901](fc_number) CI [807213](ci_number)
+    - list budget of f centre [1032901](fc_number) CI [807213](ci_number)
+    - f centre [1032901](fc_number) CI [441234](ci_number)
+    - budget of f centre [1032901](fc_number) CI [441234](ci_number)
+    - budget details of f centre[1032901](fc_number) CI [441234](ci_number)
+    - show me the budget of f centre [1032901](fc_number) CI [441234](ci_number)
+    - list budget of f centre [1032901](fc_number) CI [441234](ci_number)
+    - f centre [1032901](fc_number) ci [807213](ci_number)
+    - budget of f centre [1032901](fc_number) ci [807213](ci_number)
+    - budget details of f centre[1032901](fc_number) ci [807213](ci_number)
+    - show me the budget of f centre [1032901](fc_number) ci [807213](ci_number)
+    - list budget of f centre [1032901](fc_number) ci [807213](ci_number)
+    - f centre [1032901](fc_number) ci [441234](ci_number)
+    - budget of f centre [1032901](fc_number) ci [441234](ci_number)
+    - budget details of f centre[1032901](fc_number) ci [441234](ci_number)
+    - show me the budget of f centre [1032901](fc_number) ci [441234](ci_number)
+    - list budget of f centre [1032901](fc_number) ci [441234](ci_number)
+    - f centre [1032901](fc_number) commit item [807213](ci_number)
+    - budget of f centre [1032901](fc_number) commit item [807213](ci_number)
+    - budget details of f centre[1032901](fc_number) commit item [807213](ci_number)
+    - show me the budget of f centre [1032901](fc_number) commit item [807213](ci_number)
+    - list budget of f centre [1032901](fc_number) commit item [807213](ci_number)
+    - f centre [1032901](fc_number) commit item [441234](ci_number)
+    - budget of f centre [1032901](fc_number) commit item [441234](ci_number)
+    - budget details of f centre[1032901](fc_number) commit item [441234](ci_number)
+    - show me the budget of f centre [1032901](fc_number) commit item [441234](ci_number)
+    - list budget of f centre [1032901](fc_number) commit item [441234](ci_number)
+    - fund cen [1013000](fc_number) commitment item [807213](ci_number)
+    - budget of fund cen [1013000](fc_number) commitment item [807213](ci_number)
+    - budget details of fund cen[1013000](fc_number) commitment item [807213](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) commitment item [807213](ci_number)
+    - list budget of fund cen [1013000](fc_number) commitment item [807213](ci_number)
+    - fund cen [1013000](fc_number) commitment item [441234](ci_number)
+    - budget of fund cen [1013000](fc_number) commitment item [441234](ci_number)
+    - budget details of fund cen[1013000](fc_number) commitment item [441234](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) commitment item [441234](ci_number)
+    - list budget of fund cen [1013000](fc_number) commitment item [441234](ci_number)
+    - fund cen [1013000](fc_number) CI [807213](ci_number)
+    - budget of fund cen [1013000](fc_number) CI [807213](ci_number)
+    - budget details of fund cen[1013000](fc_number) CI [807213](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) CI [807213](ci_number)
+    - list budget of fund cen [1013000](fc_number) CI [807213](ci_number)
+    - fund cen [1013000](fc_number) CI [441234](ci_number)
+    - budget of fund cen [1013000](fc_number) CI [441234](ci_number)
+    - budget details of fund cen[1013000](fc_number) CI [441234](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) CI [441234](ci_number)
+    - list budget of fund cen [1013000](fc_number) CI [441234](ci_number)
+    - fund cen [1013000](fc_number) ci [807213](ci_number)
+    - budget of fund cen [1013000](fc_number) ci [807213](ci_number)
+    - budget details of fund cen[1013000](fc_number) ci [807213](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) ci [807213](ci_number)
+    - list budget of fund cen [1013000](fc_number) ci [807213](ci_number)
+    - fund cen [1013000](fc_number) ci [441234](ci_number)
+    - budget of fund cen [1013000](fc_number) ci [441234](ci_number)
+    - budget details of fund cen[1013000](fc_number) ci [441234](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) ci [441234](ci_number)
+    - list budget of fund cen [1013000](fc_number) ci [441234](ci_number)
+    - fund cen [1013000](fc_number) commit item [807213](ci_number)
+    - budget of fund cen [1013000](fc_number) commit item [807213](ci_number)
+    - budget details of fund cen[1013000](fc_number) commit item [807213](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) commit item [807213](ci_number)
+    - list budget of fund cen [1013000](fc_number) commit item [807213](ci_number)
+    - fund cen [1013000](fc_number) commit item [441234](ci_number)
+    - budget of fund cen [1013000](fc_number) commit item [441234](ci_number)
+    - budget details of fund cen[1013000](fc_number) commit item [441234](ci_number)
+    - show me the budget of fund cen [1013000](fc_number) commit item [441234](ci_number)
+    - list budget of fund cen [1013000](fc_number) commit item [441234](ci_number)
+    - fund cen [1032901](fc_number) commitment item [807213](ci_number)
+    - budget of fund cen [1032901](fc_number) commitment item [807213](ci_number)
+    - budget details of fund cen[1032901](fc_number) commitment item [807213](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) commitment item [807213](ci_number)
+    - list budget of fund cen [1032901](fc_number) commitment item [807213](ci_number)
+    - fund cen [1032901](fc_number) commitment item [441234](ci_number)
+    - budget of fund cen [1032901](fc_number) commitment item [441234](ci_number)
+    - budget details of fund cen[1032901](fc_number) commitment item [441234](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) commitment item [441234](ci_number)
+    - list budget of fund cen [1032901](fc_number) commitment item [441234](ci_number)
+    - fund cen [1032901](fc_number) CI [807213](ci_number)
+    - budget of fund cen [1032901](fc_number) CI [807213](ci_number)
+    - budget details of fund cen[1032901](fc_number) CI [807213](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) CI [807213](ci_number)
+    - list budget of fund cen [1032901](fc_number) CI [807213](ci_number)
+    - fund cen [1032901](fc_number) CI [441234](ci_number)
+    - budget of fund cen [1032901](fc_number) CI [441234](ci_number)
+    - budget details of fund cen[1032901](fc_number) CI [441234](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) CI [441234](ci_number)
+    - list budget of fund cen [1032901](fc_number) CI [441234](ci_number)
+    - fund cen [1032901](fc_number) ci [807213](ci_number)
+    - budget of fund cen [1032901](fc_number) ci [807213](ci_number)
+    - budget details of fund cen[1032901](fc_number) ci [807213](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) ci [807213](ci_number)
+    - list budget of fund cen [1032901](fc_number) ci [807213](ci_number)
+    - fund cen [1032901](fc_number) ci [441234](ci_number)
+    - budget of fund cen [1032901](fc_number) ci [441234](ci_number)
+    - budget details of fund cen[1032901](fc_number) ci [441234](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) ci [441234](ci_number)
+    - list budget of fund cen [1032901](fc_number) ci [441234](ci_number)
+    - fund cen [1032901](fc_number) commit item [807213](ci_number)
+    - budget of fund cen [1032901](fc_number) commit item [807213](ci_number)
+    - budget details of fund cen[1032901](fc_number) commit item [807213](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) commit item [807213](ci_number)
+    - list budget of fund cen [1032901](fc_number) commit item [807213](ci_number)
+    - fund cen [1032901](fc_number) commit item [441234](ci_number)
+    - budget of fund cen [1032901](fc_number) commit item [441234](ci_number)
+    - budget details of fund cen[1032901](fc_number) commit item [441234](ci_number)
+    - show me the budget of fund cen [1032901](fc_number) commit item [441234](ci_number)
+    - list budget of fund cen [1032901](fc_number) commit item [441234](ci_number)
+    - Fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - budget of Fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - budget details of Fund centre[1013000](fc_number) commitment item [807213](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - list budget of Fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - Fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - budget of Fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - budget details of Fund centre[1013000](fc_number) commitment item [441234](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - list budget of Fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - Fund centre [1013000](fc_number) CI [807213](ci_number)
+    - budget of Fund centre [1013000](fc_number) CI [807213](ci_number)
+    - budget details of Fund centre[1013000](fc_number) CI [807213](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) CI [807213](ci_number)
+    - list budget of Fund centre [1013000](fc_number) CI [807213](ci_number)
+    - Fund centre [1013000](fc_number) CI [441234](ci_number)
+    - budget of Fund centre [1013000](fc_number) CI [441234](ci_number)
+    - budget details of Fund centre[1013000](fc_number) CI [441234](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) CI [441234](ci_number)
+    - list budget of Fund centre [1013000](fc_number) CI [441234](ci_number)
+    - Fund centre [1013000](fc_number) ci [807213](ci_number)
+    - budget of Fund centre [1013000](fc_number) ci [807213](ci_number)
+    - budget details of Fund centre[1013000](fc_number) ci [807213](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) ci [807213](ci_number)
+    - list budget of Fund centre [1013000](fc_number) ci [807213](ci_number)
+    - Fund centre [1013000](fc_number) ci [441234](ci_number)
+    - budget of Fund centre [1013000](fc_number) ci [441234](ci_number)
+    - budget details of Fund centre[1013000](fc_number) ci [441234](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) ci [441234](ci_number)
+    - list budget of Fund centre [1013000](fc_number) ci [441234](ci_number)
+    - Fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - budget of Fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - budget details of Fund centre[1013000](fc_number) commit item [807213](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - list budget of Fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - Fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - budget of Fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - budget details of Fund centre[1013000](fc_number) commit item [441234](ci_number)
+    - show me the budget of Fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - list budget of Fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - Fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - budget of Fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - budget details of Fund centre[1032901](fc_number) commitment item [807213](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - list budget of Fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - Fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - budget of Fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - budget details of Fund centre[1032901](fc_number) commitment item [441234](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - list budget of Fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - Fund centre [1032901](fc_number) CI [807213](ci_number)
+    - budget of Fund centre [1032901](fc_number) CI [807213](ci_number)
+    - budget details of Fund centre[1032901](fc_number) CI [807213](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) CI [807213](ci_number)
+    - list budget of Fund centre [1032901](fc_number) CI [807213](ci_number)
+    - Fund centre [1032901](fc_number) CI [441234](ci_number)
+    - budget of Fund centre [1032901](fc_number) CI [441234](ci_number)
+    - budget details of Fund centre[1032901](fc_number) CI [441234](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) CI [441234](ci_number)
+    - list budget of Fund centre [1032901](fc_number) CI [441234](ci_number)
+    - Fund centre [1032901](fc_number) ci [807213](ci_number)
+    - budget of Fund centre [1032901](fc_number) ci [807213](ci_number)
+    - budget details of Fund centre[1032901](fc_number) ci [807213](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) ci [807213](ci_number)
+    - list budget of Fund centre [1032901](fc_number) ci [807213](ci_number)
+    - Fund centre [1032901](fc_number) ci [441234](ci_number)
+    - budget of Fund centre [1032901](fc_number) ci [441234](ci_number)
+    - budget details of Fund centre[1032901](fc_number) ci [441234](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) ci [441234](ci_number)
+    - list budget of Fund centre [1032901](fc_number) ci [441234](ci_number)
+    - Fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - budget of Fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - budget details of Fund centre[1032901](fc_number) commit item [807213](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - list budget of Fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - Fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - budget of Fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - budget details of Fund centre[1032901](fc_number) commit item [441234](ci_number)
+    - show me the budget of Fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - list budget of Fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - fc [1013000](fc_number) commitment item [807213](ci_number)
+    - budget of fc [1013000](fc_number) commitment item [807213](ci_number)
+    - budget details of fc[1013000](fc_number) commitment item [807213](ci_number)
+    - show me the budget of fc [1013000](fc_number) commitment item [807213](ci_number)
+    - list budget of fc [1013000](fc_number) commitment item [807213](ci_number)
+    - fc [1013000](fc_number) commitment item [441234](ci_number)
+    - budget of fc [1013000](fc_number) commitment item [441234](ci_number)
+    - budget details of fc[1013000](fc_number) commitment item [441234](ci_number)
+    - show me the budget of fc [1013000](fc_number) commitment item [441234](ci_number)
+    - list budget of fc [1013000](fc_number) commitment item [441234](ci_number)
+    - fc [1013000](fc_number) CI [807213](ci_number)
+    - budget of fc [1013000](fc_number) CI [807213](ci_number)
+    - budget details of fc[1013000](fc_number) CI [807213](ci_number)
+    - show me the budget of fc [1013000](fc_number) CI [807213](ci_number)
+    - list budget of fc [1013000](fc_number) CI [807213](ci_number)
+    - fc [1013000](fc_number) CI [441234](ci_number)
+    - budget of fc [1013000](fc_number) CI [441234](ci_number)
+    - budget details of fc[1013000](fc_number) CI [441234](ci_number)
+    - show me the budget of fc [1013000](fc_number) CI [441234](ci_number)
+    - list budget of fc [1013000](fc_number) CI [441234](ci_number)
+    - fc [1013000](fc_number) ci [807213](ci_number)
+    - budget of fc [1013000](fc_number) ci [807213](ci_number)
+    - budget details of fc[1013000](fc_number) ci [807213](ci_number)
+    - show me the budget of fc [1013000](fc_number) ci [807213](ci_number)
+    - list budget of fc [1013000](fc_number) ci [807213](ci_number)
+    - fc [1013000](fc_number) ci [441234](ci_number)
+    - budget of fc [1013000](fc_number) ci [441234](ci_number)
+    - budget details of fc[1013000](fc_number) ci [441234](ci_number)
+    - show me the budget of fc [1013000](fc_number) ci [441234](ci_number)
+    - list budget of fc [1013000](fc_number) ci [441234](ci_number)
+    - fc [1013000](fc_number) commit item [807213](ci_number)
+    - budget of fc [1013000](fc_number) commit item [807213](ci_number)
+    - budget details of fc[1013000](fc_number) commit item [807213](ci_number)
+    - show me the budget of fc [1013000](fc_number) commit item [807213](ci_number)
+    - list budget of fc [1013000](fc_number) commit item [807213](ci_number)
+    - fc [1013000](fc_number) commit item [441234](ci_number)
+    - budget of fc [1013000](fc_number) commit item [441234](ci_number)
+    - budget details of fc[1013000](fc_number) commit item [441234](ci_number)
+    - show me the budget of fc [1013000](fc_number) commit item [441234](ci_number)
+    - list budget of fc [1013000](fc_number) commit item [441234](ci_number)
+    - fc [1032901](fc_number) commitment item [807213](ci_number)
+    - budget of fc [1032901](fc_number) commitment item [807213](ci_number)
+    - budget details of fc[1032901](fc_number) commitment item [807213](ci_number)
+    - show me the budget of fc [1032901](fc_number) commitment item [807213](ci_number)
+    - list budget of fc [1032901](fc_number) commitment item [807213](ci_number)
+    - fc [1032901](fc_number) commitment item [441234](ci_number)
+    - budget of fc [1032901](fc_number) commitment item [441234](ci_number)
+    - budget details of fc[1032901](fc_number) commitment item [441234](ci_number)
+    - show me the budget of fc [1032901](fc_number) commitment item [441234](ci_number)
+    - list budget of fc [1032901](fc_number) commitment item [441234](ci_number)
+    - fc [1032901](fc_number) CI [807213](ci_number)
+    - budget of fc [1032901](fc_number) CI [807213](ci_number)
+    - budget details of fc[1032901](fc_number) CI [807213](ci_number)
+    - show me the budget of fc [1032901](fc_number) CI [807213](ci_number)
+    - list budget of fc [1032901](fc_number) CI [807213](ci_number)
+    - fc [1032901](fc_number) CI [441234](ci_number)
+    - budget of fc [1032901](fc_number) CI [441234](ci_number)
+    - budget details of fc[1032901](fc_number) CI [441234](ci_number)
+    - show me the budget of fc [1032901](fc_number) CI [441234](ci_number)
+    - list budget of fc [1032901](fc_number) CI [441234](ci_number)
+    - fc [1032901](fc_number) ci [807213](ci_number)
+    - budget of fc [1032901](fc_number) ci [807213](ci_number)
+    - budget details of fc[1032901](fc_number) ci [807213](ci_number)
+    - show me the budget of fc [1032901](fc_number) ci [807213](ci_number)
+    - list budget of fc [1032901](fc_number) ci [807213](ci_number)
+    - fc [1032901](fc_number) ci [441234](ci_number)
+    - budget of fc [1032901](fc_number) ci [441234](ci_number)
+    - budget details of fc[1032901](fc_number) ci [441234](ci_number)
+    - show me the budget of fc [1032901](fc_number) ci [441234](ci_number)
+    - list budget of fc [1032901](fc_number) ci [441234](ci_number)
+    - fc [1032901](fc_number) commit item [807213](ci_number)
+    - budget of fc [1032901](fc_number) commit item [807213](ci_number)
+    - budget details of fc[1032901](fc_number) commit item [807213](ci_number)
+    - show me the budget of fc [1032901](fc_number) commit item [807213](ci_number)
+    - list budget of fc [1032901](fc_number) commit item [807213](ci_number)
+    - fc [1032901](fc_number) commit item [441234](ci_number)
+    - budget of fc [1032901](fc_number) commit item [441234](ci_number)
+    - budget details of fc[1032901](fc_number) commit item [441234](ci_number)
+    - show me the budget of fc [1032901](fc_number) commit item [441234](ci_number)
+    - list budget of fc [1032901](fc_number) commit item [441234](ci_number)
+    - fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - budget of fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - budget details of fund centre[1013000](fc_number) commitment item [807213](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - list budget of fund centre [1013000](fc_number) commitment item [807213](ci_number)
+    - fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - budget of fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - budget details of fund centre[1013000](fc_number) commitment item [441234](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - list budget of fund centre [1013000](fc_number) commitment item [441234](ci_number)
+    - fund centre [1013000](fc_number) CI [807213](ci_number)
+    - budget of fund centre [1013000](fc_number) CI [807213](ci_number)
+    - budget details of fund centre[1013000](fc_number) CI [807213](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) CI [807213](ci_number)
+    - list budget of fund centre [1013000](fc_number) CI [807213](ci_number)
+    - fund centre [1013000](fc_number) CI [441234](ci_number)
+    - budget of fund centre [1013000](fc_number) CI [441234](ci_number)
+    - budget details of fund centre[1013000](fc_number) CI [441234](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) CI [441234](ci_number)
+    - list budget of fund centre [1013000](fc_number) CI [441234](ci_number)
+    - fund centre [1013000](fc_number) ci [807213](ci_number)
+    - budget of fund centre [1013000](fc_number) ci [807213](ci_number)
+    - budget details of fund centre[1013000](fc_number) ci [807213](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) ci [807213](ci_number)
+    - list budget of fund centre [1013000](fc_number) ci [807213](ci_number)
+    - fund centre [1013000](fc_number) ci [441234](ci_number)
+    - budget of fund centre [1013000](fc_number) ci [441234](ci_number)
+    - budget details of fund centre[1013000](fc_number) ci [441234](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) ci [441234](ci_number)
+    - list budget of fund centre [1013000](fc_number) ci [441234](ci_number)
+    - fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - budget of fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - budget details of fund centre[1013000](fc_number) commit item [807213](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - list budget of fund centre [1013000](fc_number) commit item [807213](ci_number)
+    - fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - budget of fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - budget details of fund centre[1013000](fc_number) commit item [441234](ci_number)
+    - show me the budget of fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - list budget of fund centre [1013000](fc_number) commit item [441234](ci_number)
+    - fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - budget of fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - budget details of fund centre[1032901](fc_number) commitment item [807213](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - list budget of fund centre [1032901](fc_number) commitment item [807213](ci_number)
+    - fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - budget of fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - budget details of fund centre[1032901](fc_number) commitment item [441234](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - list budget of fund centre [1032901](fc_number) commitment item [441234](ci_number)
+    - fund centre [1032901](fc_number) CI [807213](ci_number)
+    - budget of fund centre [1032901](fc_number) CI [807213](ci_number)
+    - budget details of fund centre[1032901](fc_number) CI [807213](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) CI [807213](ci_number)
+    - list budget of fund centre [1032901](fc_number) CI [807213](ci_number)
+    - fund centre [1032901](fc_number) CI [441234](ci_number)
+    - budget of fund centre [1032901](fc_number) CI [441234](ci_number)
+    - budget details of fund centre[1032901](fc_number) CI [441234](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) CI [441234](ci_number)
+    - list budget of fund centre [1032901](fc_number) CI [441234](ci_number)
+    - fund centre [1032901](fc_number) ci [807213](ci_number)
+    - budget of fund centre [1032901](fc_number) ci [807213](ci_number)
+    - budget details of fund centre[1032901](fc_number) ci [807213](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) ci [807213](ci_number)
+    - list budget of fund centre [1032901](fc_number) ci [807213](ci_number)
+    - fund centre [1032901](fc_number) ci [441234](ci_number)
+    - budget of fund centre [1032901](fc_number) ci [441234](ci_number)
+    - budget details of fund centre[1032901](fc_number) ci [441234](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) ci [441234](ci_number)
+    - list budget of fund centre [1032901](fc_number) ci [441234](ci_number)
+    - fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - budget of fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - budget details of fund centre[1032901](fc_number) commit item [807213](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - list budget of fund centre [1032901](fc_number) commit item [807213](ci_number)
+    - fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - budget of fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - budget details of fund centre[1032901](fc_number) commit item [441234](ci_number)
+    - show me the budget of fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - list budget of fund centre [1032901](fc_number) commit item [441234](ci_number)
+    - FC [1013000](fc_number) commitment item [807213](ci_number)
+    - budget of FC [1013000](fc_number) commitment item [807213](ci_number)
+    - budget details of FC[1013000](fc_number) commitment item [807213](ci_number)
+    - show me the budget of FC [1013000](fc_number) commitment item [807213](ci_number)
+    - list budget of FC [1013000](fc_number) commitment item [807213](ci_number)
+    - FC [1013000](fc_number) commitment item [441234](ci_number)
+    - budget of FC [1013000](fc_number) commitment item [441234](ci_number)
+    - budget details of FC[1013000](fc_number) commitment item [441234](ci_number)
+    - show me the budget of FC [1013000](fc_number) commitment item [441234](ci_number)
+    - list budget of FC [1013000](fc_number) commitment item [441234](ci_number)
+    - FC [1013000](fc_number) CI [807213](ci_number)
+    - budget of FC [1013000](fc_number) CI [807213](ci_number)
+    - budget details of FC[1013000](fc_number) CI [807213](ci_number)
+    - show me the budget of FC [1013000](fc_number) CI [807213](ci_number)
+    - list budget of FC [1013000](fc_number) CI [807213](ci_number)
+    - FC [1013000](fc_number) CI [441234](ci_number)
+    - budget of FC [1013000](fc_number) CI [441234](ci_number)
+    - budget details of FC[1013000](fc_number) CI [441234](ci_number)
+    - show me the budget of FC [1013000](fc_number) CI [441234](ci_number)
+    - list budget of FC [1013000](fc_number) CI [441234](ci_number)
+    - FC [1013000](fc_number) ci [807213](ci_number)
+    - budget of FC [1013000](fc_number) ci [807213](ci_number)
+    - budget details of FC[1013000](fc_number) ci [807213](ci_number)
+    - show me the budget of FC [1013000](fc_number) ci [807213](ci_number)
+    - list budget of FC [1013000](fc_number) ci [807213](ci_number)
+    - FC [1013000](fc_number) ci [441234](ci_number)
+    - budget of FC [1013000](fc_number) ci [441234](ci_number)
+    - budget details of FC[1013000](fc_number) ci [441234](ci_number)
+    - show me the budget of FC [1013000](fc_number) ci [441234](ci_number)
+    - list budget of FC [1013000](fc_number) ci [441234](ci_number)
+    - FC [1013000](fc_number) commit item [807213](ci_number)
+    - budget of FC [1013000](fc_number) commit item [807213](ci_number)
+    - budget details of FC[1013000](fc_number) commit item [807213](ci_number)
+    - show me the budget of FC [1013000](fc_number) commit item [807213](ci_number)
+    - list budget of FC [1013000](fc_number) commit item [807213](ci_number)
+    - FC [1013000](fc_number) commit item [441234](ci_number)
+    - budget of FC [1013000](fc_number) commit item [441234](ci_number)
+    - budget details of FC[1013000](fc_number) commit item [441234](ci_number)
+    - show me the budget of FC [1013000](fc_number) commit item [441234](ci_number)
+    - list budget of FC [1013000](fc_number) commit item [441234](ci_number)
+    - FC [1032901](fc_number) commitment item [807213](ci_number)
+    - budget of FC [1032901](fc_number) commitment item [807213](ci_number)
+    - budget details of FC[1032901](fc_number) commitment item [807213](ci_number)
+    - show me the budget of FC [1032901](fc_number) commitment item [807213](ci_number)
+    - list budget of FC [1032901](fc_number) commitment item [807213](ci_number)
+    - FC [1032901](fc_number) commitment item [441234](ci_number)
+    - budget of FC [1032901](fc_number) commitment item [441234](ci_number)
+    - budget details of FC[1032901](fc_number) commitment item [441234](ci_number)
+    - show me the budget of FC [1032901](fc_number) commitment item [441234](ci_number)
+    - list budget of FC [1032901](fc_number) commitment item [441234](ci_number)
+    - FC [1032901](fc_number) CI [807213](ci_number)
+    - budget of FC [1032901](fc_number) CI [807213](ci_number)
+    - budget details of FC[1032901](fc_number) CI [807213](ci_number)
+    - show me the budget of FC [1032901](fc_number) CI [807213](ci_number)
+    - list budget of FC [1032901](fc_number) CI [807213](ci_number)
+    - FC [1032901](fc_number) CI [441234](ci_number)
+    - budget of FC [1032901](fc_number) CI [441234](ci_number)
+    - budget details of FC[1032901](fc_number) CI [441234](ci_number)
+    - show me the budget of FC [1032901](fc_number) CI [441234](ci_number)
+    - list budget of FC [1032901](fc_number) CI [441234](ci_number)
+    - FC [1032901](fc_number) ci [807213](ci_number)
+    - budget of FC [1032901](fc_number) ci [807213](ci_number)
+    - budget details of FC[1032901](fc_number) ci [807213](ci_number)
+    - show me the budget of FC [1032901](fc_number) ci [807213](ci_number)
+    - list budget of FC [1032901](fc_number) ci [807213](ci_number)
+    - FC [1032901](fc_number) ci [441234](ci_number)
+    - budget of FC [1032901](fc_number) ci [441234](ci_number)
+    - budget details of FC[1032901](fc_number) ci [441234](ci_number)
+    - show me the budget of FC [1032901](fc_number) ci [441234](ci_number)
+    - list budget of FC [1032901](fc_number) ci [441234](ci_number)
+    - FC [1032901](fc_number) commit item [807213](ci_number)
+    - budget of FC [1032901](fc_number) commit item [807213](ci_number)
+    - budget details of FC[1032901](fc_number) commit item [807213](ci_number)
+    - show me the budget of FC [1032901](fc_number) commit item [807213](ci_number)
+    - list budget of FC [1032901](fc_number) commit item [807213](ci_number)
+    - FC [1032901](fc_number) commit item [441234](ci_number)
+    - budget of FC [1032901](fc_number) commit item [441234](ci_number)
+    - budget details of FC[1032901](fc_number) commit item [441234](ci_number)
+    - show me the budget of FC [1032901](fc_number) commit item [441234](ci_number)
+    - list budget of FC [1032901](fc_number) commit item [441234](ci_number)
+
+
+#                                       BUDGET DETAILS                                                  #

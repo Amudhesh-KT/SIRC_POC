@@ -222,7 +222,7 @@ def fundcentre_list():
 
 def commititem_list(fc_no):
     ci_item = []
-    for i in budget_details.find({'Fund_centre':int(int(fc_no))}):
+    for i in budget_details.find({'Fund_centre':int(fc_no)}):
         # ci = 'CI '+str(i['Commitment_item'])
         item = {'text':"CI "+str(i['Commitment_item']), 'intent': f"FC {int(fc_no)} CI {str(i['Commitment_item'])}" }
 
@@ -232,13 +232,11 @@ def commititem_list(fc_no):
 
 def budget_description(fc_no,ci_no):
     budget_des = {}
-    for i in budget_details.find({'Fund_centre':fc_no,'Commitment_item':ci_no}):
+    for i in budget_details.find({'Fund_centre':int(fc_no),'Commitment_item':int(ci_no)}):
         budget_des = {
-            'Fund Centre': fc_no,
-            'Commitment Item': ci_no,
-            'Allocated_budget':res['Allocated_budget'],
-            'Budget_consumed':res['Budget_consumed'],
-            'Available Budget':res['Available Budget']
+            'Allocated_budget':i['Allocated_budget'],
+            'Budget_consumed':i['Budget_consumed'],
+            'Available Budget':i['Available Budget']
         }
 
     print(budget_des)

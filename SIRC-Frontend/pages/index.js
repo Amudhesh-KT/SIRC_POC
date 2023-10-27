@@ -42,6 +42,11 @@ const index = ({ data }) => {
     setSelectedCheckboxes(selectedCheckboxes.filter((item) => item !== value));
   };
 
+  const handleRequest = (id, status, comment) => {
+    console.log(id, status, comment);
+    setState([...state].filter((e) => e.id !== id));
+  };
+
   return (
     <Home
       state={state
@@ -60,6 +65,7 @@ const index = ({ data }) => {
       handleCancelChip={handleCancelChip}
       selectedPriority={selectedPriority}
       handlePriorityChange={handlePriorityChange}
+      handleRequest={handleRequest}
     />
   );
 };
@@ -70,7 +76,7 @@ export const getServerSideProps = async () => {
   const response = await fetch(`http://127.0.0.1:8000/overall_data`);
   const data = await response.json();
 
-  console.log(data);
+  console.log(data.length);
   return {
     props: {
       data,

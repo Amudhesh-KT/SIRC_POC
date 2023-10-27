@@ -55,8 +55,8 @@ const Home = ({
   handleCancelChip,
   selectedPriority,
   handlePriorityChange,
+  handleRequest,
 }) => {
-  console.log("Console on Home", state);
   const [mobileSideOpen, SetMobileSideOpen] = useState(true);
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("md"));
 
@@ -125,6 +125,42 @@ const Home = ({
 
     return formattedDate;
   }
+
+  const groupedCards = {};
+  [...state].forEach((e, i) => {
+    const createdOnDate = e.Created_on;
+    if (!groupedCards[createdOnDate]) {
+      groupedCards[createdOnDate] = [];
+    }
+
+    groupedCards[createdOnDate].push(e);
+  });
+  console.log(groupedCards);
+  const keysArray = Object.keys(groupedCards);
+
+  // Step 2: Sort the keys in ascending order
+  keysArray.sort(function (a, b) {
+    // Split the date strings into day, month, and year components
+    let [dayA, monthA, yearA] = a.split(".").map(Number);
+    let [dayB, monthB, yearB] = b.split(".").map(Number);
+
+    // Compare first by year, then by month, and finally by day
+    if (yearA !== yearB) {
+      return yearA - yearB;
+    } else if (monthA !== monthB) {
+      return monthA - monthB;
+    } else {
+      return dayA - dayB;
+    }
+  });
+
+  // Step 3: Create a new object with sorted keys
+  const sortedGroupedCards = {};
+  keysArray.forEach((key) => {
+    sortedGroupedCards[key] = groupedCards[key];
+  });
+
+  const [commentVal, setCommentVal] = useState("");
 
   return (
     <>
@@ -198,7 +234,8 @@ const Home = ({
                       right: 0,
                       top: "70px ",
                       borderRadius: "12px",
-                      boxShadow: "0px 7px 30px 18px rgba(90, 114, 123, 0.11)",
+                      boxShadow:
+                        "0px 12px 42px -4px rgba(24, 39, 75, 0.12), 0px 8px 18px -6px rgba(24, 39, 75, 0.12)",
                     },
                     "& .MuiList-padding": {
                       p: "15px",
@@ -351,7 +388,239 @@ const Home = ({
                 >
                   <SimpleBar style={{ height: "calc(100vh - 150px)" }}>
                     <Box p={1}>
-                      {[...state].map((e, i) => {
+                      {Object.entries(sortedGroupedCards).map(
+                        ([date, cards]) => (
+                          <>
+                            <Typography
+                              color="#5c6980"
+                              variant="caption"
+                              fontWeight={400}
+                            >
+                              {formatDate(date)}
+                            </Typography>
+                            {sortedGroupedCards[date].map((e, i) => {
+                              return (
+                                <>
+                                  <Box
+                                    display={"flex"}
+                                    alignItems={"center"}
+                                    sx={{
+                                      px: 1,
+                                      py: 2,
+                                      cursor: "pointer",
+                                      background:
+                                        currentItem.id === e.id
+                                          ? "#00A885"
+                                          : "",
+                                      "&:hover": {
+                                        background:
+                                          currentItem.id === e.id
+                                            ? ""
+                                            : "#f7f7f7",
+                                      },
+                                      borderRadius: "8px",
+                                    }}
+                                    onClick={() => setCurrentItem(e)}
+                                  >
+                                    <Box
+                                      display="flex"
+                                      alignItems={"center"}
+                                      justifyContent={"space-between"}
+                                      flexDirection={"column"}
+                                    >
+                                      <GoDotFill
+                                        style={{
+                                          color: "#f59616",
+                                          margin: "0px 0px 0px 5px",
+                                        }}
+                                      />
+                                      <IconButton
+                                        size="small"
+                                        sx={{
+                                          height: "45px",
+                                          width: "45px",
+                                          p: 1.3,
+                                          background:
+                                            currentItem.id === e.id
+                                              ? "#fff"
+                                              : "#00A885",
+                                          color:
+                                            currentItem.id === e.id
+                                              ? "#00A885"
+                                              : "#fff",
+                                          "&:hover": {
+                                            background:
+                                              currentItem.id === e.id
+                                                ? "#fff"
+                                                : "#00A885",
+                                            color:
+                                              currentItem.id === e.id
+                                                ? "#00A885"
+                                                : "#fff",
+                                          },
+                                        }}
+                                      >
+                                        {e.id.startsWith("PO") ? (
+                                          <FiFileText size={30} />
+                                        ) : e.id.startsWith("PR") ? (
+                                          <BsClipboard size={30} />
+                                        ) : e.id.startsWith("PL") ? (
+                                          <BsCalendarX size={30} />
+                                        ) : e.id.startsWith("BT") ? (
+                                          <MdFlightTakeoff size={30} />
+                                        ) : (
+                                          ""
+                                        )}
+                                      </IconButton>
+                                    </Box>
+
+                                    <Box
+                                      display="flex"
+                                      flexDirection={"column"}
+                                      sx={{ px: 2, width: "100%" }}
+                                    >
+                                      <Box
+                                        display="flex"
+                                        alignItems={"center"}
+                                        justifyContent={"space-between"}
+                                      >
+                                        <Typography
+                                          variant="subtitle2"
+                                          fontWeight={300}
+                                          color={
+                                            currentItem.id === e.id
+                                              ? "#fff"
+                                              : "#5c6980"
+                                          }
+                                        >
+                                          {e.id}
+                                        </Typography>
+                                        <Box
+                                          display="flex"
+                                          alignItems={"center"}
+                                        >
+                                          <Typography
+                                            variant="caption"
+                                            fontWeight={400}
+                                            color={
+                                              currentItem.id === e.id
+                                                ? "#fff"
+                                                : "#5c6980"
+                                            }
+                                          >
+                                            {e.priority}
+                                          </Typography>
+                                          <GoDotFill
+                                            style={{
+                                              color:
+                                                e.priority === "High"
+                                                  ? "red"
+                                                  : e.priority === "Low"
+                                                  ? "#FFB800"
+                                                  : "#7000FF",
+                                              margin: "0px 0px 0px 5px",
+                                            }}
+                                          />
+                                        </Box>
+                                      </Box>
+                                      <Typography
+                                        variant="h6"
+                                        fontWeight={400}
+                                        color={
+                                          currentItem.id === e.id
+                                            ? "#fff"
+                                            : "#5c6980"
+                                        }
+                                      >
+                                        {e.name}
+                                      </Typography>
+                                      <Box
+                                        display={"flex"}
+                                        alignItems={"center"}
+                                        justifyContent={"space-between"}
+                                      >
+                                        <Typography
+                                          variant="h6"
+                                          sx={{ width: "60%" }}
+                                          fontWeight={500}
+                                          color={
+                                            currentItem.id === e.id
+                                              ? "#fff"
+                                              : "#5c6980"
+                                          }
+                                        >
+                                          {e.shortText}
+                                        </Typography>
+                                        <Typography
+                                          variant="caption"
+                                          fontWeight={400}
+                                          color={
+                                            currentItem.id === e.id
+                                              ? "#fff"
+                                              : "#5c6980"
+                                          }
+                                        >
+                                          {formatDate(e.Created_on)}
+                                        </Typography>
+                                      </Box>
+                                    </Box>
+                                  </Box>
+                                  <Divider sx={{ my: 1 }} />
+                                </>
+                              );
+                            })}
+                          </>
+                        )
+                      )}
+                    </Box>
+                  </SimpleBar>
+                </Drawer>
+              </Card>
+            </Box>
+          ) : (
+            <Drawer
+              open={mobileSideOpen}
+              onClose={() => SetMobileSideOpen(false)}
+              variant="temporary"
+              sx={{
+                zIndex: 1,
+                [`& .MuiDrawer-paper`]: {
+                  paddingTop: "70px",
+                  width: { xs: "310px", sm: "385px" },
+                },
+              }}
+            >
+              <SimpleBar style={{ height: "100%" }}>
+                <Box
+                  display="flex"
+                  sx={{ px: 1.5, py: 1 }}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                >
+                  <Typography variant="h6" fontWeight={500} color="#5c6980">
+                    Digital WorkSpace
+                  </Typography>
+
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    color="primary"
+                    onClick={() => SetMobileSideOpen(false)}
+                  >
+                    Close
+                  </Button>
+                </Box>
+                <Box p={1}>
+                  {Object.entries(sortedGroupedCards).map(([date, cards]) => (
+                    <>
+                      <Typography
+                        color="#5c6980"
+                        variant="caption"
+                        fontWeight={400}
+                      >
+                        {formatDate(date)}
+                      </Typography>
+                      {sortedGroupedCards[date].map((e, i) => {
                         return (
                           <>
                             <Box
@@ -485,6 +754,7 @@ const Home = ({
                                 >
                                   <Typography
                                     variant="h6"
+                                    sx={{ width: "60%" }}
                                     fontWeight={500}
                                     color={
                                       currentItem.id === e.id
@@ -495,7 +765,7 @@ const Home = ({
                                     {e.shortText}
                                   </Typography>
                                   <Typography
-                                    variant="h6"
+                                    variant="caption"
                                     fontWeight={400}
                                     color={
                                       currentItem.id === e.id
@@ -512,194 +782,8 @@ const Home = ({
                           </>
                         );
                       })}
-                    </Box>
-                  </SimpleBar>
-                </Drawer>
-              </Card>
-            </Box>
-          ) : (
-            <Drawer
-              open={mobileSideOpen}
-              onClose={() => SetMobileSideOpen(false)}
-              variant="temporary"
-              sx={{
-                zIndex: 1,
-                [`& .MuiDrawer-paper`]: {
-                  paddingTop: "70px",
-                  width: { xs: "310px", sm: "385px" },
-                },
-              }}
-            >
-              <SimpleBar style={{ height: "100%" }}>
-                <Box
-                  display="flex"
-                  sx={{ px: 1.5, py: 1 }}
-                  alignItems={"center"}
-                  justifyContent={"space-between"}
-                >
-                  <Typography variant="h6" fontWeight={500} color="#5c6980">
-                    Digital WorkSpace
-                  </Typography>
-
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    color="primary"
-                    onClick={() => SetMobileSideOpen(false)}
-                  >
-                    Close
-                  </Button>
-                </Box>
-                <Box p={1}>
-                  {[...state].map((e, i) => {
-                    return (
-                      <>
-                        <Box
-                          display={"flex"}
-                          alignItems={"center"}
-                          sx={{
-                            px: 1,
-                            py: 2,
-                            cursor: "pointer",
-                            background:
-                              currentItem.id === e.id ? "#00A885" : "",
-                            "&:hover": {
-                              background:
-                                currentItem.id === e.id ? "" : "#f7f7f7",
-                            },
-                            borderRadius: "8px",
-                          }}
-                          onClick={() => setCurrentItem(e)}
-                        >
-                          <Box
-                            display="flex"
-                            alignItems={"center"}
-                            justifyContent={"space-between"}
-                            flexDirection={"column"}
-                          >
-                            <GoDotFill
-                              style={{
-                                color: "#f59616",
-                                margin: "0px 0px 0px 5px",
-                              }}
-                            />
-                            <IconButton
-                              size="small"
-                              sx={{
-                                height: "45px",
-                                width: "45px",
-                                p: 1.3,
-                                background:
-                                  currentItem.id === e.id ? "#fff" : "#00A885",
-                                color:
-                                  currentItem.id === e.id ? "#00A885" : "#fff",
-                                "&:hover": {
-                                  background:
-                                    currentItem.id === e.id
-                                      ? "#fff"
-                                      : "#00A885",
-                                  color:
-                                    currentItem.id === e.id
-                                      ? "#00A885"
-                                      : "#fff",
-                                },
-                              }}
-                            >
-                              {e.id.startsWith("PO") ? (
-                                <FiFileText size={30} />
-                              ) : e.id.startsWith("PR") ? (
-                                <BsClipboard size={30} />
-                              ) : e.id.startsWith("PL") ? (
-                                <BsCalendarX size={30} />
-                              ) : e.id.startsWith("BT") ? (
-                                <MdFlightTakeoff size={30} />
-                              ) : (
-                                ""
-                              )}
-                            </IconButton>
-                          </Box>
-
-                          <Box
-                            display="flex"
-                            flexDirection={"column"}
-                            sx={{ px: 2, width: "100%" }}
-                          >
-                            <Box
-                              display="flex"
-                              alignItems={"center"}
-                              justifyContent={"space-between"}
-                            >
-                              <Typography
-                                variant="subtitle2"
-                                fontWeight={300}
-                                color={
-                                  currentItem.id === e.id ? "#fff" : "#5c6980"
-                                }
-                              >
-                                {e.id}
-                              </Typography>
-                              <Box display="flex" alignItems={"center"}>
-                                <Typography
-                                  variant="caption"
-                                  fontWeight={400}
-                                  color={
-                                    currentItem.id === e.id ? "#fff" : "#5c6980"
-                                  }
-                                >
-                                  {e.priority}
-                                </Typography>
-                                <GoDotFill
-                                  style={{
-                                    color:
-                                      e.priority === "High"
-                                        ? "red"
-                                        : e.priority === "Low"
-                                        ? "#FFB800"
-                                        : "#7000FF",
-                                    margin: "0px 0px 0px 5px",
-                                  }}
-                                />
-                              </Box>
-                            </Box>
-                            <Typography
-                              variant="h6"
-                              fontWeight={400}
-                              color={
-                                currentItem.id === e.id ? "#fff" : "#5c6980"
-                              }
-                            >
-                              {e.name}
-                            </Typography>
-                            <Box
-                              display={"flex"}
-                              alignItems={"center"}
-                              justifyContent={"space-between"}
-                            >
-                              <Typography
-                                variant="h6"
-                                fontWeight={500}
-                                color={
-                                  currentItem.id === e.id ? "#fff" : "#5c6980"
-                                }
-                              >
-                                {e.shortText}
-                              </Typography>
-                              <Typography
-                                variant="h6"
-                                fontWeight={400}
-                                color={
-                                  currentItem.id === e.id ? "#fff" : "#5c6980"
-                                }
-                              >
-                                {formatDate(e.Created_on)}
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </Box>
-                        <Divider sx={{ my: 1 }} />
-                      </>
-                    );
-                  })}
+                    </>
+                  ))}
                 </Box>
               </SimpleBar>
             </Drawer>
@@ -1252,16 +1336,29 @@ const Home = ({
                         >
                           <CustomTable
                             name="Item Details"
-                            columns={[
-                              "Item no",
-                              "Short Text",
-                              "Quantity",
-                              "UOM",
-                              "Total Price",
-                              "Plant",
-                              "PR",
-                              "PR Item",
-                            ]}
+                            columns={
+                              currentItem.id.includes("PR")
+                                ? [
+                                    "Item no",
+                                    "Short Text",
+                                    "Quantity",
+                                    "UOM",
+                                    "Total Price",
+                                    "Plant",
+                                  ]
+                                : currentItem.id.includes("PO")
+                                ? [
+                                    "Item no",
+                                    "Short Text",
+                                    "Quantity",
+                                    "UOM",
+                                    "Total Price",
+                                    "Plant",
+                                    "PR",
+                                    "PR Item",
+                                  ]
+                                : ""
+                            }
                             rows={currentItem.item_details}
                           />
                         </Box>
@@ -1275,15 +1372,25 @@ const Home = ({
                         >
                           <CustomTable
                             name="Service Line Item Details"
-                            columns={[
-                              "Item no",
-                              "S.NO",
-                              "Service Short Text",
-                              "UOM",
-                              "Total Price",
-                              "Unit Price",
-                              "Net Price",
-                            ]}
+                            columns={
+                              currentItem.id.includes("PR")
+                                ? [
+                                    "Item no",
+                                    "Service Short Text",
+                                    "UOM",
+                                    "Total Price",
+                                    "Unit Price",
+                                    "Net Price",
+                                  ]
+                                : [
+                                    "Item no",
+                                    "Service Short Text",
+                                    "UOM",
+                                    "Total Price",
+                                    "Unit Price",
+                                    "Net Price",
+                                  ]
+                            }
                             rows={currentItem.service_line}
                           />
                         </Box>
@@ -1299,7 +1406,6 @@ const Home = ({
                             name="Account Assignment Details"
                             columns={[
                               "Item no",
-                              "S.NO",
                               "GL Account",
                               "Cost Center",
                               "Fund Center",
@@ -1462,8 +1568,10 @@ const Home = ({
                       boxShadow: "none",
                     },
                   }}
-                  onClick={() => {
+                  onClick={async () => {
                     setAlertDialog({ ...alertDialog, open: false });
+                    await handleRequest(currentItem.id, "Approved", "");
+                    setCurrentItem({});
                     setCustomDialog({ type: "Approve", open: true });
                   }}
                 >
@@ -1476,6 +1584,7 @@ const Home = ({
                   Are you sure want to Decline this Request
                 </Typography>
                 <TextareaAutosize
+                  onChange={(e) => setCommentVal(e.target.value)}
                   minRows={3}
                   style={{
                     width: "100%",
@@ -1499,8 +1608,11 @@ const Home = ({
                       boxShadow: "none",
                     },
                   }}
-                  onClick={() => {
+                  onClick={async () => {
                     setAlertDialog({ ...alertDialog, open: false });
+                    await handleRequest(currentItem.id, "Rejected", commentVal);
+                    await setCommentVal("");
+                    await setCurrentItem({});
                     setCustomDialog({ type: "Decline", open: true });
                   }}
                 >

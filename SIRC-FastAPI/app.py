@@ -152,7 +152,7 @@ async def overall_data():
             'name': i['created_by'],
             'shortText': i['short_info'],
             'priority': i['priority'],
-            'Created_on': datetime.strptime(i['Creation_date'], '%d.%m.%Y').strftime('%d/%m/%Y'),
+            'Created_on': i['Creation_date'],
             'overall_status': "Ready",
             'Status': i["Status"],
             'levels': [
@@ -174,7 +174,7 @@ async def overall_data():
             ],
             'details': {
                 'company_code': i['Company_code'],
-                'po_creation_date': datetime.strptime(i['Creation_date'], '%d.%m.%Y').strftime('%d/%m/%Y'),
+                'po_creation_date': i['Creation_date'],
                 'buyer_participants': i['Buyer_participants'],
                 'total_order_value': i['Ordered_value_SAR'],
                 'total_allocation_budget': i['Total_allocated_budget'],
@@ -228,7 +228,7 @@ async def overall_data():
             'name': i['created_by'],
             'shortText': i['short_info'],
             'priority': i['priority'],
-            'Created_on': datetime.strptime(i['creation_date'], '%d.%m.%Y').strftime('%d/%m/%Y'),
+            'Created_on': i['creation_date'],
             'overall_status': "Ready",
             'Status': i["Status"],
             'levels': [
@@ -250,7 +250,7 @@ async def overall_data():
             ],
             'details': {
                     'pr_num': i['pr_num'], 
-                    'creation_date': datetime.strptime(i['creation_date'], '%d.%m.%Y').strftime('%d/%m/%Y'), 
+                    'creation_date': i['creation_date'], 
                     'order_value': i['order_value'], 
                     ' prtype': "Service PR",
                     'created_by': i['created_by'], 
@@ -324,17 +324,43 @@ async def overall_data():
 @app.post('/Approve_reject')
 async def Approve_reject(data:Approve_reject):
 
-    word = data.Request_id.split() 
+    data.Request_id = data.Request_id.split() 
 
-    print(word)
+    request_type = data.Request_id[-2]
+    request_no = data.Request_id[-1]
 
-    print(word[-1],word[-2])
+    if request_type == "PL":
+        req = pl_details.find_one({'Leave_ID':request_no})
+
+        if(req['Status'] == "Pending"):
+            update = pl_details.update_one({'Leave_ID':request_no},{"$set":{'Status':data.Status}})
+            print(update.res)
+
+        else:
+            res = "PL has been already approved or rejected"
+    
+
+    if request_type == "PR":
+        a = pr_details.find_one({'pr_num' : request_no})
+
+        if a['Status'] == "Pending":
+            pr_details.update_one({'pr_num': request_no}, {"$set": {'Status': data.Status}})
+            
+
+        else:
+            res =  "PR has been already approved or rejected"
+
+    if request_type == "PO":
+        print("PO")
+
+    if request_type == "BT":
+        print("BT")
 
 
 
 
 
-    return "Aprroved and reject working fine"
+    return res
 
 
 

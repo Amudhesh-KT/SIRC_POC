@@ -477,8 +477,13 @@ class FundcentreList(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         resp = fundcentre_list()
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
+        fccentre = [str(i) for i in resp]
+        send = {"requests": fccentre,
+                    "msg": "The Fund Centre lists are given below. Choose Any one to see details",
+                    }
+
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
 
         return []
@@ -492,10 +497,16 @@ class CommitmentItemsList(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # fc_no = tracker.get_slot("fc_no")
-        fc_no = 1014000
+        fc_notext = tracker.latest_message("text")
+        fc_no = fc_notext.split()[-1]
         resp = commititem_list(fc_no)
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
+        ciitem = [str(i) for i in resp]
+        send = {"requests": ciitem,
+                    "msg": "The Commitment Items are given below. Choose Any one to see details",
+                    }
+
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
 
         return []
@@ -508,13 +519,19 @@ class BudgetDetails(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # fc_no = tracker.get_slot("fc_no")
-        # ci_no = tracker.get_slot("ci_no")
-        fc_no = 1014000
-        ci_no = 810006
+        budget_notext = tracker.latest_message("text")
+        fc_no = budget_notext.split()[1]
+        ci_no = budget_notext.split()[-1]
         resp = budget_description(fc_no,ci_no)
-        res = json.dumps(resp)
-        dispatcher.utter_message(text=res)
+        send = {
+            "msg": "Here is the Details for the Business Trip... ",
+            "details": {
+                "data":resp,"flag":True,
+                "type": "BD"
+                }
+        }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
 
         return []

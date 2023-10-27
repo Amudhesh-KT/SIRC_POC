@@ -2665,8 +2665,8 @@ nlu:
     - What is the company's policy on obtaining visas for business travel?
     - What is the company's policy on travel security and safety?
 
-intent: SeparationPolicy
-examples: |
+- intent: SeparationPolicy
+  examples: |
     - What is the process for initiating a separation?
     - Separation Policy
     - Employment Separation Policy

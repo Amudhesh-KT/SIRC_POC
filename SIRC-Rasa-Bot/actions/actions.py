@@ -417,6 +417,15 @@ class ActionBTApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        btnotext = tracker.latest_message["text"]
+        btno = btnotext.split()[-1][0:-1]
+        status = 'Approved'
+        comments = 'Nil'
+        res = bt_approval(btno,status,comments)
+        if res:
+            dispatcher.utter_message(text=f'PL {btno} was Approved Successfully')
+        else:
+            dispatcher.utter_message(text=f'PL {btno} has already been Approved/Rejected')
         
         return []
         
@@ -439,7 +448,7 @@ class ActionBTReject(Action):
             comments = metadata['comments']
         else:
             comments = 'Nil'
-        res = leave_approval(btno,status,comments)
+        res = bt_approval(btno,status,comments)
         if res:
             dispatcher.utter_message(text=f'PL {btno} was Rejected Successfully')
         else:

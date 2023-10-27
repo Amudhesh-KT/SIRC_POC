@@ -934,7 +934,6 @@ function DashboardLayout({ children }) {
                                     }}
                                     color="error"
                                     onClick={(e) => {
-                                      // console.log(action);
                                       handleButtonRequest(action);
                                     }}
                                   >

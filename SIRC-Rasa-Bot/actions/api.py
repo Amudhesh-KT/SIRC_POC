@@ -81,7 +81,7 @@ def pr_approval(pr_no,status,comments):
 def pending_po_list():
     po_list = []
     for i in po_details.find():
-        item = 'PO ' + str(i['pr_num'])
+        item = 'PO ' + str(i['Po_num'])
         po_list.append(item)
     res = po_list
     print(res)

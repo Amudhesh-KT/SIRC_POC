@@ -143,9 +143,9 @@ function DashboardLayout({ children }) {
     setChat((chat) => [...chat, request_temp]);
     setChatIDCounter(chatIDCounter + 1);
     setBotTyping(true);
-    rasaAPI(name, actionValue, openDialog.comment);
+    rasaAPI(name, actionValue);
   };
-  const rasaAPI = async function handleClick(name, msg, comment = "") {
+  const rasaAPI = async function handleClick(name, msg) {
     await fetch("http://localhost:5005/webhooks/rest/webhook", {
       method: "POST",
       body: JSON.stringify({
@@ -157,7 +157,7 @@ function DashboardLayout({ children }) {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          console.log(response[0]);
+          console.log("response", response, response[0]);
           const temp = response[0];
           const recipient_id = "";
           let recipient_msg;

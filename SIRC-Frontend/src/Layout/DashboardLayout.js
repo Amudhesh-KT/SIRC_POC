@@ -799,7 +799,7 @@ function DashboardLayout({ children }) {
               <Box
                 ref={chatScreenContent}
                 sx={{
-                  minHeight: { xs: "300px", md: "381px" },
+                  height: { xs: "300px", md: "381px" },
                   overflowY: "auto",
                 }}
               >
@@ -1119,6 +1119,30 @@ function DashboardLayout({ children }) {
                                           comment: "",
                                           type: "",
                                         });
+                                      } else if (
+                                        chatContent.details.type === "PL"
+                                      ) {
+                                        handleButtonRequest(
+                                          `Approve PL ${chatContent.details.data["Leave ID"]}`
+                                        );
+                                        setOpenDialog({
+                                          open: false,
+                                          value: "",
+                                          comment: "",
+                                          type: "",
+                                        });
+                                      } else if (
+                                        chatContent.details.type === "BT"
+                                      ) {
+                                        handleButtonRequest(
+                                          `Approve BT ${chatContent.details.data["Business Trip Number"]}T`
+                                        );
+                                        setOpenDialog({
+                                          open: false,
+                                          value: "",
+                                          comment: "",
+                                          type: "",
+                                        });
                                       }
                                     }
                                     // setOpenDialog({
@@ -1178,6 +1202,12 @@ function DashboardLayout({ children }) {
                                           : chatContent.details.type === "PO"
                                           ? chatContent.details.data[
                                               "Purchase Order Number"
+                                            ]
+                                          : chatContent.details.type === "PL"
+                                          ? chatContent.details.data["Leave ID"]
+                                          : chatContent.details.type === "BT"
+                                          ? chatContent.details.data[
+                                              "Business Trip Number"
                                             ]
                                           : "",
                                     });
@@ -1431,8 +1461,24 @@ function DashboardLayout({ children }) {
                       },
                     }}
                     onClick={async () => {
-                      if (openDialog.type !== "PO") {
+                      if (openDialog.type === "PR") {
                         handleButtonRequest(`Reject PR ${openDialog.value}`);
+                        setOpenDialog({
+                          open: false,
+                          value: "",
+                          comment: "",
+                          type: "",
+                        });
+                      } else if (openDialog.type === "PL") {
+                        handleButtonRequest(`Reject PL ${openDialog.value}`);
+                        setOpenDialog({
+                          open: false,
+                          value: "",
+                          comment: "",
+                          type: "",
+                        });
+                      } else if (openDialog.type === "BT") {
+                        handleButtonRequest(`Reject BT ${openDialog.value}`);
                         setOpenDialog({
                           open: false,
                           value: "",

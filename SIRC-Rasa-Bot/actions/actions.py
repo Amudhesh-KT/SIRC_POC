@@ -273,18 +273,22 @@ class ActionLeaveDescription(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        print("Action running")
         plnotext = tracker.latest_message["text"]
         plno = plnotext.split()[-1]
+        print(plno)
         leave_req_details = leave_description(plno)
-        flag_variable = True
+        print(leave_req_details)
         send = {
             "msg": "Here is the Details for the Leave request... ",
             "details": {
-                "data":leave_req_details,"flag":flag_variable,
+                "data":leave_req_details,"flag":True,
                 "type": "PL"
                 }
         }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+        
         return []
     
 class ActionPLApprove(Action):
@@ -406,6 +410,8 @@ class ActionTripDescription(Action):
                 "type": "BT"
                 }
         }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
 
         return []
     

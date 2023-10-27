@@ -140,7 +140,7 @@ def pending_leave_id():
 
 def leave_description(pl_no):
     des = {}
-    res = pl_details.find_one({'Leave_ID':pl_no})
+    res = pl_details.find_one({'Leave_ID':str(pl_no)})
     if res:
         des = {
             'Leave ID' : pl_no,
@@ -171,7 +171,7 @@ def leave_approval(pl_no,status,comments):
 def pending_bt_list():
     bt_list = []
     for i in bt_details.find():
-        item = ('BT' +str(i['Business Trip No']))
+        item = ('BT ' +str(i['Business Trip No'])+'T')
         bt_list.append(item)
     
     res = bt_list

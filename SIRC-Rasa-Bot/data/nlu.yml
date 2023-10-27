@@ -2513,3 +2513,251 @@ nlu:
 
 
 #                                       BUDGET DETAILS                                                  #
+
+
+#                                           POLICIES                                                        #
+
+- intent: policies
+  examples: |
+    - Show me the Policies
+    - Policies
+    - Policy
+    - Company Policies
+    - Company Policy
+    - company policy
+    - policy
+    - Show me the Company Policies
+    - Could you share the Company Policies
+    - May I see the Policies
+
+- intent: leavepolicies
+  examples: |
+    - Show me the leave Policies
+    - show me the leave policy
+    - leave Pol?
+    - leave policy
+    - leave pol
+    - what are the leave policies of the company
+    - How much leave am I entitled to?
+    - What is the policy for taking sick leave?
+    - Can you tell me about the policy for taking unpaid leave?
+    - Is it possible to use vacation time for family emergencies?
+    - Do I need to provide documentation to take medical leave?
+    - How do I request time off and what is the approval process?
+    - Can my leave accumulate over time?
+    - What is the policy for transferring unused leave to the next year?
+    - Is it possible to encash unused leave days?
+    - How can I check my leave balance?
+    
+  
+- intent: travelpolicies
+  examples: |
+    - Show me the travel and business trip  Policies
+    - Show me the travel and business trip Policies
+    - show me the travel and business trip  policy
+    - travel Pol?
+    - travel policy?
+    - travel and business trip policy
+    - travel and business trip pol
+    - what are the travel policies of the company
+    - What is my entitlement for business travel?
+    - How can I book business travel?
+    - What is the process for approving business travel?
+    - What expenses are covered for business travel?
+    - What is the per diem policy for business travel?
+    - Are there any restrictions on business travel due to COVID-19?
+    - What is the cancellation policy for business travel?
+    - Does the company provide travel insurance for business travel?
+    - What is the company's policy on obtaining visas for business travel?
+    - What is the company's policy on travel security and safety?
+
+intent: SeparationPolicy
+  examples: |
+    - What is the process for initiating a separation?
+    - Separation Policy
+    - Employment Separation Policy
+    - Employee Separation Policy
+    - show me the Employment Separation Policy
+    - show me the Employee Separation Policy
+    - What types of separation are available (voluntary, involuntary, retirement)?
+    - What is the timeline for completing the separation process?
+    - What is the policy for providing notice of separation?
+    - Are there any benefits or severance packages associated with separation?
+    - How are unused PTO (paid time off) days handled during separation?
+    - What is the policy for returning company property during separation?
+    - Is there an exit interview or survey for separated employees?
+    - What are the consequences for violating the separation policy?
+    - Is there an appeals process for separation decisions that are disputed?
+
+- intent: WorkingHoursPolicy
+  examples: |
+    - whats the policy for working hours
+    - work hrs Policy?
+    - show me the work hrs Policy
+    - What are the regular working hours?
+    - Is there a policy for flexible working hours or remote work?
+    - What is the process for requesting time off or leave?
+    - Is there a policy for overtime work or compensation for extra hours worked?
+    - What is the process for reporting and recording working hours?
+    - Is there a policy for employees who work part-time or on a job-share basis?
+    - What is the policy for employees who work on weekends or public holidays?
+    - Are there any limits to the number of hours an employee can work in a day or week?
+    - Is there a policy for employees who need to work outside regular hours due to project deadlines or urgent tasks?
+    - What is the policy for employees who have work-related travel outside regular working hours?
+
+- intent: PayrollPolicies
+  examples: |
+    - Payroll policy
+    - payroll Policies
+    - What are the company's payroll policies?
+    - Can you explain the payroll policies to me?
+    - How does the company handle payroll procedures?
+    - Show me the payroll policies document.
+    - Is there a policy for salary increments or bonuses?
+    - What is the process for payroll disbursement?
+    - Are there any guidelines for payroll deductions or taxes?
+    - How often are payroll adjustments or revisions made?
+    - Is there a policy for handling payroll discrepancies or errors?
+    - What are the company's guidelines for payroll confidentiality?
+    - Explain the process for payroll-related reimbursements or allowances.
+    - What is the policy for employees on leave with regard to payroll?
+    - Can you provide details about the payroll schedule and deadlines?
+    - How does the company manage payroll for employees on different contract types?
+    - Are there any specific provisions for payroll during company holidays or shutdowns?
+    - What is the policy for payroll advances or loans for employees?
+    - How are employee benefits and contributions handled in the payroll system?
+    - Is there a process for addressing payroll-related queries or concerns from employees?
+    - Explain the policy for managing payroll during periods of business disruption or emergencies.
+
+- intent: PersonnelPolicies
+  examples: |
+    - Personnel policy
+    - personnel Policy
+    - What are the company's personal policies?
+    - Can you explain the personal policies to me?
+    - How does the company handle personnel management?
+    - Show me the personnel policies document.
+    - What is the process for onboarding new employees?
+    - Are there any guidelines for employee performance evaluations or appraisals?
+    - Explain the process for employee promotions and career development.
+    - Is there a policy for addressing employee grievances or conflicts?
+    - What are the guidelines for employee code of conduct and ethics?
+    - How does the company handle disciplinary actions or warnings for employees?
+    - Can you provide details about the company's diversity and inclusion policies?
+    - What is the policy for managing employee benefits and compensation?
+    - How does the company ensure employee health and safety in the workplace?
+    - Is there a process for addressing employee complaints or concerns?
+    - What are the guidelines for employee training and skill development programs?
+    - Explain the company's policies for managing employee work schedules and leaves.
+    - How are employee resignations and exit procedures managed in the company?
+    - Are there any provisions for employee recognition or rewards programs?
+    - What is the company's policy on remote work or telecommuting for employees?
+    - Can you provide details about the company's policies on data privacy and security for employees?
+
+- intent: GrievancePolicy
+  examples: |
+    - Greivance policy
+    - greivance policy
+    - greivance pol
+    - What is the company's grievance policy?
+    - Can you explain the grievance policy to me?
+    - How does the company handle employee grievances?
+    - Show me the grievance policy document.
+    - What is the process for filing a formal grievance?
+    - Are there any guidelines for addressing workplace conflicts or issues?
+    - Explain the steps for resolving employee complaints or concerns.
+    - Is there a policy for ensuring confidentiality during the grievance process?
+    - How does the company handle anonymous grievances or feedback from employees?
+    - Can you provide details about the time frame for addressing employee grievances?
+    - What are the guidelines for investigating and resolving employee grievances?
+    - Is there a process for escalation if an employee is not satisfied with the grievance resolution?
+    - Explain the policy for protection against retaliation for employees who file grievances.
+    - How are employee rights and protections ensured during the grievance handling process?
+    - What resources or support systems are available to employees during the grievance process?
+    - Can you provide examples of valid reasons for filing a grievance within the company?
+    - What is the policy for maintaining records and documentation related to employee grievances?
+    - Are there any provisions for employee representation or advocacy during the grievance process?
+    - How does the company ensure fairness and impartiality in the grievance resolution process?
+    - Can you explain the communication process for updating employees on the status of their grievances?
+
+- intent: TalentAcquisitionPolicy
+  examples: |
+    - Talent Acquisition Policy
+    - Talent Acquisition policy
+    - Talent acquisition Policy
+    - talent acquisition Policy
+    - What is the company's talent acquisition policy?
+    - Can you explain the talent acquisition policy to me?
+    - How does the company handle the recruitment and hiring process?
+    - Show me the talent acquisition policy document.
+    - What is the process for posting job vacancies and open positions?
+    - Are there any guidelines for conducting interviews and assessments?
+    - Explain the steps for selecting and onboarding new employees.
+    - Is there a policy for ensuring diversity and inclusion in the hiring process?
+    - How does the company handle background checks and reference verifications for candidates?
+    - Can you provide details about the company's employee referral program and incentives?
+    - What are the guidelines for creating job descriptions and defining role requirements?
+    - Is there a process for talent pipelining and proactive recruitment strategies?
+    - Explain the policy for managing external recruitment agencies and vendors.
+    - What resources or tools are available to hiring managers for efficient talent acquisition?
+    - Can you provide examples of the company's best practices for attracting top talent?
+    - What is the policy for internal mobility and career progression within the organization?
+    - Are there any provisions for employee development and training during the hiring process?
+    - How does the company ensure a positive candidate experience during the recruitment process?
+    - Can you explain the communication process for updating candidates on the status of their applications?
+    - What is the company's policy for handling candidate data and privacy during the hiring process?
+
+- intent: LearningAndDevelopmentPolicies
+  examples: |
+    - L and D Policies
+    - Learning and development Policies
+    - learning and development Policies
+    - learn and dev Policy
+    - What are the company's learning and development policies?
+    - Can you explain the learning and development policies to me?
+    - How does the company handle employee training and skill development?
+    - Show me the learning and development policy document.
+    - What is the process for identifying employee training needs and requirements?
+    - Are there any guidelines for creating personalized learning plans for employees?
+    - Explain the steps for conducting internal training programs and workshops.
+    - Is there a policy for providing financial support or reimbursements for employee education?
+    - How does the company promote a culture of continuous learning and upskilling?
+    - Can you provide details about the company's mentorship and coaching programs for employees?
+    - What are the guidelines for evaluating the effectiveness of training and development initiatives?
+    - Is there a process for offering online learning resources and courses to employees?
+    - Explain the policy for encouraging knowledge sharing and collaboration among employees.
+    - What resources or tools are available to employees for self-directed learning and development?
+    - Can you provide examples of successful career development paths within the organization?
+    - What is the policy for conducting performance reviews and assessments linked to employee development?
+    - Are there any provisions for talent identification and succession planning through learning programs?
+    - How does the company ensure equal access to learning and development opportunities for all employees?
+    - Can you explain the communication process for updating employees on upcoming training initiatives?
+    - What is the company's policy for handling employee feedback and suggestions for learning programs?
+
+- intent: OrganizationalDevelopmentPolicies
+  examples: |
+    - Organization Development policies
+    - Organization Development policy
+    - Organization development policy
+    - Org Development policy
+    - org Development policy
+    - What are the company's organizational development policies?
+    - Can you explain the organizational development policies to me?
+    - How does the company approach organizational growth and change management?
+    - Show me the organizational development policy document.
+    - What is the process for conducting organizational assessments and audits?
+    - Are there any guidelines for developing and implementing organizational change initiatives?
+    - Explain the steps for fostering a positive organizational culture and values.
+    - Is there a policy for promoting diversity and inclusion within the organization?
+    - How does the company handle leadership development and succession planning?
+    - Can you provide details about the company's strategies for fostering employee engagement and motivation?
+    - What are the guidelines for managing organizational communication and transparency?
+    - Is there a process for promoting teamwork and collaboration across different departments?
+    - Explain the policy for addressing organizational challenges and restructuring efforts.
+    - What resources or tools are available to employees for understanding the company's mission and vision?
+    - Can you provide examples of successful organizational development initiatives within the company?
+    - What is the policy for handling employee feedback and suggestions for organizational improvements?
+    - Are there any provisions for promoting a healthy work-life balance and employee well-being?
+    - How does the company ensure the alignment of individual goals with the organization's objectives?
+    - Can you explain the communication process for updating employees on organizational changes and developments?
+    - What is the company's policy for maintaining organizational stability during periods of growth or transition?

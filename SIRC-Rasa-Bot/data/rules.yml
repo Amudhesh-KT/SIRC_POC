@@ -128,3 +128,61 @@ rules:
   - action: action_budget_details
 
 #                                       BUDGET DETAILS                                                   #
+
+
+#                                       POLICIES                                                   #
+- rule: company policies
+  steps:
+  - intent: policies
+  - action: action_policies
+
+
+- rule: LearningAndDevelopmentPolicies
+  steps:
+  - intent: LearningAndDevelopmentPolicies
+  - action: action_LearningAndDevelopmentPolicies
+
+- rule: Give TalentAcquisitionPolicy when user asks for it
+  steps:
+  - intent: TalentAcquisitionPolicy
+  - action: action_TalentAcquisitionPolicy
+
+- rule: Give GrievancePolicy when user asks for it
+  steps:
+  - intent: GrievancePolicy
+  - action: action_GrievancePolicy
+
+- rule: Give PersonnelPolicies when user asks for it
+  steps:
+  - intent: PersonnelPolicies
+  - action: action_PersonnelPolicies
+
+- rule: Give PayrollPolicies when user asks for it
+  steps:
+  - intent: PayrollPolicies
+  - action: action_PayrollPolicies
+
+- rule: Give WorkingHoursPolicy when user asks for it
+  steps:
+  - intent: WorkingHoursPolicy
+  - action: action_WorkingHoursPolicy
+
+- rule: Give SeparationPolicy when user asks for it
+  steps:
+  - intent: SeparationPolicy
+  - action: action_SeparationPolicy
+
+- rule: Give leavepolicies when user asks for it
+  steps:
+  - intent: leavepolicies
+  - action: action_leavepolicies
+
+- rule: Give travelpolicies when user asks for it
+  steps:
+  - intent: travelpolicies
+  - action: action_travelpolicies
+
+- rule: Give OrganizationalDevelopmentPolicies when user asks for it
+  steps:
+  - intent: OrganizationalDevelopmentPolicies
+  - action: action_OrganizationalDevelopmentPolicies

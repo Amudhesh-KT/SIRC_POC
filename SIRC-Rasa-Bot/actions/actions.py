@@ -43,7 +43,7 @@ class ActionPRItemList(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # global prno
+        global prno
         # prno = tracker.get_slot("pr_number")
         prnotext = tracker.latest_message["text"]
         prno = prnotext.split()[-1]
@@ -79,15 +79,15 @@ class ActionPRItemDescription(Action):
         # global Pending_PR_Flag 
         Pending_PR_Flag = 1
         
-        # global pritemno, prno
+        global pritemno, prno
         # prno = tracker.get_slot("pr_number")
         # pritemno = tracker.get_slot("pr_itemnumber")
-        metadata = tracker.latest_message.get("metadata")
+        # metadata = tracker.latest_message.get("metadata")
 
-        # prnotext = tracker.latest_message["text"]
+        prnotext = tracker.latest_message["text"]
 
-        prno = metadata['prnumber']
-        pritemno = metadata['pritem']
+        # prno = metadata['prnumber']
+        # pritemno = metadata['pritem']
         pritemno = pritemno.split()[-1]
         prno = prno.split()[-1]
 

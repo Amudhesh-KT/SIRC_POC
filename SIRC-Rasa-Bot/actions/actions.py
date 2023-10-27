@@ -56,7 +56,7 @@ class ActionPRItemList(Action):
 
         send = {
             "id": prno,
-            "requests": itemlist,
+            "data": itemlist,
             "msg": "The PR items lists are given below. Choose Any one to see the Item description",
         }
         
@@ -85,11 +85,11 @@ class ActionPRItemDescription(Action):
         # metadata = tracker.latest_message.get("metadata")
 
         prnotext = tracker.latest_message["text"]
-
+        print(prnotext)
         # prno = metadata['prnumber']
         # pritemno = metadata['pritem']
-        pritemno = pritemno.split()[-1]
-        prno = prno.split()[-1]
+        pritemno = prnotext.split()[-1]
+        prno = prnotext.split()[1]
 
         print(prno,pritemno)
 
@@ -116,14 +116,14 @@ class ActionPRApprove(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # pr_no = tracker.get_slot("prnumber")
         # print("PR approve",pr_no)
-        # prnotext = tracker.latest_message["text"]
+        prnotext = tracker.latest_message["text"]
 
-        metadata = tracker.latest_message.get("metadata")
-        # prno = prnotext.split()[-1]
+        # metadata = tracker.latest_message.get("metadata")
+        prno = prnotext.split()[-1]
         # prno = tracker.get_slot("pr_number")
-        prno = metadata['pr_number']
-        status = metadata['status']
-        comments = metadata['comments']
+        # prno = metadata['pr_number']
+        status = 'Approved'
+        comments = 'Nil'
         res = pr_approval(prno,status,comments)
         if res:
             dispatcher.utter_message(text=f'PR {prno} was Approved Successfully')
@@ -143,15 +143,17 @@ class ActionPRReject(Action):
         # pr_no = tracker.get_slot("prnumber")
         # print("PR reject",pr_no)
         # dispatcher.utter_message(text="Purchase Request Rejected")
-        # prnotext = tracker.latest_message["text"]
+        prnotext = tracker.latest_message["text"]
         metadata = tracker.latest_message.get("metadata")
-        # prno = prnotext.split()[-1]
+        prno = prnotext.split()[-1]
         # prno = tracker.get_slot("pr_number")
-        prno = metadata['pr_number']
-        prno = prno.split()[-1]
-        status = metadata['status']
-        comments = metadata['comments']
-
+        # prno = metadata['pr_number']
+        # prno = prno.split()[-1]
+        status = 'Rejected'
+        if metadata:
+            comments = metadata['comments']
+        else:
+            comments = 'Nil'
         res = pr_approval(prno,status,comments)
         if res:
             dispatcher.utter_message(text=f'PR {prno} was Rejected Successfully')

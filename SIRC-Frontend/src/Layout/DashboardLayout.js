@@ -137,6 +137,7 @@ function DashboardLayout({ children }) {
       msg: actionValue,
       actions: [],
       links: [],
+      data: [],
       details: { showButtons: false, data: {} },
     };
 
@@ -172,6 +173,8 @@ function DashboardLayout({ children }) {
               response_temp["msg"] = recipient_msg["msg"];
             if (recipient_msg["requests"])
               response_temp["actions"] = recipient_msg["requests"];
+            if (recipient_msg["data"])
+              response_temp["data"] = recipient_msg["data"];
             if (recipient_msg["links"])
               response_temp["links"] = recipient_msg["links"];
             if (recipient_msg["details"]) {
@@ -977,6 +980,88 @@ function DashboardLayout({ children }) {
                           ) : (
                             <></>
                           )}
+                          {chatContent.data ? (
+                            <div
+                              className="chatscreen-content-actions"
+                              style={{
+                                justifyContent:
+                                  chatContent.sender === "bot"
+                                    ? "flex-start"
+                                    : "flex-end",
+                              }}
+                            >
+                              {chatContent.data
+                                .slice(
+                                  0,
+                                  chatContent.chat_id === viewMoreState.id
+                                    ? viewMoreState.count
+                                    : 10
+                                )
+                                .map((action, actionIndex) => (
+                                  <Button
+                                    variant={"contained"}
+                                    key={actionIndex}
+                                    size="small"
+                                    sx={{
+                                      borderColor: darkMode
+                                        ? "transparent"
+                                        : "",
+                                      backgroundColor: darkMode
+                                        ? "#15357e"
+                                        : "",
+                                    }}
+                                    style={{
+                                      margin: "5px 10px 5px 0px",
+                                      textTransform: "capitalize",
+                                      letterSpacing: "0.4px",
+                                      fontSize: "10px",
+                                      fontWeight: "550",
+                                    }}
+                                    color="error"
+                                    onClick={(e) => {
+                                      handleButtonRequest(action.intent);
+                                    }}
+                                  >
+                                    {action.text}
+                                  </Button>
+                                ))}
+                              {chatContent.data.length > 0 ? (
+                                <Button
+                                  variant={"contained"}
+                                  size="small"
+                                  style={{
+                                    margin: "5px 10px 5px 0px",
+                                    textTransform: "capitalize",
+                                    letterSpacing: "0.4px",
+                                    fontSize: "10px",
+                                    fontWeight: "550",
+                                  }}
+                                  sx={{
+                                    borderColor: darkMode ? "transparent" : "",
+                                    backgroundColor: darkMode ? "#15357e" : "",
+                                  }}
+                                  color="error"
+                                  onClick={(e) => {
+                                    chatContent.chat_id === viewMoreState.id
+                                      ? setViewMoreState({
+                                          ...viewMoreState,
+                                          count: viewMoreState.count + 10,
+                                        })
+                                      : setViewMoreState({
+                                          id: chatContent.chat_id,
+                                          count: 20,
+                                        });
+                                  }}
+                                >
+                                  View More
+                                </Button>
+                              ) : (
+                                <></>
+                              )}
+                            </div>
+                          ) : (
+                            <></>
+                          )}
                           {chatContent.details &&
                           chatContent.details.data &&
                           Object.keys(chatContent.details.data).length > 0 ? (
@@ -1041,38 +1126,44 @@ function DashboardLayout({ children }) {
                                       width: "30%",
                                     }}
                                     color="success"
-                                    onClick={() =>
-                                      setOpenDialog({
-                                        ...openDialog,
-                                        open: true,
-                                        type: chatContent.details.type,
-                                        buttonType: "approve",
-                                        value:
-                                          chatContent.details.type === "PR"
-                                            ? chatContent.details.data[
-                                                "Purchase Requisition Number"
-                                              ]
-                                            : chatContent.details.type === "PL"
-                                            ? chatContent.details.data[
-                                                "Leave Id"
-                                              ]
-                                            : chatContent.details.type === "PO"
-                                            ? chatContent.details.data[
-                                                "Purchase_Order_Number"
-                                              ]
-                                            : chatContent.details.type === "IN"
-                                            ? chatContent.details.data[
-                                                "Invocie_no"
-                                              ]
-                                            : "",
-                                      })
+                                    onClick={
+                                      () => {
+                                        if (chatContent.details.type === "PR")
+                                          handleButtonRequest(
+                                            `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                                          );
+                                      }
+                                      // setOpenDialog({
+                                      //   ...openDialog,
+                                      //   open: true,
+                                      //   type: chatContent.details.type,
+                                      //   buttonType: "approve",
+                                      //   value:
+                                      //     chatContent.details.type === "PR"
+                                      //       ? chatContent.details.data[
+                                      //           "Purchase Requisition Number"
+                                      //         ]
+                                      //       : chatContent.details.type === "PL"
+                                      //       ? chatContent.details.data[
+                                      //           "Leave Id"
+                                      //         ]
+                                      //       : chatContent.details.type === "PO"
+                                      //       ? chatContent.details.data[
+                                      //           "Purchase_Order_Number"
+                                      //         ]
+                                      //       : chatContent.details.type === "IN"
+                                      //       ? chatContent.details.data[
+                                      //           "Invocie_no"
+                                      //         ]
+                                      //       : "",
+                                      // })
                                     }
                                     // onClick={(e) => {
                                     //   console.log(chatContent.details.type);
-                                    //   if (chatContent.details.type === "PR")
-                                    //     handleButtonRequest(
-                                    //       `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
-                                    //     );
+                                    // if (chatContent.details.type === "PR")
+                                    //   handleButtonRequest(
+                                    //     `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                                    //   );
                                     //   else if (chatContent.details.type === "PL")
                                     //     handleButtonRequest(
                                     //       `Approve PL ${chatContent.details.data["Leave Id"]}`
@@ -1097,30 +1188,30 @@ function DashboardLayout({ children }) {
                                     }}
                                     color="error"
                                     onClick={() => {
-                                      setOpenDialog({
-                                        ...openDialog,
-                                        open: true,
-                                        type: chatContent.details.type,
-                                        buttonType: "reject",
-                                        value:
-                                          chatContent.details.type === "PR"
-                                            ? chatContent.details.data[
-                                                "Purchase Requisition Number"
-                                              ]
-                                            : chatContent.details.type === "PL"
-                                            ? chatContent.details.data[
-                                                "Leave Id"
-                                              ]
-                                            : chatContent.details.type === "PO"
-                                            ? chatContent.details.data[
-                                                "Purchase_Order_Number"
-                                              ]
-                                            : chatContent.details.type === "IN"
-                                            ? chatContent.details.data[
-                                                "Invocie_no"
-                                              ]
-                                            : "",
-                                      });
+                                      // setOpenDialog({
+                                      //   ...openDialog,
+                                      //   open: true,
+                                      //   type: chatContent.details.type,
+                                      //   buttonType: "reject",
+                                      //   value:
+                                      //     chatContent.details.type === "PR"
+                                      //       ? chatContent.details.data[
+                                      //           "Purchase Requisition Number"
+                                      //         ]
+                                      //       : chatContent.details.type === "PL"
+                                      //       ? chatContent.details.data[
+                                      //           "Leave Id"
+                                      //         ]
+                                      //       : chatContent.details.type === "PO"
+                                      //       ? chatContent.details.data[
+                                      //           "Purchase_Order_Number"
+                                      //         ]
+                                      //       : chatContent.details.type === "IN"
+                                      //       ? chatContent.details.data[
+                                      //           "Invocie_no"
+                                      //         ]
+                                      //       : "",
+                                      // });
                                     }}
                                     // onClick={(e) => {
                                     //   console.log(chatContent.details.type);

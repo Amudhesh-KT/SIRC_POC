@@ -40,6 +40,7 @@ def pr_item_description(pr_no,pr_item):
     res = pr_details.find_one({'pr_num':int(pr_no)})
     if(int(pr_item) == 10):
         des = {
+            'Purchase Requisition Number': pr_no,
             'Item Number':res['Item_10_number'],
             'Plant':res['Item_10_Plant'],
             'Total Price':res['Item_10_Total_Price'],
@@ -49,6 +50,7 @@ def pr_item_description(pr_no,pr_item):
         }
     else:
         des = {
+            'Purchase Requisition Number': pr_no,
             'Item Number':res['Item_20_number'],
             'Plant':res['Item_20_Plant'],
             'Total Price':res['Item_20_Total_Price'],
@@ -64,8 +66,8 @@ def pr_approval(pr_no,status,comments):
     a = pr_details.find_one({'pr_num' : int(pr_no)})
     if a['Status'] == "Pending":
         res = True
-        pr_details.update_one({'pr_num': pr_no}, {"$set": {'Status': status}})
-        pr_details.update_one({'pr_num': pr_no}, {"$set": {'Comments': comments}})
+        pr_details.update_one({'pr_num': int(pr_no)}, {"$set": {'Status': status}})
+        pr_details.update_one({'pr_num': int(pr_no)}, {"$set": {'Comments': comments}})
         
     else:
         res =  False

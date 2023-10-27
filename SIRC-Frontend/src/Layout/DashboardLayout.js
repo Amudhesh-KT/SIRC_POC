@@ -796,67 +796,39 @@ function DashboardLayout({ children }) {
                 background: "#fff",
               }}
             >
-              <SimpleBar style={{ height: "381px" }}>
-                <Box
-                  ref={chatScreenContent}
-                  sx={{
-                    maxHeight: "381px",
-                    overflowY: "auto",
-                  }}
-                >
-                  {chat.map((chatContent, index) => {
-                    return (
-                      <div key={index}>
-                        <div>
-                          {chatContent.msg ? (
-                            <>
-                              {chatContent.sender === "bot" ? (
+              <Box
+                ref={chatScreenContent}
+                sx={{
+                  maxHeight: { xs: "300px", md: "381px" },
+                  overflowY: "auto",
+                }}
+              >
+                {chat.map((chatContent, index) => {
+                  return (
+                    <div key={index}>
+                      <div>
+                        {chatContent.msg ? (
+                          <>
+                            {chatContent.sender === "bot" ? (
+                              <Box
+                                display="flex"
+                                alignItems={"center"}
+                                sx={{ px: 2, py: 1, width: "100%" }}
+                              >
+                                <Image src={ChatLogo1} alt="conv-logo" />
                                 <Box
-                                  display="flex"
-                                  alignItems={"center"}
-                                  sx={{ px: 2, py: 1, width: "100%" }}
-                                >
-                                  <Image src={ChatLogo1} alt="conv-logo" />
-                                  <Box
-                                    display={"flex"}
-                                    flexDirection={"column"}
-                                    sx={{ px: 2, maxWidth: "75%" }}
-                                  >
-                                    <Box
-                                      display={"flex"}
-                                      alignItems={"center"}
-                                      sx={{
-                                        minHeight: "32px",
-                                        background: "#f2f1f9",
-                                        border: "1px solid #6e6da8",
-                                        borderRadius: "18px 18px 18px 0px",
-                                      }}
-                                    >
-                                      <Typography
-                                        variant="h6"
-                                        sx={{ color: "#666666", p: 1 }}
-                                      >
-                                        {chatContent.msg}
-                                      </Typography>
-                                    </Box>
-                                  </Box>
-                                </Box>
-                              ) : (
-                                <Box
-                                  display="flex"
-                                  alignItems={"center"}
-                                  flexDirection={"row-reverse"}
-                                  sx={{ px: 2, py: 1, width: "100%" }}
+                                  display={"flex"}
+                                  flexDirection={"column"}
+                                  sx={{ px: 2, maxWidth: "75%" }}
                                 >
                                   <Box
                                     display={"flex"}
                                     alignItems={"center"}
                                     sx={{
                                       minHeight: "32px",
-                                      width: "fit-content",
-                                      background: "#e6f7f3",
-                                      border: "1px solid #00A886",
-                                      borderRadius: "18px 18px 0px 18px",
+                                      background: "#f2f1f9",
+                                      border: "1px solid #6e6da8",
+                                      borderRadius: "18px 18px 18px 0px",
                                     }}
                                   >
                                     <Typography
@@ -867,448 +839,466 @@ function DashboardLayout({ children }) {
                                     </Typography>
                                   </Box>
                                 </Box>
-                              )}
-                            </>
-                          ) : (
-                            <></>
-                          )}
-
-                          {chatContent.links ? (
-                            <Box display="flex" flexWrap={"wrap"} px={2}>
-                              {chatContent.links.map((link, linkIndex) => (
-                                <Chip
-                                  sx={{
-                                    background: "#7473C0",
-                                    color: "#fff",
-                                    width: "fit-content",
-                                    px: 1.5,
-                                    m: 0.5,
-                                  }}
-                                  label={
-                                    <a
-                                      style={{ color: "#fff" }}
-                                      href={link.link}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                    >
-                                      {link.tag}
-                                    </a>
-                                  }
-                                  target="_blank"
-                                ></Chip>
-                              ))}
-                            </Box>
-                          ) : (
-                            <></>
-                          )}
-
-                          {chatContent.actions ? (
-                            <Box px={2}>
-                              {chatContent.actions
-                                .slice(
-                                  0,
-                                  chatContent.chat_id === viewMoreState.id
-                                    ? viewMoreState.count
-                                    : 10
-                                )
-                                .map((action, actionIndex) => (
-                                  <Button
-                                    variant={"contained"}
-                                    key={actionIndex}
-                                    size="small"
-                                    sx={{
-                                      borderColor: darkMode
-                                        ? "transparent"
-                                        : "",
-                                      backgroundColor: darkMode
-                                        ? "#15357e"
-                                        : "",
-                                    }}
-                                    style={{
-                                      margin: "5px 10px 5px 0px",
-                                      textTransform: "capitalize",
-                                      letterSpacing: "0.4px",
-                                      fontSize: "10px",
-                                      fontWeight: "550",
-                                    }}
-                                    color="error"
-                                    onClick={(e) => {
-                                      handleButtonRequest(action);
-                                    }}
-                                  >
-                                    {action}
-                                  </Button>
-                                ))}
-                              {chatContent.actions.length > 0 ? (
-                                <Button
-                                  variant={"contained"}
-                                  size="small"
-                                  style={{
-                                    margin: "5px 10px 5px 0px",
-                                    textTransform: "capitalize",
-                                    letterSpacing: "0.4px",
-                                    fontSize: "10px",
-                                    fontWeight: "550",
-                                  }}
-                                  sx={{
-                                    borderColor: darkMode ? "transparent" : "",
-                                    backgroundColor: darkMode ? "#15357e" : "",
-                                  }}
-                                  color="error"
-                                  onClick={(e) => {
-                                    chatContent.chat_id === viewMoreState.id
-                                      ? setViewMoreState({
-                                          ...viewMoreState,
-                                          count: viewMoreState.count + 10,
-                                        })
-                                      : setViewMoreState({
-                                          id: chatContent.chat_id,
-                                          count: 20,
-                                        });
-                                  }}
-                                >
-                                  View More
-                                </Button>
-                              ) : (
-                                <></>
-                              )}
-                            </Box>
-                          ) : (
-                            <></>
-                          )}
-                          {chatContent.data ? (
-                            <Box px={2}>
-                              {chatContent.data
-                                .slice(
-                                  0,
-                                  chatContent.chat_id === viewMoreState.id
-                                    ? viewMoreState.count
-                                    : 10
-                                )
-                                .map((action, actionIndex) => (
-                                  <Button
-                                    variant={"contained"}
-                                    key={actionIndex}
-                                    size="small"
-                                    sx={{
-                                      borderColor: darkMode
-                                        ? "transparent"
-                                        : "",
-                                      backgroundColor: darkMode
-                                        ? "#15357e"
-                                        : "",
-                                    }}
-                                    style={{
-                                      margin: "5px 10px 5px 0px",
-                                      textTransform: "capitalize",
-                                      letterSpacing: "0.4px",
-                                      fontSize: "10px",
-                                      fontWeight: "550",
-                                    }}
-                                    color="error"
-                                    onClick={(e) => {
-                                      handleButtonRequest(action.intent);
-                                    }}
-                                  >
-                                    {action.text}
-                                  </Button>
-                                ))}
-                              {chatContent.data.length > 0 ? (
-                                <Button
-                                  variant={"contained"}
-                                  size="small"
-                                  style={{
-                                    margin: "5px 10px 5px 0px",
-                                    textTransform: "capitalize",
-                                    letterSpacing: "0.4px",
-                                    fontSize: "10px",
-                                    fontWeight: "550",
-                                  }}
-                                  sx={{
-                                    borderColor: darkMode ? "transparent" : "",
-                                    backgroundColor: darkMode ? "#15357e" : "",
-                                  }}
-                                  color="error"
-                                  onClick={(e) => {
-                                    chatContent.chat_id === viewMoreState.id
-                                      ? setViewMoreState({
-                                          ...viewMoreState,
-                                          count: viewMoreState.count + 10,
-                                        })
-                                      : setViewMoreState({
-                                          id: chatContent.chat_id,
-                                          count: 20,
-                                        });
-                                  }}
-                                >
-                                  View More
-                                </Button>
-                              ) : (
-                                <></>
-                              )}
-                            </Box>
-                          ) : (
-                            <></>
-                          )}
-                          {chatContent.details &&
-                          chatContent.details.data &&
-                          Object.keys(chatContent.details.data).length > 0 ? (
-                            <Box
-                              mx={2}
-                              sx={{
-                                background: "#f2f1f9",
-                                border: "1px solid #6e6da8",
-                                borderRadius: "18px 18px 18px 0px",
-                                p: 1,
-                              }}
-                            >
-                              {Object.keys(chatContent.details.data).map(
-                                (key, detailsIndex) => (
-                                  <div>
-                                    <span
-                                      style={{
-                                        color: "#000",
-                                        fontSize: "14px",
-                                        fontWeight: 500,
-                                      }}
-                                    >
-                                      {key?.replace(/_/g, " ")}
-                                    </span>
-                                    <span
-                                      style={{
-                                        margin: "0px 4px",
-                                        fontSize: "14px",
-                                        color: darkMode ? "lightskyblue" : "",
-                                      }}
-                                    >
-                                      :
-                                    </span>
-                                    <span
-                                      style={{
-                                        fontSize: "14px",
-                                        color: darkMode ? "#e5ebff" : "",
-                                      }}
-                                    >
-                                      {chatContent.details.data[key]}
-                                    </span>
-                                  </div>
-                                )
-                              )}
-                              {chatContent.details.showButtons ? (
+                              </Box>
+                            ) : (
+                              <Box
+                                display="flex"
+                                alignItems={"center"}
+                                flexDirection={"row-reverse"}
+                                sx={{ px: 2, py: 1, width: "100%" }}
+                              >
                                 <Box
-                                  diaplay="flex"
+                                  display={"flex"}
                                   alignItems={"center"}
-                                  sx={{ mt: 1 }}
+                                  sx={{
+                                    minHeight: "32px",
+                                    width: "fit-content",
+                                    background: "#e6f7f3",
+                                    border: "1px solid #00A886",
+                                    borderRadius: "18px 18px 0px 18px",
+                                  }}
                                 >
-                                  <Button
-                                    variant={"contained"}
-                                    size="medium"
-                                    color="primary"
-                                    onClick={
-                                      () => {
-                                        if (chatContent.details.type === "PR") {
-                                          handleButtonRequest(
-                                            `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
-                                          );
-                                          setOpenDialog({
-                                            open: false,
-                                            value: "",
-                                            comment: "",
-                                            type: "",
-                                          });
-                                        } else if (
-                                          chatContent.details.type === "PO"
-                                        ) {
-                                          handleButtonRequest(
-                                            `Approve PO ${chatContent.details.data["Purchase Requisition Number"]}`
-                                          );
-                                          setOpenDialog({
-                                            open: false,
-                                            value: "",
-                                            comment: "",
-                                            type: "",
-                                          });
-                                        }
-                                      }
-                                      // setOpenDialog({
-                                      //   ...openDialog,
-                                      //   open: true,
-                                      //   type: chatContent.details.type,
-                                      //   buttonType: "approve",
-                                      //   value:
-                                      //     chatContent.details.type === "PR"
-                                      //       ? chatContent.details.data[
-                                      //           "Purchase Requisition Number"
-                                      //         ]
-                                      //       : chatContent.details.type === "PL"
-                                      //       ? chatContent.details.data[
-                                      //           "Leave Id"
-                                      //         ]
-                                      //       : chatContent.details.type === "PO"
-                                      //       ? chatContent.details.data[
-                                      //           "Purchase_Order_Number"
-                                      //         ]
-                                      //       : chatContent.details.type === "IN"
-                                      //       ? chatContent.details.data[
-                                      //           "Invocie_no"
-                                      //         ]
-                                      //       : "",
-                                      // })
-                                    }
-                                    // onClick={(e) => {
-                                    //   console.log(chatContent.details.type);
-                                    // if (chatContent.details.type === "PR")
-                                    //   handleButtonRequest(
-                                    //     `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
-                                    //   );
-                                    //   else if (chatContent.details.type === "PL")
-                                    //     handleButtonRequest(
-                                    //       `Approve PL ${chatContent.details.data["Leave Id"]}`
-                                    //     );
-                                    // }}
+                                  <Typography
+                                    variant="h6"
+                                    sx={{ color: "#666666", p: 1 }}
                                   >
-                                    Approve
-                                  </Button>
-                                  <Button
-                                    sx={{ mx: 1 }}
-                                    variant={"contained"}
-                                    size="medium"
-                                    color="error"
-                                    onClick={() => {
-                                      setOpenDialog({
-                                        ...openDialog,
-                                        open: true,
-                                        type: chatContent.details.type,
-                                        value:
-                                          chatContent.details.type === "PR"
-                                            ? chatContent.details.data[
-                                                "Purchase Requisition Number"
-                                              ]
-                                            : chatContent.details.type === "PO"
-                                            ? chatContent.details.data[
-                                                "Purchase Order Number"
-                                              ]
-                                            : "",
-                                      });
-                                      // setOpenDialog({
-                                      //   ...openDialog,
-                                      //   open: true,
-                                      //   type: chatContent.details.type,
-                                      //   buttonType: "reject",
-                                      // value:
-                                      //   chatContent.details.type === "PR"
-                                      //     ? chatContent.details.data[
-                                      //         "Purchase Requisition Number"
-                                      //       ]
-                                      //     : chatContent.details.type === "PL"
-                                      //       ? chatContent.details.data[
-                                      //           "Leave Id"
-                                      //         ]
-                                      //       : chatContent.details.type === "PO"
-                                      //       ? chatContent.details.data[
-                                      //           "Purchase_Order_Number"
-                                      //         ]
-                                      //       : chatContent.details.type === "IN"
-                                      //       ? chatContent.details.data[
-                                      //           "Invocie_no"
-                                      //         ]
-                                      //       : "",
-                                      // });
-                                    }}
-                                    // onClick={(e) => {
-                                    //   console.log(chatContent.details.type);
-                                    // if (chatContent.details.type === "PR")
-                                    //   handleButtonRequest(
-                                    //     `Reject PR ${chatContent.details.data["Purchase Requisition Number"]}`
-                                    //   );
-                                    // else if (chatContent.details.type === "PL")
-                                    //   handleButtonRequest(
-                                    //     `Reject PL ${chatContent.details.data["Leave Id"]}`
-                                    //   );
-                                    // }}
-                                  >
-                                    Reject
-                                  </Button>
+                                    {chatContent.msg}
+                                  </Typography>
                                 </Box>
-                              ) : (
-                                <></>
-                              )}
-                            </Box>
-                          ) : (
-                            <></>
-                          )}
-                          {chatContent.donutChart ? (
-                            displayDonut(chatContent.donutChart)
-                          ) : (
-                            <></>
-                          )}
-                          {chatContent.pieChart ? (
-                            displayPie(chatContent.pieChart)
-                          ) : (
-                            <></>
-                          )}
-                          {chatContent.lineChart ? (
-                            displayLine(chatContent.lineChart)
-                          ) : (
-                            <></>
-                          )}
-                          {chatContent.cards ? (
-                            <div className="chatscreen-content-cards-container">
-                              {chatContent.cards.map((card, index) => {
-                                return (
-                                  <div
-                                    class="basic-column"
+                              </Box>
+                            )}
+                          </>
+                        ) : (
+                          <></>
+                        )}
+
+                        {chatContent.links ? (
+                          <Box display="flex" flexWrap={"wrap"} px={2}>
+                            {chatContent.links.map((link, linkIndex) => (
+                              <Chip
+                                sx={{
+                                  background: "#7473C0",
+                                  color: "#fff",
+                                  width: "fit-content",
+                                  px: 1.5,
+                                  m: 0.5,
+                                }}
+                                label={
+                                  <a
+                                    style={{ color: "#fff" }}
+                                    href={link.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {link.tag}
+                                  </a>
+                                }
+                                target="_blank"
+                              ></Chip>
+                            ))}
+                          </Box>
+                        ) : (
+                          <></>
+                        )}
+
+                        {chatContent.actions ? (
+                          <Box px={2} sx={{ width: "75%" }}>
+                            {chatContent.actions
+                              .slice(
+                                0,
+                                chatContent.chat_id === viewMoreState.id
+                                  ? viewMoreState.count
+                                  : 10
+                              )
+                              .map((action, actionIndex) => (
+                                <Button
+                                  variant={"contained"}
+                                  key={actionIndex}
+                                  size="small"
+                                  sx={{
+                                    borderColor: darkMode ? "transparent" : "",
+                                    backgroundColor: darkMode ? "#15357e" : "",
+                                  }}
+                                  style={{
+                                    margin: "5px 10px 5px 0px",
+                                    textTransform: "capitalize",
+                                    letterSpacing: "0.4px",
+                                    fontSize: "10px",
+                                    fontWeight: "550",
+                                  }}
+                                  color="error"
+                                  onClick={(e) => {
+                                    handleButtonRequest(action);
+                                  }}
+                                >
+                                  {action}
+                                </Button>
+                              ))}
+                            {chatContent.actions.length > 0 ? (
+                              <Button
+                                variant={"contained"}
+                                size="small"
+                                style={{
+                                  margin: "5px 10px 5px 0px",
+                                  textTransform: "capitalize",
+                                  letterSpacing: "0.4px",
+                                  fontSize: "10px",
+                                  fontWeight: "550",
+                                }}
+                                sx={{
+                                  borderColor: darkMode ? "transparent" : "",
+                                  backgroundColor: darkMode ? "#15357e" : "",
+                                }}
+                                color="error"
+                                onClick={(e) => {
+                                  chatContent.chat_id === viewMoreState.id
+                                    ? setViewMoreState({
+                                        ...viewMoreState,
+                                        count: viewMoreState.count + 10,
+                                      })
+                                    : setViewMoreState({
+                                        id: chatContent.chat_id,
+                                        count: 20,
+                                      });
+                                }}
+                              >
+                                View More
+                              </Button>
+                            ) : (
+                              <></>
+                            )}
+                          </Box>
+                        ) : (
+                          <></>
+                        )}
+                        {chatContent.data ? (
+                          <Box px={2}>
+                            {chatContent.data
+                              .slice(
+                                0,
+                                chatContent.chat_id === viewMoreState.id
+                                  ? viewMoreState.count
+                                  : 10
+                              )
+                              .map((action, actionIndex) => (
+                                <Button
+                                  variant={"contained"}
+                                  key={actionIndex}
+                                  size="small"
+                                  sx={{
+                                    borderColor: darkMode ? "transparent" : "",
+                                    backgroundColor: darkMode ? "#15357e" : "",
+                                  }}
+                                  style={{
+                                    margin: "5px 10px 5px 0px",
+                                    textTransform: "capitalize",
+                                    letterSpacing: "0.4px",
+                                    fontSize: "10px",
+                                    fontWeight: "550",
+                                  }}
+                                  color="error"
+                                  onClick={(e) => {
+                                    handleButtonRequest(action.intent);
+                                  }}
+                                >
+                                  {action.text}
+                                </Button>
+                              ))}
+                            {chatContent.data.length > 0 ? (
+                              <Button
+                                variant={"contained"}
+                                size="small"
+                                style={{
+                                  margin: "5px 10px 5px 0px",
+                                  textTransform: "capitalize",
+                                  letterSpacing: "0.4px",
+                                  fontSize: "10px",
+                                  fontWeight: "550",
+                                }}
+                                sx={{
+                                  borderColor: darkMode ? "transparent" : "",
+                                  backgroundColor: darkMode ? "#15357e" : "",
+                                }}
+                                color="error"
+                                onClick={(e) => {
+                                  chatContent.chat_id === viewMoreState.id
+                                    ? setViewMoreState({
+                                        ...viewMoreState,
+                                        count: viewMoreState.count + 10,
+                                      })
+                                    : setViewMoreState({
+                                        id: chatContent.chat_id,
+                                        count: 20,
+                                      });
+                                }}
+                              >
+                                View More
+                              </Button>
+                            ) : (
+                              <></>
+                            )}
+                          </Box>
+                        ) : (
+                          <></>
+                        )}
+                        {chatContent.details &&
+                        chatContent.details.data &&
+                        Object.keys(chatContent.details.data).length > 0 ? (
+                          <Box
+                            mx={2}
+                            sx={{
+                              background: "#f2f1f9",
+                              border: "1px solid #6e6da8",
+                              borderRadius: "18px 18px 18px 0px",
+                              p: 1,
+                            }}
+                          >
+                            {Object.keys(chatContent.details.data).map(
+                              (key, detailsIndex) => (
+                                <div>
+                                  <span
                                     style={{
-                                      width: "100%",
-                                      marginBottom: "10px",
-                                      marginTop: "10px",
+                                      color: "#000",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
                                     }}
                                   >
-                                    <div class="tag-wrapper">
-                                      <div
-                                        class="number-card number-card-content2"
-                                        style={{
-                                          backgroundImage: darkMode
-                                            ? "-webkit-linear-gradient(270deg, #7042bf, #3023ae)"
-                                            : "rgb(0,27,74)",
-                                        }}
-                                      >
-                                        <div class="number-card-title">
-                                          {card.title}
-                                        </div>
-                                        <div class="number-card-divider"></div>
-                                        <h1 class="number-card-number">
-                                          {NumberFormat(card.value)}
-                                        </h1>
-                                        <div class="number-card-progress-wrapper">
-                                          <div class="tagline number-card-currency">
-                                            {card.year}
-                                          </div>
+                                    {key?.replace(/_/g, " ")}
+                                  </span>
+                                  <span
+                                    style={{
+                                      margin: "0px 4px",
+                                      fontSize: "14px",
+                                      color: darkMode ? "lightskyblue" : "",
+                                    }}
+                                  >
+                                    :
+                                  </span>
+                                  <span
+                                    style={{
+                                      fontSize: "14px",
+                                      color: darkMode ? "#e5ebff" : "",
+                                    }}
+                                  >
+                                    {chatContent.details.data[key]}
+                                  </span>
+                                </div>
+                              )
+                            )}
+                            {chatContent.details.showButtons ? (
+                              <Box
+                                diaplay="flex"
+                                alignItems={"center"}
+                                sx={{ mt: 1 }}
+                              >
+                                <Button
+                                  variant={"contained"}
+                                  size="medium"
+                                  color="primary"
+                                  onClick={
+                                    () => {
+                                      if (chatContent.details.type === "PR") {
+                                        handleButtonRequest(
+                                          `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                                        );
+                                        setOpenDialog({
+                                          open: false,
+                                          value: "",
+                                          comment: "",
+                                          type: "",
+                                        });
+                                      } else if (
+                                        chatContent.details.type === "PO"
+                                      ) {
+                                        handleButtonRequest(
+                                          `Approve PO ${chatContent.details.data["Purchase Order Number"]}`
+                                        );
+                                        setOpenDialog({
+                                          open: false,
+                                          value: "",
+                                          comment: "",
+                                          type: "",
+                                        });
+                                      }
+                                    }
+                                    // setOpenDialog({
+                                    //   ...openDialog,
+                                    //   open: true,
+                                    //   type: chatContent.details.type,
+                                    //   buttonType: "approve",
+                                    //   value:
+                                    //     chatContent.details.type === "PR"
+                                    //       ? chatContent.details.data[
+                                    //           "Purchase Requisition Number"
+                                    //         ]
+                                    //       : chatContent.details.type === "PL"
+                                    //       ? chatContent.details.data[
+                                    //           "Leave Id"
+                                    //         ]
+                                    //       : chatContent.details.type === "PO"
+                                    //       ? chatContent.details.data[
+                                    //           "Purchase_Order_Number"
+                                    //         ]
+                                    //       : chatContent.details.type === "IN"
+                                    //       ? chatContent.details.data[
+                                    //           "Invocie_no"
+                                    //         ]
+                                    //       : "",
+                                    // })
+                                  }
+                                  // onClick={(e) => {
+                                  //   console.log(chatContent.details.type);
+                                  // if (chatContent.details.type === "PR")
+                                  //   handleButtonRequest(
+                                  //     `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                                  //   );
+                                  //   else if (chatContent.details.type === "PL")
+                                  //     handleButtonRequest(
+                                  //       `Approve PL ${chatContent.details.data["Leave Id"]}`
+                                  //     );
+                                  // }}
+                                >
+                                  Approve
+                                </Button>
+                                <Button
+                                  sx={{ mx: 1 }}
+                                  variant={"contained"}
+                                  size="medium"
+                                  color="error"
+                                  onClick={() => {
+                                    setOpenDialog({
+                                      ...openDialog,
+                                      open: true,
+                                      type: chatContent.details.type,
+                                      value:
+                                        chatContent.details.type === "PR"
+                                          ? chatContent.details.data[
+                                              "Purchase Requisition Number"
+                                            ]
+                                          : chatContent.details.type === "PO"
+                                          ? chatContent.details.data[
+                                              "Purchase Order Number"
+                                            ]
+                                          : "",
+                                    });
+                                    // setOpenDialog({
+                                    //   ...openDialog,
+                                    //   open: true,
+                                    //   type: chatContent.details.type,
+                                    //   buttonType: "reject",
+                                    // value:
+                                    //   chatContent.details.type === "PR"
+                                    //     ? chatContent.details.data[
+                                    //         "Purchase Requisition Number"
+                                    //       ]
+                                    //     : chatContent.details.type === "PL"
+                                    //       ? chatContent.details.data[
+                                    //           "Leave Id"
+                                    //         ]
+                                    //       : chatContent.details.type === "PO"
+                                    //       ? chatContent.details.data[
+                                    //           "Purchase_Order_Number"
+                                    //         ]
+                                    //       : chatContent.details.type === "IN"
+                                    //       ? chatContent.details.data[
+                                    //           "Invocie_no"
+                                    //         ]
+                                    //       : "",
+                                    // });
+                                  }}
+                                  // onClick={(e) => {
+                                  //   console.log(chatContent.details.type);
+                                  // if (chatContent.details.type === "PR")
+                                  //   handleButtonRequest(
+                                  //     `Reject PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                                  //   );
+                                  // else if (chatContent.details.type === "PL")
+                                  //   handleButtonRequest(
+                                  //     `Reject PL ${chatContent.details.data["Leave Id"]}`
+                                  //   );
+                                  // }}
+                                >
+                                  Reject
+                                </Button>
+                              </Box>
+                            ) : (
+                              <></>
+                            )}
+                          </Box>
+                        ) : (
+                          <></>
+                        )}
+                        {chatContent.donutChart ? (
+                          displayDonut(chatContent.donutChart)
+                        ) : (
+                          <></>
+                        )}
+                        {chatContent.pieChart ? (
+                          displayPie(chatContent.pieChart)
+                        ) : (
+                          <></>
+                        )}
+                        {chatContent.lineChart ? (
+                          displayLine(chatContent.lineChart)
+                        ) : (
+                          <></>
+                        )}
+                        {chatContent.cards ? (
+                          <div className="chatscreen-content-cards-container">
+                            {chatContent.cards.map((card, index) => {
+                              return (
+                                <div
+                                  class="basic-column"
+                                  style={{
+                                    width: "100%",
+                                    marginBottom: "10px",
+                                    marginTop: "10px",
+                                  }}
+                                >
+                                  <div class="tag-wrapper">
+                                    <div
+                                      class="number-card number-card-content2"
+                                      style={{
+                                        backgroundImage: darkMode
+                                          ? "-webkit-linear-gradient(270deg, #7042bf, #3023ae)"
+                                          : "rgb(0,27,74)",
+                                      }}
+                                    >
+                                      <div class="number-card-title">
+                                        {card.title}
+                                      </div>
+                                      <div class="number-card-divider"></div>
+                                      <h1 class="number-card-number">
+                                        {NumberFormat(card.value)}
+                                      </h1>
+                                      <div class="number-card-progress-wrapper">
+                                        <div class="tagline number-card-currency">
+                                          {card.year}
                                         </div>
                                       </div>
                                     </div>
                                   </div>
-                                );
-                              })}
-                            </div>
-                          ) : (
-                            <></>
-                          )}
-                        </div>
-                        {/* -------------------- */}
-                        {chatContent.sender === "user" ? (
-                          <></>
+                                </div>
+                              );
+                            })}
+                          </div>
                         ) : (
-                          // <span className="chatscreen-content-icon">
-                          //   <img alt="" src={darkMode ? UserIconDark : UserIcon} />
-                          // </span>
                           <></>
                         )}
                       </div>
-                    );
-                  })}
-                </Box>
-              </SimpleBar>
+                      {/* -------------------- */}
+                      {chatContent.sender === "user" ? (
+                        <></>
+                      ) : (
+                        // <span className="chatscreen-content-icon">
+                        //   <img alt="" src={darkMode ? UserIconDark : UserIcon} />
+                        // </span>
+                        <></>
+                      )}
+                    </div>
+                  );
+                })}
+              </Box>
             </Box>
             <div className="group">
               <Box

@@ -598,7 +598,7 @@ const Home = ({
                   justifyContent={"space-between"}
                 >
                   <Typography variant="h6" fontWeight={500} color="#5c6980">
-                    Digital WorkSpace
+                    My Workspace
                   </Typography>
 
                   <Button
@@ -960,7 +960,7 @@ const Home = ({
                           display: { xs: "flex", md: "none" },
                         }}
                       >
-                        My Digital Workspace
+                        My Workspace
                       </Button>
                       <Box
                         height={"54px"}

@@ -138,7 +138,7 @@ class ActionPendingPO(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         list = pending_po_list()
-        pendingpo = ['PO '+str(i) for i in list]
+        pendingpo = [str(i) for i in list]
         send = {"requests": pendingpo,
                     "msg": "The Pending PO lists are given below. Choose Any one to see PO Items",
                     }
@@ -184,7 +184,7 @@ class ActionPOItemDescription(Action):
         pono = ponotext.split()[1]
         # pono = tracker.get_slot("po_number")
         # poitemno = tracker.get_slot("po_itemnumber")
-        resp = po_item_description(pono,poitemno)
+        resp = po_item_description(pono)
         send = {
             "msg": "Here is the Details of Purchase Requisition... ",
             "details": {

@@ -30,6 +30,7 @@ intents:
   - leave_description
   - pl_approve
   - pl_reject
+  - Leave_balance_intent
 
 #                                          LEAVE REQUEST                                                   #
 
@@ -45,6 +46,23 @@ intents:
   - fund_centre
   - commit_item
 #                                 BUDGET DETAILS REQUEST                                                  #
+
+#                                 POLICIES                                                  #
+
+  - policies
+  - travelpolicies
+  - leavepolicies
+  - SeparationPolicy
+  - WorkingHoursPolicy
+  - PayrollPolicies
+  - PersonnelPolicies
+  - GrievancePolicy
+  - TalentAcquisitionPolicy
+  - LearningAndDevelopmentPolicies
+  - OrganizationalDevelopmentPolicies
+
+#                                 POLICIES                                                  #
+
 
 entities:
 #                                     PURCHASE REQUEST                                                #
@@ -199,6 +217,7 @@ actions:
   - action_leave_description
   - action_pl_approve
   - action_pl_reject
+  - action_leave_balance
 #                                          LEAVE REQUEST                                                  #
 
 #                                 BUSINESS TRIP REQUEST                                                  #
@@ -213,6 +232,22 @@ actions:
   - action_commit_item
   - action_budget_details
 #                                 BUDGET DETAILS REQUEST                                                  #
+#                                 POLICIES                                                  #
+
+  - action_policies
+  - action_travelpolicies
+  - action_leavepolicies
+  - action_SeparationPolicy
+  - action_WorkingHoursPolicy
+  - action_PayrollPolicies
+  - action_PersonnelPolicies
+  - action_GrievancePolicy
+  - action_TalentAcquisitionPolicy
+  - action_LearningAndDevelopmentPolicies
+  - action_OrganizationalDevelopmentPolicies
+
+#                                 POLICIES                                                  #
+
 
 
 session_config:

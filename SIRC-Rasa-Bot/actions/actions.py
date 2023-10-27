@@ -794,32 +794,34 @@ class ActionPolicies(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-        send = {
-            "links": [
+        
+        links = [
                 {
                     "tag": "Travel and Business Trip Policy",
-                    "link": "http://localhost:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf",
-                    "tag": "Learning And Development Policies",
-                    "link": "http://localhost:8000/static_files/Learning%20and%20Development.pdf",
-                    "tag": "Talent Acquisition Policy",
-                    "link": "http://localhost:8000/static_files/Talent%20Acquisition.pdf",
-                    "tag": "Organizational Development Policies",
-                    "link": "http://localhost:8000/static_files/Organizational%20Development.pdf",
-                    "tag": "Leave Management Policy",
-                    "link": "http://localhost:8000/static_files/Leave%20Management%20Polcies.pdf",
-                    "tag": "Grievance Policy",
-                    "link": "http://localhost:8000/static_files/Grievance_Policies.pdf",
-                    "tag": "Personnel Policies",
-                    "link": "http://localhost:8000/static_files/Personnel%20Records%20Policies.pdf",
-                    "tag": "Payroll Policies",
-                    "link": "http://localhost:8000/static_files/Payroll%20Policies.pdf",
+                    "link": "http://localhost:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf"},
+                    {"tag": "Learning And Development Policies",
+                    "link": "http://localhost:8000/static_files/Learning%20and%20Development.pdf"},
+                    {"tag": "Talent Acquisition Policy",
+                    "link": "http://localhost:8000/static_files/Talent%20Acquisition.pdf"},
+                    {"tag": "Organizational Development Policies",
+                    "link": "http://localhost:8000/static_files/Organizational%20Development.pdf"},
+                    {"tag": "Leave Management Policy",
+                    "link": "http://localhost:8000/static_files/Leave%20Management%20Polcies.pdf"},
+                    {"tag": "Grievance Policy",
+                    "link": "http://localhost:8000/static_files/Grievance_Policies.pdf"},
+                    {"tag": "Personnel Policies",
+                    "link": "http://localhost:8000/static_files/Personnel%20Records%20Policies.pdf"},
+                    {"tag": "Payroll Policies",
+                    "link": "http://localhost:8000/static_files/Payroll%20Policies.pdf"},
+                    {"tag": "Separation Policy",
+                    "link": "http://localhost:8000/static_files/Separation%20Employment%20Policies.pdf"},
+                    {
                     "tag": "Working Hours Policy",
-                    "link": "http://localhost:8000/static_files/Working%20Hours%20Policies.pdf",
-                    "tag": "Separation Policy",
-                    "link": "http://localhost:8000/static_files/Separation%20Employment%20Policies.pdf",
-                }
+                    "link": "http://localhost:8000/static_files/Working%20Hours%20Policies.pdf"
+                },
+                
             ]
-        }
+        send = {"links":links,"msg":"The Company policies are.."}
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 

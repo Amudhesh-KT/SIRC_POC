@@ -31,6 +31,10 @@ import Image from "next/image";
 import { IoIosResize } from "react-icons/io";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { AiOutlineFullscreenExit } from "react-icons/ai";
+import dynamic from "next/dynamic";
+const Chart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 const MainWrapper = experimentalStyled("div")(() => ({
   display: "flex",
   minHeight: "100vh",
@@ -233,7 +237,7 @@ function DashboardLayout({ children }) {
 
     for (const [key, value] of Object.entries(values)) {
       labels.push(key);
-      series.push(value);
+      series.push(parseInt(value));
     }
 
     const ChartData = {
@@ -371,7 +375,7 @@ function DashboardLayout({ children }) {
 
     for (const [key, value] of Object.entries(values)) {
       labels.push(key);
-      series.push(value);
+      series.push(parseInt(value));
     }
 
     const ChartData = {
@@ -451,9 +455,10 @@ function DashboardLayout({ children }) {
   function displayLine(values) {
     const labels = [];
     const data = [];
+
     for (const [key, value] of Object.entries(values["data"])) {
       labels.push(key);
-      data.push(value);
+      series.push(parseInt(value));
     }
 
     const ChartData = {

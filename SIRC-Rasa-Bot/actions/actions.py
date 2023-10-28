@@ -529,7 +529,7 @@ class BudgetDetails(Action):
         resp = budget_description(fc_no,ci_no)
         print(resp)
         send = {
-            "msg": "Here is the Details for the Business Trip... ",
+            "msg": "Here are the Budget details ... ",
             "details": {
                 "data":resp,"flag":False,
                 "type": "BD"

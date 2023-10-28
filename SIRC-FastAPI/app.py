@@ -98,7 +98,9 @@ async def overall_data():
                 'Leave_id': i['Leave_ID'],
                 'name': i['Employee Name'],
                 'leave duration': i['Leave Duration'],
-                'leaveType': i['Leave type']
+                'leaveType': i['Leave type'],
+                'Leave Start Date':i['Leave Start Date'],
+                'Leave End Date':i['Leave End Date']
             }
     }
         if pl_des['Status'] == "Pending":

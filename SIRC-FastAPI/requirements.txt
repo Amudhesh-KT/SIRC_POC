@@ -1,0 +1,10 @@
+# FAST API Web Packages
+fastapi
+pydantic
+typing
+uvicorn
+python-multipart
+# Data Analysis
+pandas
+numpy
+pymongo

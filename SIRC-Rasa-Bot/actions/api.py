@@ -146,6 +146,8 @@ def leave_description(pl_no):
             'Leave ID' : pl_no,
             'Employee Name' : res['Employee Name'],
             'Leave Type' : res['Leave type'],
+            'Leave Start Date' : res['Leave Start Date'],
+            'Leave End Date' : res['Leave End Date'],
             'Leave Duration' : res['Leave Duration']
         }
 

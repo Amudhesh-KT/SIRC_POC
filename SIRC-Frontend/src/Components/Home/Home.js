@@ -1040,7 +1040,7 @@ const Home = ({
                           {currentItem?.Created_on}
                         </Typography>
                       </Box>
-                      <Box
+                      {/* <Box
                         sx={{
                           width: "0.6px",
                           backgroundColor: "#000",
@@ -1048,8 +1048,8 @@ const Home = ({
                           mx: 1.5,
                           display: { xs: "none", sm: "flex" },
                         }}
-                      />
-
+                      /> */}
+{/* 
                       <Box display={"flex"} flexDirection={"column"}>
                         <Typography
                           variant="caption"
@@ -1065,7 +1065,7 @@ const Home = ({
                         >
                           {currentItem?.overall_status}
                         </Typography>
-                      </Box>
+                      </Box> */}
                       <Box
                         sx={{
                           width: "0.6px",

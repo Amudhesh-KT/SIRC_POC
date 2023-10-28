@@ -1112,12 +1112,59 @@ function DashboardLayout({ children }) {
                               <Box
                                 diaplay="flex"
                                 alignItems={"center"}
-                                sx={{ mt: 1 }}
+                                sx={{
+                                  mt: 1,
+                                  background: "#f90c0c",
+                                  color: "#fff",
+                                  "&:hover": {
+                                    background: "#f90c0c",
+                                    boxShadow: "none",
+                                  },
+                                }}
                               >
+                                <Button
+                                  sx={{
+                                    mx: 1,
+                                  }}
+                                  variant={"contained"}
+                                  size="medium"
+                                  onClick={() => {
+                                    setOpenDialog({
+                                      ...openDialog,
+                                      open: true,
+                                      type: chatContent.details.type,
+                                      value:
+                                        chatContent.details.type === "PR"
+                                          ? chatContent.details.data[
+                                              "Purchase Requisition Number"
+                                            ]
+                                          : chatContent.details.type === "PO"
+                                          ? chatContent.details.data[
+                                              "Purchase Order Number"
+                                            ]
+                                          : chatContent.details.type === "PL"
+                                          ? chatContent.details.data["Leave ID"]
+                                          : chatContent.details.type === "BT"
+                                          ? chatContent.details.data[
+                                              "Business Trip Number"
+                                            ]
+                                          : "",
+                                    });
+                                  }}
+                                >
+                                  Reject
+                                </Button>
                                 <Button
                                   variant={"contained"}
                                   size="medium"
-                                  color="primary"
+                                  sx={{
+                                    background: "#17c964",
+                                    color: "#fff",
+                                    "&:hover": {
+                                      background: "#17c964",
+                                      boxShadow: "none",
+                                    },
+                                  }}
                                   onClick={() => {
                                     if (chatContent.details.type === "PR") {
                                       handleButtonRequest(
@@ -1169,37 +1216,6 @@ function DashboardLayout({ children }) {
                                   }}
                                 >
                                   Approve
-                                </Button>
-                                <Button
-                                  sx={{ mx: 1 }}
-                                  variant={"contained"}
-                                  size="medium"
-                                  color="error"
-                                  onClick={() => {
-                                    setOpenDialog({
-                                      ...openDialog,
-                                      open: true,
-                                      type: chatContent.details.type,
-                                      value:
-                                        chatContent.details.type === "PR"
-                                          ? chatContent.details.data[
-                                              "Purchase Requisition Number"
-                                            ]
-                                          : chatContent.details.type === "PO"
-                                          ? chatContent.details.data[
-                                              "Purchase Order Number"
-                                            ]
-                                          : chatContent.details.type === "PL"
-                                          ? chatContent.details.data["Leave ID"]
-                                          : chatContent.details.type === "BT"
-                                          ? chatContent.details.data[
-                                              "Business Trip Number"
-                                            ]
-                                          : "",
-                                    });
-                                  }}
-                                >
-                                  Reject
                                 </Button>
                               </Box>
                             ) : (

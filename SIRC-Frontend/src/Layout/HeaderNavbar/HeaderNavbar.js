@@ -103,20 +103,84 @@ const HeaderNavbar = ({
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
-              onClick={() => {
-                router.push("/login");
-                localStorage.clear();
-              }}
+             
             />
-            <IconButton size="small" sx={{ p: 0, m: 0, color: "#fff" }}>
+            <IconButton
+              size="small"
+              sx={{ p: 0, m: 0, color: "#fff" }}
+              onClick={handleClick}
+            >
               <BsChevronDown />
             </IconButton>
-            <IconButton size="medium" sx={{ p: 0, mx: 1.5, color: "#fff" }}>
+            {/* <IconButton size="medium" sx={{ p: 0, mx: 1.5, color: "#fff" }}>
               <FiSettings />
-            </IconButton>
+            </IconButton> */}
+            <Menu
+              anchorEl={anchorEl}
+              id="account-menu"
+              open={open}
+              onClose={handleClose}
+              onClick={handleClose}
+              PaperProps={{
+                elevation: 0,
+                sx: {
+                  width: "250px",
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  "&:before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 2,
+                    right: 3,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+              {/* <MenuItem onClick={handleClose}>
+                <IconButton size="small" sx={{ mx: 2 }}>
+                  <FiBell />
+                </IconButton>
+                Notification
+              </MenuItem> */}
+              <MenuItem onClick={handleClose}>
+                <IconButton size="small" sx={{ mx: 2 }}>
+                  <FiSettings />
+                </IconButton>
+                Settings
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  router.push("/login");
+                  localStorage.clear();
+                }}
+              >
+                <IconButton size="small" sx={{ mx: 2 }}>
+                  <FiLogOut />
+                </IconButton>
+                Logout
+              </MenuItem>
+            </Menu>
           </Box>
         ) : (
           <>
+            <IconButton size="medium" sx={{ p: 0, mx: 1.5, color: "#fff" }}>
+              <FiBell />
+            </IconButton>
             <IconButton onClick={handleClick}>
               <Image
                 src={User}
@@ -165,12 +229,12 @@ const HeaderNavbar = ({
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem onClick={handleClose}>
+              {/* <MenuItem onClick={handleClose}>
                 <IconButton size="small" sx={{ mx: 2 }}>
                   <FiBell />
                 </IconButton>
                 Notification
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem onClick={handleClose}>
                 <IconButton size="small" sx={{ mx: 2 }}>
                   <FiSettings />

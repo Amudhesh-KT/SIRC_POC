@@ -76,17 +76,28 @@ const index = ({ data }) => {
         selectedCheckboxes.length === 0 && selectedPriority.length === 0 // No filters selected
           ? state
           : selectedCheckboxes.length === 0 // Only selectedPriority is non-empty
-          ? state.filter((e) => selectedPriority.includes(e.priority))
+          ? state
+              .filter((e) => selectedPriority.includes(e.priority))
+              .filter((e) =>
+                e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+              )
           : selectedPriority.length === 0 // Only selectedCheckboxes is non-empty
-          ? state.filter((e) =>
-              selectedCheckboxes.includes(e.id.split(" ")[0].toUpperCase())
-            )
+          ? state
+              .filter((e) =>
+                selectedCheckboxes.includes(e.id.split(" ")[0].toUpperCase())
+              )
+              .filter((e) =>
+                e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+              )
           : // Both selectedCheckboxes and selectedPriority have values
             state
               .filter((e) =>
                 selectedCheckboxes.includes(e.id.split(" ")[0].toUpperCase())
               )
               .filter((e) => selectedPriority.includes(e.priority))
+              .filter((e) =>
+                e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+              )
       }
       currentItem={currentItem}
       setCurrentItem={setCurrentItem}

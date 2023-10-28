@@ -21,7 +21,7 @@ const Login = () => {
 
   const onSubmit = () => {
     console.log(email, password);
-    if (email == "user@sirc.com" && password == "12345") {
+    if (email == "ahmed@sirc.com" && password == "Sirc@1234") {
       localStorage.setItem("sirc", true);
       router.push("/");
     } else {

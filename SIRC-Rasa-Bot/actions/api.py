@@ -13,7 +13,7 @@ budget_details = db['budget_details']
 #                                     PURCHASE REQUEST                                                #
 def pending_pr_list():
     pr_list = []
-    for i in pr_details.find():
+    for i in pr_details.find({'Status':'Pending'}):
         item = 'PR ' + str(i['pr_num'])
         pr_list.append(item)
     
@@ -80,7 +80,7 @@ def pr_approval(pr_no,status,comments):
 
 def pending_po_list():
     po_list = []
-    for i in po_details.find():
+    for i in po_details.find({'Status':'Pending'}):
         item = 'PO ' + str(i['Po_num'])
         po_list.append(item)
     res = po_list
@@ -130,7 +130,7 @@ def po_approval(po_no,status,comments):
 #                                          LEAVE REQUEST                                                  #
 def pending_leave_id():
     pl_list = []
-    for i in pl_details.find():
+    for i in pl_details.find({'Status':'Pending'}):
         item = 'PL '+(i['Leave_ID'])
         pl_list.append(item)
     
@@ -170,7 +170,7 @@ def leave_approval(pl_no,status,comments):
 
 def pending_bt_list():
     bt_list = []
-    for i in bt_details.find():
+    for i in bt_details.find({'Status':'Pending'}):
         item = ('BT ' +str(i['Business Trip No'])+'T')
         bt_list.append(item)
     

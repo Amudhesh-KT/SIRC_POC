@@ -1,14 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Home from "../src/Components/Home/Home";
+import { useRouter } from "next/router";
 
 const index = ({ data }) => {
+  let router = useRouter();
+  useLayoutEffect(() => {
+    if (!localStorage.getItem("sirc")) {
+      router.push("/login");
+    }
+  }, []);
   const [state, setState] = useState(data);
+  const [list, setList] = useState(data);
 
-  const [currentItem, setCurrentItem] = useState(data[0]);
+  const [currentItem, setCurrentItem] = useState({});
   const [search, setSearch] = useState("");
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState([
+    "PR",
+    "PO",
+    "PL",
+    "BT",
+  ]);
 
-  const [selectedPriority, setSelectedPriority] = useState([]);
+  const [selectedPriority, setSelectedPriority] = useState([
+    "Critical",
+    "High",
+    "Low",
+  ]);
 
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
@@ -33,9 +50,24 @@ const index = ({ data }) => {
     setSelectedCheckboxes(selectedCheckboxes.filter((item) => item !== value));
   };
 
-  const handleRequest = (id, status, comment) => {
+  const handleRequest = async (id, status, comment) => {
     console.log(id, status, comment);
+
+    const response = await fetch(`http://172.29.106.60/Approve_reject`, {
+      mode: "cors",
+      method: "POST",
+      body: JSON.stringify({
+        Request_id: id,
+        Status: status,
+        comment: comment,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    const data = await response.json();
     setState([...state].filter((e) => e.id !== id));
+    setList([...state].filter((e) => e.id !== id));
   };
 
   return (
@@ -65,6 +97,7 @@ const index = ({ data }) => {
       selectedPriority={selectedPriority}
       handlePriorityChange={handlePriorityChange}
       handleRequest={handleRequest}
+      list={list}
     />
   );
 };
@@ -72,7 +105,7 @@ const index = ({ data }) => {
 export default index;
 
 export const getServerSideProps = async () => {
-  const response = await fetch(`http://127.0.0.1:8000/overall_data`);
+  const response = await fetch(`http://172.29.106.60/overall_data`);
   const data = await response.json();
 
   console.log(data.length);

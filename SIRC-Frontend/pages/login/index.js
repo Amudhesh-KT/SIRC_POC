@@ -6,7 +6,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import LoginBg from "../../assets/loginbg.png";
 import Image from "next/image";
 import SIRCColor from "../../assets/sirc-color.png";
@@ -16,6 +16,18 @@ const Login = () => {
   let router = useRouter();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("sm"));
   const mdUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const onSubmit = () => {
+    console.log(email, password);
+    if (email == "user@sirc.com" && password == "12345") {
+      localStorage.setItem("sirc", true);
+      router.push("/");
+    } else {
+      alert("Unauthorized !!");
+    }
+  };
   return (
     <Grid container spacing={0} sx={{ height: "100vh" }}>
       <Grid
@@ -152,6 +164,8 @@ const Login = () => {
                 boxShadow: "none",
                 background: "#f6f7f9",
               }}
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
             />
           </Box>
           <Box my={1}>
@@ -168,6 +182,8 @@ const Login = () => {
                 boxShadow: "none",
                 background: "#f6f7f9",
               }}
+              value={password}
+              onChange={(e) => setpassword(e.target.value)}
             />
           </Box>
           <Button
@@ -184,7 +200,7 @@ const Login = () => {
               borderRadius: 30,
               fontWeight: 500,
             }}
-            onClick={() => router.push("/")}
+            onClick={onSubmit}
           >
             Login
           </Button>

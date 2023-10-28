@@ -103,7 +103,10 @@ const HeaderNavbar = ({
                 marginRight: "10px",
                 marginLeft: "10px",
               }}
-              onClick={() => router.push("/login")}
+              onClick={() => {
+                router.push("/login");
+                localStorage.clear();
+              }}
             />
             <IconButton size="small" sx={{ p: 0, m: 0, color: "#fff" }}>
               <BsChevronDown />
@@ -174,7 +177,12 @@ const HeaderNavbar = ({
                 </IconButton>
                 Settings
               </MenuItem>
-              <MenuItem onClick={() => router.push("/login")}>
+              <MenuItem
+                onClick={() => {
+                  router.push("/login");
+                  localStorage.clear();
+                }}
+              >
                 <IconButton size="small" sx={{ mx: 2 }}>
                   <FiLogOut />
                 </IconButton>

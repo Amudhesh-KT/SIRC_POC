@@ -15,6 +15,7 @@ import {
   Menu,
   Checkbox,
   FormControlLabel,
+  styled,
 } from "@mui/material";
 import React, { useState } from "react";
 import { useMediaQuery } from "@mui/material";
@@ -33,9 +34,7 @@ import {
 } from "react-icons/fi";
 import SimpleBar from "simplebar-react";
 import { GoDotFill } from "react-icons/go";
-import { IoIosArrowDropleft, IoIosAttach } from "react-icons/io";
-import PDF from "../../../assets/PDF.png";
-import Image from "next/image";
+import { IoIosArrowDropleft } from "react-icons/io";
 
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -56,6 +55,7 @@ const Home = ({
   selectedPriority,
   handlePriorityChange,
   handleRequest,
+  list,
 }) => {
   const [mobileSideOpen, SetMobileSideOpen] = useState(true);
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("md"));
@@ -158,6 +158,30 @@ const Home = ({
 
   const [commentVal, setCommentVal] = useState("");
 
+  const StyledGridOverlay = styled("div")(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    "& .ant-empty-img-1": {
+      fill: theme.palette.mode === "light" ? "#aeb8c2" : "#262626",
+    },
+    "& .ant-empty-img-2": {
+      fill: theme.palette.mode === "light" ? "#f5f5f7" : "#595959",
+    },
+    "& .ant-empty-img-3": {
+      fill: theme.palette.mode === "light" ? "#dce0e6" : "#434343",
+    },
+    "& .ant-empty-img-4": {
+      fill: theme.palette.mode === "light" ? "#fff" : "#1c1c1c",
+    },
+    "& .ant-empty-img-5": {
+      fillOpacity: theme.palette.mode === "light" ? "0.8" : "0.08",
+      fill: theme.palette.mode === "light" ? "#f5f5f5" : "#fff",
+    },
+  }));
+
   return (
     <>
       <div>
@@ -259,8 +283,7 @@ const Home = ({
                               fontSize: "14px",
                             }}
                           >
-                            ( {state.filter((e) => e.id.includes("PO")).length}{" "}
-                            )
+                            ( {list.filter((e) => e.id.includes("PO")).length} )
                           </span>
                         </Typography>
                       }
@@ -280,8 +303,7 @@ const Home = ({
                               fontSize: "14px",
                             }}
                           >
-                            ( {state.filter((e) => e.id.includes("PR")).length}{" "}
-                            )
+                            ( {list.filter((e) => e.id.includes("PR")).length} )
                           </span>
                         </Typography>
                       }
@@ -301,8 +323,7 @@ const Home = ({
                               fontSize: "14px",
                             }}
                           >
-                            ( {state.filter((e) => e.id.includes("PL")).length}{" "}
-                            )
+                            ( {list.filter((e) => e.id.includes("PL")).length} )
                           </span>
                         </Typography>
                       }
@@ -322,8 +343,7 @@ const Home = ({
                               fontSize: "14px",
                             }}
                           >
-                            ( {state.filter((e) => e.id.includes("BT")).length}{" "}
-                            )
+                            ( {list.filter((e) => e.id.includes("BT")).length} )
                           </span>
                         </Typography>
                       }
@@ -405,12 +425,12 @@ const Home = ({
                                       py: 2,
                                       cursor: "pointer",
                                       background:
-                                        currentItem.id === e.id
+                                        currentItem?.id === e.id
                                           ? "#00A885"
                                           : "",
                                       "&:hover": {
                                         background:
-                                          currentItem.id === e.id
+                                          currentItem?.id === e.id
                                             ? ""
                                             : "#f7f7f7",
                                       },
@@ -437,20 +457,20 @@ const Home = ({
                                           width: "45px",
                                           p: 1.3,
                                           background:
-                                            currentItem.id === e.id
+                                            currentItem?.id === e.id
                                               ? "#fff"
                                               : "#00A885",
                                           color:
-                                            currentItem.id === e.id
+                                            currentItem?.id === e.id
                                               ? "#00A885"
                                               : "#fff",
                                           "&:hover": {
                                             background:
-                                              currentItem.id === e.id
+                                              currentItem?.id === e.id
                                                 ? "#fff"
                                                 : "#00A885",
                                             color:
-                                              currentItem.id === e.id
+                                              currentItem?.id === e.id
                                                 ? "#00A885"
                                                 : "#fff",
                                           },
@@ -484,7 +504,7 @@ const Home = ({
                                           variant="subtitle2"
                                           fontWeight={300}
                                           color={
-                                            currentItem.id === e.id
+                                            currentItem?.id === e.id
                                               ? "#fff"
                                               : "#5c6980"
                                           }
@@ -499,7 +519,7 @@ const Home = ({
                                             variant="caption"
                                             fontWeight={400}
                                             color={
-                                              currentItem.id === e.id
+                                              currentItem?.id === e.id
                                                 ? "#fff"
                                                 : "#5c6980"
                                             }
@@ -523,7 +543,7 @@ const Home = ({
                                         variant="h6"
                                         fontWeight={400}
                                         color={
-                                          currentItem.id === e.id
+                                          currentItem?.id === e.id
                                             ? "#fff"
                                             : "#5c6980"
                                         }
@@ -540,7 +560,7 @@ const Home = ({
                                           sx={{ width: "60%" }}
                                           fontWeight={500}
                                           color={
-                                            currentItem.id === e.id
+                                            currentItem?.id === e.id
                                               ? "#fff"
                                               : "#5c6980"
                                           }
@@ -551,7 +571,7 @@ const Home = ({
                                           variant="caption"
                                           fontWeight={400}
                                           color={
-                                            currentItem.id === e.id
+                                            currentItem?.id === e.id
                                               ? "#fff"
                                               : "#5c6980"
                                           }
@@ -627,10 +647,10 @@ const Home = ({
                                 py: 2,
                                 cursor: "pointer",
                                 background:
-                                  currentItem.id === e.id ? "#00A885" : "",
+                                  currentItem?.id === e.id ? "#00A885" : "",
                                 "&:hover": {
                                   background:
-                                    currentItem.id === e.id ? "" : "#f7f7f7",
+                                    currentItem?.id === e.id ? "" : "#f7f7f7",
                                 },
                                 borderRadius: "8px",
                               }}
@@ -655,20 +675,20 @@ const Home = ({
                                     width: "45px",
                                     p: 1.3,
                                     background:
-                                      currentItem.id === e.id
+                                      currentItem?.id === e.id
                                         ? "#fff"
                                         : "#00A885",
                                     color:
-                                      currentItem.id === e.id
+                                      currentItem?.id === e.id
                                         ? "#00A885"
                                         : "#fff",
                                     "&:hover": {
                                       background:
-                                        currentItem.id === e.id
+                                        currentItem?.id === e.id
                                           ? "#fff"
                                           : "#00A885",
                                       color:
-                                        currentItem.id === e.id
+                                        currentItem?.id === e.id
                                           ? "#00A885"
                                           : "#fff",
                                     },
@@ -702,7 +722,7 @@ const Home = ({
                                     variant="subtitle2"
                                     fontWeight={300}
                                     color={
-                                      currentItem.id === e.id
+                                      currentItem?.id === e.id
                                         ? "#fff"
                                         : "#5c6980"
                                     }
@@ -714,7 +734,7 @@ const Home = ({
                                       variant="caption"
                                       fontWeight={400}
                                       color={
-                                        currentItem.id === e.id
+                                        currentItem?.id === e.id
                                           ? "#fff"
                                           : "#5c6980"
                                       }
@@ -738,7 +758,9 @@ const Home = ({
                                   variant="h6"
                                   fontWeight={400}
                                   color={
-                                    currentItem.id === e.id ? "#fff" : "#5c6980"
+                                    currentItem?.id === e.id
+                                      ? "#fff"
+                                      : "#5c6980"
                                   }
                                 >
                                   {e.name}
@@ -753,7 +775,7 @@ const Home = ({
                                     sx={{ width: "60%" }}
                                     fontWeight={500}
                                     color={
-                                      currentItem.id === e.id
+                                      currentItem?.id === e.id
                                         ? "#fff"
                                         : "#5c6980"
                                     }
@@ -764,7 +786,7 @@ const Home = ({
                                     variant="caption"
                                     fontWeight={400}
                                     color={
-                                      currentItem.id === e.id
+                                      currentItem?.id === e.id
                                         ? "#fff"
                                         : "#5c6980"
                                     }
@@ -918,7 +940,7 @@ const Home = ({
               })}
             </Box>
             <Box>
-              {Object.keys(currentItem).length !== 0 && (
+              {currentItem && Object.keys(currentItem).length !== 0 ? (
                 <Card
                   sx={{
                     border: "1px solid #00A885",
@@ -976,13 +998,13 @@ const Home = ({
                           fontWeight: 600,
                         }}
                       >
-                        {currentItem.id?.startsWith("PO")
+                        {currentItem?.id?.startsWith("PO")
                           ? "Purchase Order"
-                          : currentItem.id?.startsWith("PR")
+                          : currentItem?.id?.startsWith("PR")
                           ? "Purchase Request"
-                          : currentItem.id?.startsWith("PL")
+                          : currentItem?.id?.startsWith("PL")
                           ? "Leave Request"
-                          : currentItem.id?.startsWith("BT")
+                          : currentItem?.id?.startsWith("BT")
                           ? "Business Trip"
                           : ""}
                       </Box>
@@ -992,7 +1014,7 @@ const Home = ({
                         color="#45546e"
                         sx={{ px: { lg: 1 } }}
                       >
-                        {currentItem.shortText} #{currentItem.id}
+                        {currentItem?.shortText} #{currentItem?.id}
                       </Typography>
                     </Box>
                     <Box
@@ -1041,7 +1063,7 @@ const Home = ({
                           fontWeight={500}
                           color="#45546e"
                         >
-                          {currentItem.overall_status}
+                          {currentItem?.overall_status}
                         </Typography>
                       </Box>
                       <Box
@@ -1064,14 +1086,14 @@ const Home = ({
                           fontWeight={500}
                           color="#45546e"
                         >
-                          {currentItem.priority}
+                          {currentItem?.priority}
                         </Typography>
                         <GoDotFill
                           style={{
                             color:
-                              currentItem.priority === "High"
+                              currentItem?.priority === "High"
                                 ? "red"
-                                : currentItem.priority === "Low"
+                                : currentItem?.priority === "Low"
                                 ? "#FFB800"
                                 : "#7000FF",
                             margin: "0px 0px 0px 5px",
@@ -1091,7 +1113,7 @@ const Home = ({
                         borderBottom: "4px solid #00A885",
                       }}
                     >
-                      {currentItem.levels?.map((e, i) => {
+                      {currentItem?.levels?.map((e, i) => {
                         return (
                           <Grid
                             item
@@ -1101,7 +1123,7 @@ const Home = ({
                             lg={3}
                             sx={{
                               borderRight:
-                                currentItem.levels.length - 1 === i &&
+                                currentItem?.levels.length - 1 === i &&
                                 "1px solid #d4d6d8",
                             }}
                           >
@@ -1253,23 +1275,26 @@ const Home = ({
 
                   <SimpleBar style={{ height: "calc(100vh - 322px)" }}>
                     <Grid container spacing={0} sx={{ p: 2 }}>
-                      {Object.entries(currentItem.details).map(([key, val]) => {
-                        return (
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={6}
-                            lg={3}
-                            sx={{ py: 1.5 }}
-                          >
-                            <CustomText
-                              primary={toPascalCase(key)}
-                              secondary={val}
-                            />
-                          </Grid>
-                        );
-                      })}
+                      {currentItem &&
+                        Object.entries(currentItem?.details).map(
+                          ([key, val]) => {
+                            return (
+                              <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={6}
+                                lg={3}
+                                sx={{ py: 1.5 }}
+                              >
+                                <CustomText
+                                  primary={toPascalCase(key)}
+                                  secondary={val}
+                                />
+                              </Grid>
+                            );
+                          }
+                        )}
 
                       {/* <Grid item xs={12} py={1}>
                   <Typography
@@ -1329,7 +1354,7 @@ const Home = ({
                     </Grid>
                   );
                 })} */}
-                      {currentItem.hasOwnProperty("item_details") && (
+                      {currentItem?.hasOwnProperty("item_details") && (
                         <Box
                           display="flex"
                           flexDirection={"column"}
@@ -1339,7 +1364,7 @@ const Home = ({
                           <CustomTable
                             name="Item Details"
                             columns={
-                              currentItem.id.includes("PR")
+                              currentItem?.id.includes("PR")
                                 ? [
                                     "Item no",
                                     "Short Text",
@@ -1348,7 +1373,7 @@ const Home = ({
                                     "Total Price",
                                     "Plant",
                                   ]
-                                : currentItem.id.includes("PO")
+                                : currentItem?.id.includes("PO")
                                 ? [
                                     "Item no",
                                     "Short Text",
@@ -1361,11 +1386,11 @@ const Home = ({
                                   ]
                                 : ""
                             }
-                            rows={currentItem.item_details}
+                            rows={currentItem?.item_details}
                           />
                         </Box>
                       )}
-                      {currentItem.hasOwnProperty("service_line") && (
+                      {currentItem?.hasOwnProperty("service_line") && (
                         <Box
                           display="flex"
                           flexDirection={"column"}
@@ -1375,7 +1400,7 @@ const Home = ({
                           <CustomTable
                             name="Service Line Item Details"
                             columns={
-                              currentItem.id.includes("PR")
+                              currentItem?.id.includes("PR")
                                 ? [
                                     "Item no",
                                     "Service Short Text",
@@ -1393,11 +1418,11 @@ const Home = ({
                                     "Net Price",
                                   ]
                             }
-                            rows={currentItem.service_line}
+                            rows={currentItem?.service_line}
                           />
                         </Box>
                       )}
-                      {currentItem.hasOwnProperty("account_assignment") && (
+                      {currentItem?.hasOwnProperty("account_assignment") && (
                         <Box
                           display="flex"
                           flexDirection={"column"}
@@ -1412,13 +1437,98 @@ const Home = ({
                               "Cost Center",
                               "Fund Center",
                             ]}
-                            rows={currentItem.account_assignment}
+                            rows={currentItem?.account_assignment}
                           />
                         </Box>
                       )}
                     </Grid>
                   </SimpleBar>
                 </Card>
+              ) : (
+                <Box
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                  height={"calc(100vh - 163px)"}
+                  sx={{
+                    border: "1px solid #00A885",
+                    borderRadius: "12px",
+                  }}
+                >
+                  <StyledGridOverlay>
+                    <svg
+                      width="120"
+                      height="100"
+                      viewBox="0 0 184 152"
+                      aria-hidden
+                      focusable="false"
+                    >
+                      <g fill="none" fillRule="evenodd">
+                        <g transform="translate(24 31.67)">
+                          <ellipse
+                            className="ant-empty-img-5"
+                            cx="67.797"
+                            cy="106.89"
+                            rx="67.797"
+                            ry="12.668"
+                          />
+                          <path
+                            className="ant-empty-img-1"
+                            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+                          />
+                          <path
+                            className="ant-empty-img-2"
+                            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+                          />
+                          <path
+                            className="ant-empty-img-3"
+                            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+                          />
+                        </g>
+                        <path
+                          className="ant-empty-img-3"
+                          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+                        />
+                        <g
+                          className="ant-empty-img-4"
+                          transform="translate(149.65 15.383)"
+                        >
+                          <ellipse
+                            cx="20.654"
+                            cy="3.167"
+                            rx="2.849"
+                            ry="2.815"
+                          />
+                          <path d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z" />
+                        </g>
+                      </g>
+                    </svg>
+                    <Box sx={{ mt: 1 }}>Select a item to make action</Box>
+                    <Box>Nothing is selected</Box>
+                  </StyledGridOverlay>
+                </Box>
+                // <Box
+                //   sx={{
+                //     // mx: { xs: 0, sm: 2 },
+                //     width: { xs: "100%", md: "60%", lg: "73%" },
+                //     minHeight: {
+                //       xs: "fit-content",
+                //       md: "calc(100vh - 100px)",
+                //     },
+                //   }}
+                // >
+                //   <Card
+                //     sx={{
+                //       border: "1px solid #00A885",
+                //       borderRadius: "12px",
+                //       overflow: "hidden",
+                //       display: "flex",
+                //       alignItems: "center",
+                //       justifyContent: "center",
+                //       height: "calc(100vh - 163px)",
+                //     }}
+                //   ></Card>
+                // </Box>
               )}
             </Box>
           </Box>
@@ -1572,7 +1682,7 @@ const Home = ({
                   }}
                   onClick={async () => {
                     setAlertDialog({ ...alertDialog, open: false });
-                    await handleRequest(currentItem.id, "Approved", "");
+                    await handleRequest(currentItem?.id, "Approved", "");
                     setCurrentItem({});
                     setCustomDialog({ type: "Approve", open: true });
                   }}
@@ -1611,11 +1721,17 @@ const Home = ({
                     },
                   }}
                   onClick={async () => {
-                    setAlertDialog({ ...alertDialog, open: false });
-                    await handleRequest(currentItem.id, "Rejected", commentVal);
-                    await setCommentVal("");
-                    await setCurrentItem({});
-                    setCustomDialog({ type: "Decline", open: true });
+                    if (commentVal.length > 0) {
+                      setAlertDialog({ ...alertDialog, open: false });
+                      await handleRequest(
+                        currentItem?.id,
+                        "Rejected",
+                        commentVal
+                      );
+                      await setCommentVal("");
+                      await setCurrentItem({});
+                      setCustomDialog({ type: "Decline", open: true });
+                    }
                   }}
                 >
                   Decline

@@ -243,6 +243,17 @@ function DashboardLayout({ children }) {
     const ChartData = {
       series,
       options: {
+        colors: [
+          "#7473c0",
+          "#009a74",
+          "#d4ede8",
+          "#f2f1f9",
+          "#35c2e0",
+          "#7C81AD",
+          "#D0BFFF",
+          "#D8B4F8",
+          "#DFCCFB",
+        ],
         chart: {
           type: "donut",
           height: "300px",
@@ -381,6 +392,7 @@ function DashboardLayout({ children }) {
     const ChartData = {
       series,
       options: {
+        colors: ["#7473c0", "#ffB800", "#009a74", "#d4ede8", "#f2f1f9"],
         chart: {
           type: "pie",
           height: "300px",
@@ -406,7 +418,7 @@ function DashboardLayout({ children }) {
             colors: darkMode ? "#fff" : "#000",
           },
         },
-        theme: { mode: "dark", palette: darkMode ? "palette1" : "palette7" },
+        // theme: { mode: "dark", palette: darkMode ? "palette1" : "palette7" },
         dataLabels: {
           enabled: true,
           offsetY: 20,
@@ -469,6 +481,7 @@ function DashboardLayout({ children }) {
         },
       ],
       options: {
+        colors: ["#7473c0", "#ffB800", "#009a74", "#d4ede8", "#f2f1f9"],
         chart: {
           height: 350,
           type: "line",
@@ -907,7 +920,7 @@ function DashboardLayout({ children }) {
                         )}
 
                         {chatContent.actions ? (
-                          <Box px={2} sx={{ width: "75%" }}>
+                          <Box px={2} sx={{ width: "90%" }}>
                             {chatContent.actions
                               .slice(
                                 0,
@@ -921,17 +934,18 @@ function DashboardLayout({ children }) {
                                   key={actionIndex}
                                   size="small"
                                   sx={{
-                                    borderColor: darkMode ? "transparent" : "",
-                                    backgroundColor: darkMode ? "#15357e" : "",
-                                  }}
-                                  style={{
+                                    backgroundColor: "#7473c0",
+                                    color: "#fff",
+                                    "&:hover": {
+                                      backgroundColor: "#7473c0",
+                                      color: "#fff",
+                                    },
                                     margin: "5px 10px 5px 0px",
                                     textTransform: "capitalize",
                                     letterSpacing: "0.4px",
                                     fontSize: "10px",
                                     fontWeight: "550",
                                   }}
-                                  color="error"
                                   onClick={(e) => {
                                     handleButtonRequest(action);
                                   }}
@@ -943,18 +957,19 @@ function DashboardLayout({ children }) {
                               <Button
                                 variant={"contained"}
                                 size="small"
-                                style={{
+                                sx={{
+                                  backgroundColor: "#7473c0",
+                                  color: "#fff",
+                                  "&:hover": {
+                                    backgroundColor: "#7473c0",
+                                    color: "#fff",
+                                  },
                                   margin: "5px 10px 5px 0px",
                                   textTransform: "capitalize",
                                   letterSpacing: "0.4px",
                                   fontSize: "10px",
                                   fontWeight: "550",
                                 }}
-                                sx={{
-                                  borderColor: darkMode ? "transparent" : "",
-                                  backgroundColor: darkMode ? "#15357e" : "",
-                                }}
-                                color="error"
                                 onClick={(e) => {
                                   chatContent.chat_id === viewMoreState.id
                                     ? setViewMoreState({
@@ -977,7 +992,7 @@ function DashboardLayout({ children }) {
                           <></>
                         )}
                         {chatContent.data ? (
-                          <Box px={2}>
+                          <Box px={2} sx={{ width: "90%" }}>
                             {chatContent.data
                               .slice(
                                 0,
@@ -991,17 +1006,18 @@ function DashboardLayout({ children }) {
                                   key={actionIndex}
                                   size="small"
                                   sx={{
-                                    borderColor: darkMode ? "transparent" : "",
-                                    backgroundColor: darkMode ? "#15357e" : "",
-                                  }}
-                                  style={{
+                                    backgroundColor: "#7473c0",
+                                    color: "#fff",
+                                    "&:hover": {
+                                      backgroundColor: "#7473c0",
+                                      color: "#fff",
+                                    },
                                     margin: "5px 10px 5px 0px",
                                     textTransform: "capitalize",
                                     letterSpacing: "0.4px",
                                     fontSize: "10px",
                                     fontWeight: "550",
                                   }}
-                                  color="error"
                                   onClick={(e) => {
                                     handleButtonRequest(action.intent);
                                   }}
@@ -1013,18 +1029,19 @@ function DashboardLayout({ children }) {
                               <Button
                                 variant={"contained"}
                                 size="small"
-                                style={{
+                                sx={{
+                                  backgroundColor: "#7473c0",
+                                  color: "#fff",
+                                  "&:hover": {
+                                    backgroundColor: "#7473c0",
+                                    color: "#fff",
+                                  },
                                   margin: "5px 10px 5px 0px",
                                   textTransform: "capitalize",
                                   letterSpacing: "0.4px",
                                   fontSize: "10px",
                                   fontWeight: "550",
                                 }}
-                                sx={{
-                                  borderColor: darkMode ? "transparent" : "",
-                                  backgroundColor: darkMode ? "#15357e" : "",
-                                }}
-                                color="error"
                                 onClick={(e) => {
                                   chatContent.chat_id === viewMoreState.id
                                     ? setViewMoreState({
@@ -1056,6 +1073,7 @@ function DashboardLayout({ children }) {
                               border: "1px solid #6e6da8",
                               borderRadius: "18px 18px 18px 0px",
                               p: 1,
+                              mb: 1,
                             }}
                           >
                             {Object.keys(chatContent.details.data).map(
@@ -1100,92 +1118,55 @@ function DashboardLayout({ children }) {
                                   variant={"contained"}
                                   size="medium"
                                   color="primary"
-                                  onClick={
-                                    () => {
-                                      if (chatContent.details.type === "PR") {
-                                        handleButtonRequest(
-                                          `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
-                                        );
-                                        setOpenDialog({
-                                          open: false,
-                                          value: "",
-                                          comment: "",
-                                          type: "",
-                                        });
-                                      } else if (
-                                        chatContent.details.type === "PO"
-                                      ) {
-                                        handleButtonRequest(
-                                          `Approve PO ${chatContent.details.data["Purchase Order Number"]}`
-                                        );
-                                        setOpenDialog({
-                                          open: false,
-                                          value: "",
-                                          comment: "",
-                                          type: "",
-                                        });
-                                      } else if (
-                                        chatContent.details.type === "PL"
-                                      ) {
-                                        handleButtonRequest(
-                                          `Approve PL ${chatContent.details.data["Leave ID"]}`
-                                        );
-                                        setOpenDialog({
-                                          open: false,
-                                          value: "",
-                                          comment: "",
-                                          type: "",
-                                        });
-                                      } else if (
-                                        chatContent.details.type === "BT"
-                                      ) {
-                                        handleButtonRequest(
-                                          `Approve BT ${chatContent.details.data["Business Trip Number"]}T`
-                                        );
-                                        setOpenDialog({
-                                          open: false,
-                                          value: "",
-                                          comment: "",
-                                          type: "",
-                                        });
-                                      }
+                                  onClick={() => {
+                                    if (chatContent.details.type === "PR") {
+                                      handleButtonRequest(
+                                        `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
+                                      );
+                                      setOpenDialog({
+                                        open: false,
+                                        value: "",
+                                        comment: "",
+                                        type: "",
+                                      });
+                                    } else if (
+                                      chatContent.details.type === "PO"
+                                    ) {
+                                      handleButtonRequest(
+                                        `Approve PO ${chatContent.details.data["Purchase Order Number"]}`
+                                      );
+                                      setOpenDialog({
+                                        open: false,
+                                        value: "",
+                                        comment: "",
+                                        type: "",
+                                      });
+                                    } else if (
+                                      chatContent.details.type === "PL"
+                                    ) {
+                                      handleButtonRequest(
+                                        `Approve PL ${chatContent.details.data["Leave ID"]}`
+                                      );
+                                      setOpenDialog({
+                                        open: false,
+                                        value: "",
+                                        comment: "",
+                                        type: "",
+                                      });
+                                    } else if (
+                                      chatContent.details.type === "BT"
+                                    ) {
+                                      handleButtonRequest(
+                                        `Approve BT ${chatContent.details.data["Business Trip Number"]}T`
+                                      );
+                                      setOpenDialog({
+                                        open: false,
+                                        value: "",
+                                        comment: "",
+                                        type: "",
+                                      });
                                     }
-                                    // setOpenDialog({
-                                    //   ...openDialog,
-                                    //   open: true,
-                                    //   type: chatContent.details.type,
-                                    //   buttonType: "approve",
-                                    //   value:
-                                    //     chatContent.details.type === "PR"
-                                    //       ? chatContent.details.data[
-                                    //           "Purchase Requisition Number"
-                                    //         ]
-                                    //       : chatContent.details.type === "PL"
-                                    //       ? chatContent.details.data[
-                                    //           "Leave Id"
-                                    //         ]
-                                    //       : chatContent.details.type === "PO"
-                                    //       ? chatContent.details.data[
-                                    //           "Purchase_Order_Number"
-                                    //         ]
-                                    //       : chatContent.details.type === "IN"
-                                    //       ? chatContent.details.data[
-                                    //           "Invocie_no"
-                                    //         ]
-                                    //       : "",
-                                    // })
-                                  }
-                                  // onClick={(e) => {
-                                  //   console.log(chatContent.details.type);
-                                  // if (chatContent.details.type === "PR")
-                                  //   handleButtonRequest(
-                                  //     `Approve PR ${chatContent.details.data["Purchase Requisition Number"]}`
-                                  //   );
-                                  //   else if (chatContent.details.type === "PL")
-                                  //     handleButtonRequest(
-                                  //       `Approve PL ${chatContent.details.data["Leave Id"]}`
-                                  //     );
-                                  // }}
+                                  }}
                                 >
                                   Approve
                                 </Button>
@@ -1216,42 +1197,7 @@ function DashboardLayout({ children }) {
                                             ]
                                           : "",
                                     });
-                                    // setOpenDialog({
-                                    //   ...openDialog,
-                                    //   open: true,
-                                    //   type: chatContent.details.type,
-                                    //   buttonType: "reject",
-                                    // value:
-                                    //   chatContent.details.type === "PR"
-                                    //     ? chatContent.details.data[
-                                    //         "Purchase Requisition Number"
-                                    //       ]
-                                    //     : chatContent.details.type === "PL"
-                                    //       ? chatContent.details.data[
-                                    //           "Leave Id"
-                                    //         ]
-                                    //       : chatContent.details.type === "PO"
-                                    //       ? chatContent.details.data[
-                                    //           "Purchase_Order_Number"
-                                    //         ]
-                                    //       : chatContent.details.type === "IN"
-                                    //       ? chatContent.details.data[
-                                    //           "Invocie_no"
-                                    //         ]
-                                    //       : "",
-                                    // });
                                   }}
-                                  // onClick={(e) => {
-                                  //   console.log(chatContent.details.type);
-                                  // if (chatContent.details.type === "PR")
-                                  //   handleButtonRequest(
-                                  //     `Reject PR ${chatContent.details.data["Purchase Requisition Number"]}`
-                                  //   );
-                                  // else if (chatContent.details.type === "PL")
-                                  //   handleButtonRequest(
-                                  //     `Reject PL ${chatContent.details.data["Leave Id"]}`
-                                  //   );
-                                  // }}
                                 >
                                   Reject
                                 </Button>

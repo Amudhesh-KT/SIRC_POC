@@ -349,15 +349,11 @@ class ActionLeaveBalance(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         leave_balance = {
-            'SIRC Annual Leave' : '27',
-            'SIRC Hajj Leave' : '6',
-            'SIRC Marriage Leave' : '12',
-            'SIRC Iddah Leave' : '7',
-            'SIRC Paternity Leave' : '20',
-            'SIRC Maternity Leave' : '80',
-            'SIRC Examination Leave' : '10',
-            'SIRC Unpaid Leave' : '9',
-            'SIRC Sick Leave' : '8',
+            'SIRC Annual Leave' : '9',
+            'SIRC Hajj Leave' : '3',
+            'SIRC Unpaid Leave' : '4',
+            'SIRC Examination Leave' : '2',
+            'SIRC Sick Leave' : '4',
         }
         send = {"msg": "The available leaves are", "donut": leave_balance}
         my_json = json.dumps(send)

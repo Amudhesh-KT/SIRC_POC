@@ -1114,17 +1114,17 @@ function DashboardLayout({ children }) {
                                 alignItems={"center"}
                                 sx={{
                                   mt: 1,
-                                  background: "#f90c0c",
-                                  color: "#fff",
-                                  "&:hover": {
-                                    background: "#f90c0c",
-                                    boxShadow: "none",
-                                  },
                                 }}
                               >
                                 <Button
                                   sx={{
                                     mx: 1,
+                                    background: "#f90c0c",
+                                    color: "#fff",
+                                    "&:hover": {
+                                      background: "#f90c0c",
+                                      boxShadow: "none",
+                                    },
                                   }}
                                   variant={"contained"}
                                   size="medium"
@@ -1152,7 +1152,7 @@ function DashboardLayout({ children }) {
                                     });
                                   }}
                                 >
-                                  Reject
+                                  Decline
                                 </Button>
                                 <Button
                                   variant={"contained"}

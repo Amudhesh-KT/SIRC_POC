@@ -118,7 +118,7 @@ const Login = () => {
             fontWeight={"400"}
             sx={{ letterSpacing: 0.8 }}
           >
-            Get more things done
+            Powered by SIRC Digital Labs
           </Typography>
         </Box>
         <Typography

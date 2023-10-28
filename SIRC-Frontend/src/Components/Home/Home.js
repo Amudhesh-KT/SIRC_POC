@@ -135,26 +135,22 @@ const Home = ({
 
     groupedCards[createdOnDate].push(e);
   });
-  console.log(groupedCards);
+
   const keysArray = Object.keys(groupedCards);
 
-  // Step 2: Sort the keys in ascending order
   keysArray.sort(function (a, b) {
-    // Split the date strings into day, month, and year components
     let [dayA, monthA, yearA] = a.split(".").map(Number);
     let [dayB, monthB, yearB] = b.split(".").map(Number);
 
-    // Compare first by year, then by month, and finally by day
     if (yearA !== yearB) {
-      return yearA - yearB;
+      return yearB - yearA;
     } else if (monthA !== monthB) {
-      return monthA - monthB;
+      return monthB - monthA;
     } else {
-      return dayA - dayB;
+      return dayB - dayA;
     }
   });
 
-  // Step 3: Create a new object with sorted keys
   const sortedGroupedCards = {};
   keysArray.forEach((key) => {
     sortedGroupedCards[key] = groupedCards[key];
@@ -839,15 +835,21 @@ const Home = ({
                         <Typography variant="caption1">
                           Purchase Order
                         </Typography>
-                        <span
-                          style={{
-                            color: "#f59616",
-                            padding: "0px 4px",
-                            fontSize: "14px",
-                          }}
-                        >
-                          ( {state.filter((e) => e.id.includes("PO")).length} )
-                        </span>
+                        {state.filter((e) => e.id.includes("PO")).length ===
+                        0 ? (
+                          <></>
+                        ) : (
+                          <span
+                            style={{
+                              color: "#f59616",
+                              padding: "0px 4px",
+                              fontSize: "14px",
+                            }}
+                          >
+                            ( {state.filter((e) => e.id.includes("PO")).length}{" "}
+                            )
+                          </span>
+                        )}
                       </>
                     ) : e == "PR" ? (
                       <>

@@ -6,18 +6,9 @@ const index = ({ data }) => {
 
   const [currentItem, setCurrentItem] = useState(data[0]);
   const [search, setSearch] = useState("");
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState([
-    "PR",
-    "PO",
-    "PL",
-    "BT",
-  ]);
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
 
-  const [selectedPriority, setSelectedPriority] = useState([
-    "Critical",
-    "High",
-    "Low",
-  ]);
+  const [selectedPriority, setSelectedPriority] = useState([]);
 
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
@@ -49,14 +40,22 @@ const index = ({ data }) => {
 
   return (
     <Home
-      state={state
-        .filter((e) =>
-          selectedCheckboxes.includes(e.id.split(" ")[0].toLocaleUpperCase())
-        )
-        .filter((e) => selectedPriority.includes(e.priority))
-        .filter((e) =>
-          e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-        )}
+      state={
+        selectedCheckboxes.length === 0 && selectedPriority.length === 0 // No filters selected
+          ? state
+          : selectedCheckboxes.length === 0 // Only selectedPriority is non-empty
+          ? state.filter((e) => selectedPriority.includes(e.priority))
+          : selectedPriority.length === 0 // Only selectedCheckboxes is non-empty
+          ? state.filter((e) =>
+              selectedCheckboxes.includes(e.id.split(" ")[0].toUpperCase())
+            )
+          : // Both selectedCheckboxes and selectedPriority have values
+            state
+              .filter((e) =>
+                selectedCheckboxes.includes(e.id.split(" ")[0].toUpperCase())
+              )
+              .filter((e) => selectedPriority.includes(e.priority))
+      }
       currentItem={currentItem}
       setCurrentItem={setCurrentItem}
       setSearch={setSearch}

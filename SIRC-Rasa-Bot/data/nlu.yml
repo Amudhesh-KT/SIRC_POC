@@ -3066,3 +3066,167 @@ nlu:
     - unused leave days
     - Tell me my leave balance
     - May i know my leave balance
+
+- intent: hr_policies
+  example: |
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+    - Human Resource Policies
+
+- intent: it_policies
+  examples: |
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+    - IT Policies
+
+- intent: procurement_policies
+  examples: |
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies
+    - Procurement Policies

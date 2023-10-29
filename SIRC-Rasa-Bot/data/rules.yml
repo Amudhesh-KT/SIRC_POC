@@ -7,6 +7,13 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: greet
+  - action: action_greet  
+
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
@@ -131,11 +138,25 @@ rules:
 
 
 #                                       POLICIES                                                   #
-- rule: company policies
+- rule: policies
   steps:
   - intent: policies
   - action: action_policies
 
+- rule: HR policies
+  steps:
+  - intent: hr_policies
+  - action: action_hr_policies
+
+- rule: Procurement policies
+  steps:
+  - intent: procurement_policies
+  - action: action_procurement_policies
+  
+- rule: IT policies
+  steps:
+  - intent: it_policies
+  - action: action_it_policies
 
 - rule: LearningAndDevelopmentPolicies
   steps:

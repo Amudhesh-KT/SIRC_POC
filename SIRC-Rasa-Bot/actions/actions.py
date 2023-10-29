@@ -15,6 +15,17 @@ class ActionHelloWorld(Action):
         dispatcher.utter_message(text="Hello World!")
 
         return []
+class ActionHelloWorld(Action):
+
+    def name(self) -> Text:
+        return "action_greet"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Hi, How can i Help you..")
+
+        return []
 #                                     PURCHASE REQUEST                                                #
 class ActionPendingPR(Action):
 
@@ -640,7 +651,7 @@ class ActionLearningAndDevelopmentPoliciesPolicy(Action):
             "links": [
                 {
                     "tag": "Learning And Development Policies",
-                    "link": "http://localhost:8000/static_files/Learning%20and%20Development.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Learning%20and%20Development.pdf",
                 }
             ]
         }
@@ -663,7 +674,7 @@ class ActionTalentAcquisitionPolicyPolicy(Action):
             "links": [
                 {
                     "tag": "Talent Acquisition Policy",
-                    "link": "http://localhost:8000/static_files/Talent%20Acquisition.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Talent%20Acquisition.pdf",
                 }
             ]
         }
@@ -686,7 +697,7 @@ class ActionOrganizationalDevelopmentPolicies(Action):
             "links": [
                 {
                     "tag": "Organizational Development Policies",
-                    "link": "http://localhost:8000/static_files/Organizational%20Development.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Organizational%20Development.pdf",
                 }
             ]
         }
@@ -710,7 +721,7 @@ class ActionLeavePolicy(Action):
             "links": [
                 {
                     "tag": "Leave Management Policy",
-                    "link": "http://localhost:8000/static_files/Leave%20Management%20Polcies.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Leave%20Management%20Polcies.pdf",
                 }
             ]
         }
@@ -734,7 +745,7 @@ class ActionGrievancePolicy(Action):
             "links": [
                 {
                     "tag": "Grievance Policy",
-                    "link": "http://localhost:8000/static_files/Grievance_Policies.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Grievance_Policies.pdf",
                 }
             ]
         }
@@ -758,7 +769,7 @@ class ActionPersonnelPolicies(Action):
             "links": [
                 {
                     "tag": "Personnel Policies",
-                    "link": "http://localhost:8000/static_files/Personnel%20Records%20Policies.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Personnel%20Records%20Policies.pdf",
                 }
             ]
         }
@@ -782,7 +793,7 @@ class ActionPayrollPolicies(Action):
             "links": [
                 {
                     "tag": "Payroll Policies",
-                    "link": "http://localhost:8000/static_files/Payroll%20Policies.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Payroll%20Policies.pdf",
                 }
             ]
         }
@@ -806,7 +817,7 @@ class ActionWorkingHoursPolicy(Action):
             "links": [
                 {
                     "tag": "Working Hours Policy",
-                    "link": "http://localhost:8000/static_files/Working%20Hours%20Policies.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Working%20Hours%20Policies.pdf",
                 }
             ]
         }
@@ -830,7 +841,7 @@ class ActionSeparationPolicy(Action):
             "links": [
                 {
                     "tag": "Separation Policy",
-                    "link": "http://localhost:8000/static_files/Separation%20Employment%20Policies.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Separation%20Employment%20Policies.pdf",
                 }
             ]
         }
@@ -854,7 +865,7 @@ class Actiontravelpolicies(Action):
             "links": [
                 {
                     "tag": "Travel and Business Trip Policy",
-                    "link": "http://localhost:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf",
+                    "link": "http://172.29.106.60:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf",
                 }
             ]
         }
@@ -874,34 +885,94 @@ class ActionPolicies(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
+        resp = ['Human Resource Policies','IT Policies','Procurement Policies']
+        send = {
+            "msg": "Please select the Policy group to view the policies",
+            "requests":resp
+            
+        }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+
+        return []
+    
+
+class ActionHRPolicies(Action):
+    def name(self) -> Text:
+        return "action_hr_policies"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
         
         links = [
                 {
                     "tag": "Travel and Business Trip Policy",
-                    "link": "http://localhost:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Travel%20and%20Business%20Trips%20Policeis%20.pdf"},
                     {"tag": "Learning And Development Policies",
-                    "link": "http://localhost:8000/static_files/Learning%20and%20Development.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Learning%20and%20Development.pdf"},
                     {"tag": "Talent Acquisition Policy",
-                    "link": "http://localhost:8000/static_files/Talent%20Acquisition.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Talent%20Acquisition.pdf"},
                     {"tag": "Organizational Development Policies",
-                    "link": "http://localhost:8000/static_files/Organizational%20Development.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Organizational%20Development.pdf"},
                     {"tag": "Leave Management Policy",
-                    "link": "http://localhost:8000/static_files/Leave%20Management%20Polcies.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Leave%20Management%20Polcies.pdf"},
                     {"tag": "Grievance Policy",
-                    "link": "http://localhost:8000/static_files/Grievance_Policies.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Grievance_Policies.pdf"},
                     {"tag": "Personnel Policies",
-                    "link": "http://localhost:8000/static_files/Personnel%20Records%20Policies.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Personnel%20Records%20Policies.pdf"},
                     {"tag": "Payroll Policies",
-                    "link": "http://localhost:8000/static_files/Payroll%20Policies.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Payroll%20Policies.pdf"},
                     {"tag": "Separation Policy",
-                    "link": "http://localhost:8000/static_files/Separation%20Employment%20Policies.pdf"},
+                    "link": "http://172.29.106.60:8000/static_files/Separation%20Employment%20Policies.pdf"},
                     {
                     "tag": "Working Hours Policy",
-                    "link": "http://localhost:8000/static_files/Working%20Hours%20Policies.pdf"
+                    "link": "http://172.29.106.60:8000/static_files/Working%20Hours%20Policies.pdf"
                 },
                 
             ]
         send = {"links":links,"msg":"The Company policies are.."}
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+
+        return []
+    
+class ActionITPolicies(Action):
+    def name(self) -> Text:
+        return "action_it_policies"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        # resp = ['Human Resource Policies','IT Policies','Procurement Policies']
+        send = {
+            "msg": "You are not Authorized to view the policies",            
+        }
+        my_json = json.dumps(send)
+        dispatcher.utter_message(text=my_json)
+
+        return []
+    
+class ActionPRPolicies(Action):
+    def name(self) -> Text:
+        return "action_procurement_policies"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        # resp = ['Human Resource Policies','IT Policies','Procurement Policies']
+        send = {
+            "msg": "You are not Authorized to view the policies",            
+        }
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 

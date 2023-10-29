@@ -3117,6 +3117,27 @@ nlu:
     - Human Resource Policies
     - Human Resource Policies
     - Human Resource Policies
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
+    - HR Policy
 
 - intent: it_policies
   examples: |
@@ -3168,6 +3189,26 @@ nlu:
     - IT Policies
     - IT Policies
     - IT Policies
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
+    - it policy
 
 - intent: procurement_policies
   examples: |
@@ -3230,3 +3271,25 @@ nlu:
     - Procurement Policies
     - Procurement Policies
     - Procurement Policies
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy
+    - procurement policy

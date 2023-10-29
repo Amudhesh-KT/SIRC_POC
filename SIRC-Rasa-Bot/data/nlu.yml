@@ -3068,7 +3068,7 @@ nlu:
     - May i know my leave balance
 
 - intent: hr_policies
-  example: |
+  examples: |
     - Human Resource Policies
     - Human Resource Policies
     - Human Resource Policies

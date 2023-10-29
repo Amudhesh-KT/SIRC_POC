@@ -2,8 +2,8 @@ import pandas as pd
 from pymongo import MongoClient
 from datetime import datetime
 
-client = MongoClient('mongodb://sircchatbot:Sirc%40123@172.29.106.60:27017/?authMechanism=DEFAULT&authSource=admin')  # Provide appropriate MongoDB connection details
-# client = MongoClient('mongodb+srv://damudheshkt:Amudhesh@cluster0.nujdztc.mongodb.net/')
+# client = MongoClient('mongodb://sircchatbot:Sirc%40123@172.29.106.60:27017/?authMechanism=DEFAULT&authSource=admin')  # Provide appropriate MongoDB connection details
+client = MongoClient('mongodb+srv://damudheshkt:Amudhesh@cluster0.nujdztc.mongodb.net/')
 db = client['SIRC_POC']
 pl_details = db['pl_details']
 pr_details = db['pr_details']
@@ -215,22 +215,47 @@ def bt_approval(bt_no,status,comments):
 
 #                                       BUDGET DETAILS                                                   #
 def fundcentre_list():
-    fc_list = []
+    # fc_list = []
+    fc_des = []
     for i in budget_details.find():
-        fc = 'FC '+str(i['Fund_centre'])
-        fc_list.append(fc)
-    fc_final = list(set(fc_list))
+        fc = str(i['Fund_centre'])
+        # fc_des = i['Fund_centre_details']
+        # fc_item = {'text':(i['Fund_centre_details']), 'intent': 'FC '+str(i['Fund_centre']) }
+        fc_des.append(fc)
+    fc_final = list(set(fc_des))
     print(fc_final)
-    return fc_final
+    items = []
+    for i in fc_final:
+        # des = ?budget_details.find_one({'Fund_centre'})
+        # print(i)
+        item = {'text':budget_details.find_one({'Fund_centre':int(i)})['Fund_centre_details'],
+                'intent': 'FC '+i
+               }
+        items.append(item)
+
+    print(items)
+    return items
  
 def commititem_list(fc_no):
-    ci_item = []
-    for i in budget_details.find({'Fund_centre':int(fc_no)}):
-        # ci = 'CI '+str(i['Commitment_item'])
-        item = {'text':"CI "+str(i['Commitment_item']), 'intent': f"FC {int(fc_no)} CI {str(i['Commitment_item'])}" }
- 
-        ci_item.append(item)
-    return ci_item
+    fc_des = []
+    for i in budget_details.find():
+        fc = str(i['Commitment_item'])
+        # fc_des = i['Commitment_item_details']
+        # fc_item = {'text':(i['Commitment_item_details']), 'intent': 'FC '+str(i['Commitment_item']) }
+        fc_des.append(fc)
+    fc_final = list(set(fc_des))
+    print(fc_final)
+    items = []
+    for i in fc_final:
+        # des = ?budget_details.find_one({'Commitment_item'})
+        # print(i)
+        item = {'text':budget_details.find_one({'Commitment_item':int(i)})['Commitment_item_details'],
+                'intent': 'FC '+str(fc_no) +' CI '+i
+               }
+        items.append(item)
+
+    print(items)
+    return items
  
  
 def budget_description(fc_no,ci_no):

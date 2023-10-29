@@ -445,9 +445,9 @@ class ActionBTApprove(Action):
         comments = 'Nil'
         res = bt_approval(btno,status,comments)
         if res:
-            dispatcher.utter_message(text=f'PL {btno} was Approved Successfully')
+            dispatcher.utter_message(text=f'BT {btno} was Approved Successfully')
         else:
-            dispatcher.utter_message(text=f'PL {btno} has already been Approved/Rejected')
+            dispatcher.utter_message(text=f'BT {btno} has already been Approved/Rejected')
         
         return []
         
@@ -472,9 +472,9 @@ class ActionBTReject(Action):
             comments = 'Nil'
         res = bt_approval(btno,status,comments)
         if res:
-            dispatcher.utter_message(text=f'PL {btno} was Rejected Successfully')
+            dispatcher.utter_message(text=f'BT {btno} was Rejected Successfully')
         else:
-            dispatcher.utter_message(text=f'PL {btno} has already been Approved/Rejected')
+            dispatcher.utter_message(text=f'BT {btno} has already been Approved/Rejected')
 
 
         return []
@@ -569,10 +569,11 @@ class FundcentreList(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         resp = fundcentre_list()
-        fccentre = [str(i) for i in resp]
-        send = {"requests": fccentre,
-                    "msg": "The Fund Centre lists are given below. Choose Any one to see details",
-                    }
+        fccentre = [i for i in resp]
+        send = {
+                "data":fccentre,"flag":False,
+                "msg": "Here is the List of Fund Centres... ",
+               }
  
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
@@ -621,7 +622,7 @@ class BudgetDetails(Action):
         resp = budget_description(fc_no,ci_no)
         print(resp)
         send = {
-            "msg": "Here are the Budget details ... ",
+            "msg": f"Here are the Budget details of Fund centre: FC {fc_no}, Commitment Item: CI {ci_no} ...",
             "details": {
                 "data":resp,"flag":False,
                 "type": "BD"
@@ -885,7 +886,7 @@ class ActionPolicies(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-        resp = ['Human Resource Policies','IT Policies','Procurement Policies']
+        resp = ['Human Resource Policies','Information Technology Policies','Procurement Policies']
         send = {
             "msg": "Please select the Policy group to view the policies",
             "requests":resp

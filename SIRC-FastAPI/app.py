@@ -14,8 +14,8 @@ from datetime import datetime
 
 
 # Establish a connection with MongoDB
-# client = MongoClient('mongodb+srv://damudheshkt:Amudhesh@cluster0.nujdztc.mongodb.net/') 
-client = MongoClient('mongodb://sircchatbot:Sirc%40123@172.29.106.60:27017/?authMechanism=DEFAULT&authSource=admin')
+client = MongoClient('mongodb+srv://damudheshkt:Amudhesh@cluster0.nujdztc.mongodb.net/') 
+# client = MongoClient('mongodb://sircchatbot:Sirc%40123@172.29.106.60:27017/?authMechanism=DEFAULT&authSource=admin')
 db = client['SIRC_POC'] 
 pl_details = db['pl_details']
 pr_details = db['pr_details']

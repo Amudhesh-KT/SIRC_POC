@@ -215,21 +215,23 @@ def bt_approval(bt_no,status,comments):
 
 #                                       BUDGET DETAILS                                                   #
 def fundcentre_list():
-    fc_list = []
+    fc_item = []
     for i in budget_details.find():
-        fc = 'FC '+str(i['Fund_centre'])
-        fc_list.append(fc)
-    fc_final = list(set(fc_list))
-    print(fc_final)
-    return fc_final
+        fc_num = i['Fund_centre'].split()[0]
+        item = {'text':"FC "+i['Fund_centre'], 'intent': f"FC {fc_num} " }
+        print(item)
+        fc_item.append(item)
+    print(fc_item)    
+    return fc_item
 
-def commititem_list(fc_no):
+def commititem_list(fc_no,fc_num):
     ci_item = []
-    for i in budget_details.find({'Fund_centre':int(fc_no)}):
-        # ci = 'CI '+str(i['Commitment_item'])
-        item = {'text':"CI "+str(i['Commitment_item']), 'intent': f"FC {int(fc_no)} CI {str(i['Commitment_item'])}" }
-
-        ci_item.append(item)
+    
+    for i in budget_details.find({'Fund_centre':fc_no}):
+    # ci = 'CI '+str(i['Commitment_item'])
+        item = {'text':"CI "+i['Commitment_item'].strip()[0:6], 'intent': f"FC {fc_num} CI {str(i['Commitment_item']).strip()[0:6]}" }
+        print(item)
+    ci_item.append(item)
     return ci_item
 
 

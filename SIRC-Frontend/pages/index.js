@@ -53,7 +53,7 @@ const index = ({ data }) => {
   const handleRequest = async (id, status, comment) => {
     console.log(id, status, comment);
 
-    const response = await fetch(`http://localhost:8000/Approve_reject`, {
+    const response = await fetch(`http://172.29.106.60:8000/Approve_reject`, {
       mode: "cors",
       method: "POST",
       body: JSON.stringify({
@@ -116,7 +116,7 @@ const index = ({ data }) => {
 export default index;
 
 export const getServerSideProps = async () => {
-  const response = await fetch(`http://127.0.0.1:8000/overall_data`);
+  const response = await fetch(`http://172.29.106.60:8000/overall_data`);
   const data = await response.json();
 
   console.log(data.length);

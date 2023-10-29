@@ -483,7 +483,7 @@ class FundcentreList(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         resp = fundcentre_list()
         fccentre = [str(i) for i in resp]
-        send = {"requests": fccentre,
+        send = {"data": fccentre,
                     "msg": "The Fund Centre lists are given below. Choose Any one to see details",
                     }
 

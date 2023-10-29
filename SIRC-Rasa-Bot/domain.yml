@@ -50,6 +50,9 @@ intents:
 #                                 POLICIES                                                  #
 
   - policies
+  - hr_policies
+  - it_policies
+  - procurement_policies
   - travelpolicies
   - leavepolicies
   - SeparationPolicy
@@ -235,6 +238,10 @@ actions:
 #                                 POLICIES                                                  #
 
   - action_policies
+  - action_greet
+  - action_hr_policies
+  - action_it_policies
+  - action_procurement_policies
   - action_travelpolicies
   - action_leavepolicies
   - action_SeparationPolicy

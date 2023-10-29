@@ -67,6 +67,10 @@ class ActionPRItemDescription(Action):
         prno = prnotext.split()[1]
         print(prno,pritemno)
         resp = pr_item_description(prno,pritemno)
+        if resp['Item Number'] == 10:
+            Pending_PR_Flag = 0
+        else:
+            Pending_PR_Flag = 1
         send = {
             "msg": "Here is the Details of Purchase Requisition... ",
             "details": {
@@ -355,7 +359,7 @@ class ActionLeaveBalance(Action):
             'SIRC Examination Leave' : '2',
             'SIRC Sick Leave' : '4',
         }
-        send = {"msg": "The available leaves are", "donut": leave_balance}
+        send = {"msg": "The available leaves of Ahmed are", "donut": leave_balance}
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
 
@@ -525,7 +529,7 @@ class BudgetDetails(Action):
         resp = budget_description(fc_no,ci_no)
         print(resp)
         send = {
-            "msg": "Here are the Budget details ... ",
+            "msg": f"Here are the Budget details of Fund centre: FC {fc_no}, Commitment Item: CI {ci_no} ... ",
             "details": {
                 "data":resp,"flag":False,
                 "type": "BD"

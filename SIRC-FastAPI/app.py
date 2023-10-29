@@ -15,6 +15,7 @@ from datetime import datetime
 
 # Establish a connection with MongoDB
 client = MongoClient('mongodb+srv://damudheshkt:Amudhesh@cluster0.nujdztc.mongodb.net/') 
+# client = MongoClient('mongodb://sircchatbot:Sirc%40123@172.29.106.60:27017/?authMechanism=DEFAULT&authSource=admin')
 db = client['SIRC_POC'] 
 pl_details = db['pl_details']
 pr_details = db['pr_details']
@@ -143,6 +144,7 @@ async def overall_data():
                 'Travel start Date': i['Travel start Date'],
                 'Travel End Date': i['Travel End Date'],
                 'Travel Type': i['Travel Type'],
+                'Purpose of Travel':i['Reason'],
                 'No. of Locations': i['No. of Locations'],
                 'Visa Required': i['Visa Required'],
                 'Required Visa Exit & Re-Entry': i['Required Visa Exit & Re-Entry'],
@@ -189,11 +191,11 @@ async def overall_data():
             ],
             'details': {
                 'company_code': i['Company_code'],
-                'po_creation_date': i['Creation_date'],
+                'PO_creation_date': i['Creation_date'],
                 'buyer_participants': i['Buyer_participants'],
-                'total_order_value': i['Ordered_value_SAR'],
-                'total_allocation_budget': i['Total_allocated_budget'],
-                'budget_consumed': i['Budget_consumed'],
+                'total_order_value': 'SAR '+str(i['Ordered_value_SAR'])+'.00',
+                'total_allocation_budget': 'SAR '+str(i['Total_allocated_budget'])+'.00',
+                'budget_consumed': 'SAR '+str(i['Budget_consumed'])+'.00',
                 'procurement_type': i['Procurement_type'],
                 'supplier': i['Supplier'],
                 'budget_owner': i['Budget_owner'],
@@ -206,7 +208,7 @@ async def overall_data():
                     'stext': i['short_info'],
                     'quantity': i['Item_10_Quantity'],
                     'UOM': i['Item_10_Uom'],
-                    'price': i['Item_10_Total_Price'],
+                    'price': 'SAR '+str(i['Item_10_Total_Price'])+'.00',
                     'plant': i['Item_10_Plant'],
                     'pr': i['Item_10_Pr_number'],
                     'pritem': i['Item_10_Pr_item'],
@@ -218,8 +220,8 @@ async def overall_data():
                     'stext': i['short_info'],
                     'UOM': i['Service_10_Uom'],
                     'quantity': i['Service_10_Quantity'],
-                    'unit': i['Service_10_Unit_price'],
-                    'net': i['Service_10_Net_price'],
+                    'unit': 'SAR '+str(i['Service_10_Unit_price'])+'.00',
+                    'net': 'SAR '+str(i['Service_10_Net_price'])+'.00'
                 },
             ],
             'account_assignment': [
@@ -264,10 +266,10 @@ async def overall_data():
                 }
             ],
             'details': {
-                    'pr_num': i['pr_num'], 
+                    'PR number': i['pr_num'], 
                     'creation_date': i['creation_date'], 
-                    'order_value': i['order_value'], 
-                    ' prtype': "Service PR",
+                    'order_value': 'SAR '+str(i['order_value'])+'.00', 
+                    'PR Type': "Service PR",
                     'created_by': i['created_by'], 
                     'scope_of_work': i['scope_of_work'],
             },
@@ -277,7 +279,7 @@ async def overall_data():
                     'stext': i['Item_10_Description'],
                     'quantity': i['Item_10_Quantity'],
                     'UOM': i['Item_10_UOM'],
-                    'price': i['Item_10_Total_Price'],
+                    'price': 'SAR '+str(i['Item_10_Total_Price'])+'.00',
                     'plant': i['Item_10_Plant'],
                 },
                 {
@@ -285,7 +287,7 @@ async def overall_data():
                     'stext': i['Item_20_Description'],
                     'quantity': i['Item_20_Quantity'],
                     'UOM': i['Item_20_UOM'],
-                    'price': i['Item_20_Total_Price'],
+                    'price': 'SAR '+str(i['Item_10_Total_Price'])+'.00',
                     'plant': i['Item_20_Plant'],
                 }
             ],
@@ -295,7 +297,7 @@ async def overall_data():
                     'stext': i['Service_10_Short_text'],
                     'quantity': i['Service_10_Quantity'],
                     'UOM': i['Service_10_Uom'],
-                    'price': i['Service_10_Unit_price'],
+                    'price': 'SAR '+str(i['Service_10_Unit_price'])+'.00',
                     'plant': i['Service_10_Net_price'],
                 },
                 {
@@ -303,7 +305,7 @@ async def overall_data():
                     'stext': i['Service_20_Short_text'],
                     'quantity': i['Service_20_Quantity'],
                     'UOM': i['Service_20_Uom'],
-                    'price': i['Service_20_Unit_price'],
+                    'price': 'SAR '+str(i['Service_20_Unit_price'])+'.00',
                     'plant': i['Service_20_Net_price'],
                 },
                 {
@@ -311,7 +313,7 @@ async def overall_data():
                     'stext': i['Service_30_Short_text'],
                     'quantity': i['Service_30_Quantity'],
                     'UOM': i['Service_30_Uom'],
-                    'price': i['Service_30_Unit_price'],
+                    'price': 'SAR '+str(i['Service_30_Unit_price'])+'.00',
                     'plant': i['Service_30_Net_price'],
                 }
             ],

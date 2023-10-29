@@ -43,7 +43,7 @@ def pr_item_description(pr_no,pr_item):
             'Purchase Requisition Number': pr_no,
             'Item Number':res['Item_10_number'],
             'Plant':res['Item_10_Plant'],
-            'Total Price':res['Item_10_Total_Price'],
+            'Total Price':'SAR '+ str(res['Item_10_Total_Price'])+'.00',
             'UOM':res['Item_10_UOM'],
             'Quantity':res['Item_10_Quantity'],
             'Description':res['Item_10_Description']
@@ -53,7 +53,7 @@ def pr_item_description(pr_no,pr_item):
             'Purchase Requisition Number': pr_no,
             'Item Number':res['Item_20_number'],
             'Plant':res['Item_20_Plant'],
-            'Total Price':res['Item_20_Total_Price'],
+            'Total Price':'SAR '+str(res['Item_20_Total_Price'])+'.00',
             'UOM':res['Item_20_UOM'],
             'Quantity':res['Item_20_Quantity'],
             'Description':res['Item_20_Description']
@@ -102,7 +102,7 @@ def po_item_description(po_no):
         'Purchase Order Number': po_no,
         'PO Item Number' : res['Item_10_Pr_item'],
         'Plant':res['Item_10_Plant'],
-        'Total Price':res['Item_10_Total_Price'],
+        'Total Price':'SAR '+str(res['Item_10_Total_Price'])+'.00',
         'UOM':res['Item_10_Uom'],
         'Quantity':res['Item_10_Quantity'],
         'Description':res['short_info'],
@@ -187,6 +187,7 @@ def bt_description(bt_no):
         bt_des = {
             'Business Trip Number' : bt_no,
             'Employee Name' : res['Employee Name'],
+            'Purpose of Travel' :res['Reason'],
             'Travel start Date' : res['Travel start Date'],
             'Travel End Date' : res['Travel End Date'],
             'Travel Type' : res['Travel Type'],
@@ -236,9 +237,9 @@ def budget_description(fc_no,ci_no):
     budget_des = {}
     for i in budget_details.find({'Fund_centre':int(fc_no),'Commitment_item':int(ci_no)}):
         budget_des = {
-            'Allocated_budget':i['Allocated_budget'],
-            'Budget_consumed':i['Budget_consumed'],
-            'Available Budget':i['Available Budget']
+            'Allocated_budget':'SAR '+f"{int(i['Allocated_budget'])}"+'.00',
+            'Budget_consumed':'SAR '+str(i['Budget_consumed'])+'.00',
+            'Available Budget':'SAR '+str(i['Available Budget'])+'.00'
         }
 
     print(budget_des)

@@ -473,11 +473,87 @@ class ActionBTReject(Action):
 
 #                                       BUDGET DETAILS                                                   #
 
-class FundcentreList(Action):
+# class FundcentreList(Action):
 
+#     def name(self) -> Text:
+#         return "action_fund_centre"
+
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         resp = fundcentre_list()
+#         fccentre = [i for i in resp]
+#         send = {
+#             "data":fccentre,"flag":False,
+#             "msg": "Here is the List of Fund Centres... ",
+                      
+#         }
+#         my_json = json.dumps(send)
+#         dispatcher.utter_message(text=my_json)
+
+
+#         return []
+    
+# class CommitmentItemsList(Action):
+
+#     def name(self) -> Text:
+#         return "action_commit_item"
+
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         # fc_no = tracker.get_slot("fc_no")
+#         fc_notext = tracker.latest_message["text"]
+#         print(fc_notext)
+#         fc_no = fc_notext.split()[-1]
+#         print(fc_no)
+#         fc_num = fc_notext.split[1]
+#         resp = commititem_list(fc_no,fc_num)
+#         ciitem = [i for i in resp]
+#         print(resp)
+#         send = {
+#                     "msg": "The Commitment Items are given below. Choose Any one to see details",
+#                     "data": ciitem,
+#                     }
+
+#         my_json = json.dumps(send)
+#         dispatcher.utter_message(text=my_json)
+
+
+#         return []
+    
+# class BudgetDetails(Action):
+
+#     def name(self) -> Text:
+#         return "action_budget_details"
+
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         budget_notext = tracker.latest_message["text"]
+#         fc_no = budget_notext.split()[1]
+#         print(fc_no)
+#         ci_no = budget_notext.split()[-1]
+#         print(ci_no)
+#         resp = budget_description(fc_no,ci_no)
+#         print(resp)
+#         send = {
+#             "msg": f"Here are the Budget details of Fund centre: FC {fc_no}, Commitment Item: CI {ci_no} ... ",
+#             "details": {
+#                 "data":resp,"flag":False,
+#                 "type": "BD"
+#                 }
+#         }
+#         my_json = json.dumps(send)
+#         dispatcher.utter_message(text=my_json)
+
+
+#         return []
+class FundcentreList(Action):
+ 
     def name(self) -> Text:
         return "action_fund_centre"
-
+ 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
@@ -486,18 +562,18 @@ class FundcentreList(Action):
         send = {"requests": fccentre,
                     "msg": "The Fund Centre lists are given below. Choose Any one to see details",
                     }
-
+ 
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
-
-
+ 
+ 
         return []
-    
+   
 class CommitmentItemsList(Action):
-
+ 
     def name(self) -> Text:
         return "action_commit_item"
-
+ 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
@@ -511,18 +587,18 @@ class CommitmentItemsList(Action):
         send = {"data": resp,
                     "msg": "The Commitment Items are given below. Choose Any one to see details",
                     }
-
+ 
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
-
-
+ 
+ 
         return []
-    
+   
 class BudgetDetails(Action):
-
+ 
     def name(self) -> Text:
         return "action_budget_details"
-
+ 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
@@ -534,7 +610,7 @@ class BudgetDetails(Action):
         resp = budget_description(fc_no,ci_no)
         print(resp)
         send = {
-            "msg": f"Here are the Budget details of Fund centre: FC {fc_no}, Commitment Item: CI {ci_no} ... ",
+            "msg": "Here are the Budget details ... ",
             "details": {
                 "data":resp,"flag":False,
                 "type": "BD"
@@ -542,10 +618,9 @@ class BudgetDetails(Action):
         }
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
-
-
+ 
+ 
         return []
-
 #                                 BUDGET DETAILS REQUEST                                                  #
 
 

@@ -180,7 +180,7 @@ slots:
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! How can i help you"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"

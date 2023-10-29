@@ -10,7 +10,7 @@ rules:
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: greet
-  - action: action_greet  
+  - action: utter_greet  
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:

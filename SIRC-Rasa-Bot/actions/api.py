@@ -239,7 +239,7 @@ def budget_description(fc_no,ci_no):
     budget_des = {}
     for i in budget_details.find({'Fund_centre':int(fc_no),'Commitment_item':int(ci_no)}):
         budget_des = {
-            'Allocated_budget':'SAR '+f"{int(i['Allocated_budget'])}"+'.00',
+            'Allocated_budget':'SAR '+f"{int(i['Allocated_budget']):,}"+'.00',
             'Budget_consumed':'SAR '+str(i['Budget_consumed'])+'.00',
             'Available Budget':'SAR '+str(i['Available Budget'])+'.00'
         }

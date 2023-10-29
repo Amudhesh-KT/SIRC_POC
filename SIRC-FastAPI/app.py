@@ -193,7 +193,7 @@ async def overall_data():
                 'company_code': i['Company_code'],
                 'PO_creation_date': i['Creation_date'],
                 'buyer_participants': i['Buyer_participants'],
-                'total_order_value': 'SAR '+str(i['Ordered_value_SAR'])+'.00',
+                'total_order_value': 'SAR '+f"{int(i['Ordered_value_SAR']):,}"+'.00',
                 'total_allocation_budget': 'SAR '+str(i['Total_allocated_budget'])+'.00',
                 'budget_consumed': 'SAR '+str(i['Budget_consumed'])+'.00',
                 'procurement_type': i['Procurement_type'],
@@ -268,7 +268,7 @@ async def overall_data():
             'details': {
                     'PR number': i['pr_num'], 
                     'creation_date': i['creation_date'], 
-                    'order_value': 'SAR '+str(i['order_value'])+'.00', 
+                    'order_value': 'SAR '+f"{int(i['order_value'])}"+'.00', 
                     'PR Type': "Service PR",
                     'created_by': i['created_by'], 
                     'scope_of_work': i['scope_of_work'],

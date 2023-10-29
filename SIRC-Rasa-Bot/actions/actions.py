@@ -91,12 +91,16 @@ class ActionPRApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        print("Inside PR Approval")
         prnotext = tracker.latest_message["text"]
+        print(prnotext)
         prno = prnotext.split()[-1]
+        print(prno)
+        # prno = 1000000475
         status = 'Approved'
         comments = 'Nil'
         res = pr_approval(prno,status,comments)
+        print(res)
         if res:
             dispatcher.utter_message(text=f'PR {prno} was Approved Successfully')
         else:
@@ -112,7 +116,7 @@ class ActionPRReject(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        print("Inside PR Reject")
         prnotext = tracker.latest_message["text"]
         metadata = tracker.latest_message.get("metadata")
         prno = prnotext.split()[-1]
@@ -122,6 +126,7 @@ class ActionPRReject(Action):
         else:
             comments = 'Nil'
         res = pr_approval(prno,status,comments)
+        print(res)
         if res:
             dispatcher.utter_message(text=f'PR {prno} was Rejected Successfully')
         else:

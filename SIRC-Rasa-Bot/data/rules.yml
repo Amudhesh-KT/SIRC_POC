@@ -7,8 +7,6 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-rules:
-
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: greet

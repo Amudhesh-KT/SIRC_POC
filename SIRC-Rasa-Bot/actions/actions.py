@@ -52,8 +52,10 @@ class ActionPRItemList(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        prnotext = tracker.latest_message["text"]
-        prno = prnotext.split()[-1]
+        # prnotext = tracker.latest_message["text"]
+        prno = tracker.get_slot("prnumber")
+        # prno = prnotext.split()[-1]
+        print(prno)
         itemlist = pr_item_list(prno)
         send = {
             "data": itemlist,
@@ -72,10 +74,10 @@ class ActionPRItemDescription(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         Pending_PR_Flag = 1
-        prnotext = tracker.latest_message["text"]
-        print(prnotext)
-        pritemno = prnotext.split()[-1]
-        prno = prnotext.split()[1]
+        # prnotext = tracker.latest_message["text"]
+        # print(prnotext)
+        prno = tracker.get_slot('prnumber')
+        pritemno = tracker.get_slot('pritemnumber')
         print(prno,pritemno)
         resp = pr_item_description(prno,pritemno)
         if resp['Item Number'] == 10:
@@ -102,10 +104,11 @@ class ActionPRApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        print("Inside PR Approval")
-        prnotext = tracker.latest_message["text"]
-        print(prnotext)
-        prno = prnotext.split()[-1]
+        # print("Inside PR Approval")
+        # prnotext = tracker.latest_message["text"]
+        # print(prnotext)
+        # prno = prnotext.split()[-1]
+        prno = tracker.get_slot('prnumber')
         print(prno)
         # prno = 1000000475
         status = 'Approved'
@@ -128,9 +131,10 @@ class ActionPRReject(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         print("Inside PR Reject")
-        prnotext = tracker.latest_message["text"]
+        # prnotext = tracker.latest_message["text"]
+        prno = tracker.get_slot('prnumber')
         metadata = tracker.latest_message.get("metadata")
-        prno = prnotext.split()[-1]
+        # prno = prnotext.split()[-1]
         status = 'Rejected'
         if metadata:
             comments = metadata['comments']
@@ -177,8 +181,9 @@ class ActionPOItemList(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        ponotext = tracker.latest_message["text"]
-        pono = ponotext.split()[-1]
+        # ponotext = tracker.latest_message["text"]
+        # pono = ponotext.split()[-1]
+        pono = tracker.get_slot('ponumber')
         itemlist = po_item_list(pono)
         send = {
             "data": itemlist,
@@ -199,11 +204,11 @@ class ActionPOItemDescription(Action):
         # global Pending_PO_Flag 
         Pending_PO_Flag = 1
         
-        ponotext = tracker.latest_message["text"]
-        poitemno = ponotext.split()[-1]
-        pono = ponotext.split()[1]
-        # pono = tracker.get_slot("po_number")
-        # poitemno = tracker.get_slot("po_itemnumber")
+        # ponotext = tracker.latest_message["text"]
+        # poitemno = ponotext.split()[-1]
+        # pono = ponotext.split()[1]
+        pono = tracker.get_slot("ponumber")
+        poitemno = tracker.get_slot("poitemnumber")
         resp = po_item_description(pono)
         send = {
             "msg": "Here is the Details of Purchase Requisition... ",
@@ -225,8 +230,9 @@ class ActionPOApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        ponotext = tracker.latest_message["text"]
-        pono = ponotext.split()[-1]
+        # ponotext = tracker.latest_message["text"]
+        # pono = ponotext.split()[-1]
+        pono = tracker.get_slot('ponumber')
         status = 'Approved'
         comments = 'Nil'
         res = po_approval(pono,status,comments)
@@ -246,9 +252,10 @@ class ActionPOReject(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        ponotext = tracker.latest_message["text"]
+        # ponotext = tracker.latest_message["text"]
         metadata = tracker.latest_message.get("metadata")
-        pono = ponotext.split()[-1]
+        # pono = ponotext.split()[-1]
+        pono = tracker.get_slot('ponumber')
         status = 'Rejected'
         if metadata:
             comments = metadata['comments']
@@ -294,8 +301,9 @@ class ActionLeaveDescription(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         print("Action running")
-        plnotext = tracker.latest_message["text"]
-        plno = plnotext.split()[-1]
+        # plnotext = tracker.latest_message["text"]
+        # plno = plnotext.split()[-1]
+        plno = tracker.get_slot('LeaveId')
         print(plno)
         leave_req_details = leave_description(plno)
         print(leave_req_details)
@@ -319,8 +327,9 @@ class ActionPLApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        plnotext = tracker.latest_message["text"]
-        plno = plnotext.split()[-1]
+        # plnotext = tracker.latest_message["text"]
+        # plno = plnotext.split()[-1]
+        plno = tracker.get_slot('LeaveId')
         status = 'Approved'
         comments = 'Nil'
         res = leave_approval(plno,status,comments)
@@ -340,12 +349,12 @@ class ActionPLReject(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # pl_no = tracker.get_slot("LeaveId")
+        plno = tracker.get_slot("LeaveId")
         # print("PL Reject",pl_no)
         # dispatcher.utter_message(text="Leave Request Rejected")
-        plnotext = tracker.latest_message["text"]
+        # plnotext = tracker.latest_message["text"]
         metadata = tracker.latest_message.get("metadata")
-        plno = plnotext.split()[-1]
+        # plno = plnotext.split()[-1]
         status = 'Rejected'
         if metadata:
             comments = metadata['comments']
@@ -415,8 +424,9 @@ class ActionTripDescription(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        btnotext = tracker.latest_message["text"]
-        btno = btnotext.split()[-1][0:-1]
+        # btnotext = tracker.latest_message["text"]
+        btno = tracker.get_slot('TripId')
+        btno = btno.split()[-1][0:-1]
         trip_req_details = bt_description(btno)
         flag_variable = True
         send = {
@@ -439,8 +449,9 @@ class ActionBTApprove(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        btnotext = tracker.latest_message["text"]
-        btno = btnotext.split()[-1][0:-1]
+        # btnotext = tracker.latest_message["text"]
+        btno = tracker.get_slot('TripId')
+        btno = btno.split()[-1][0:-1]
         status = 'Approved'
         comments = 'Nil'
         res = bt_approval(btno,status,comments)
@@ -459,12 +470,12 @@ class ActionBTReject(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # BT_no = tracker.get_slot("TripId")
+        btno = tracker.get_slot("TripId")
         # print("BT Reject",BT_no)
         # dispatcher.utter_message(text="Business Trip Request Rejected")
-        btnotext = tracker.latest_message["text"]
+        # btnotext = tracker.latest_message["text"]
         metadata = tracker.latest_message.get("metadata")
-        btno = btnotext.split()[-1][0:-1]
+        btno = btno.split()[-1][0:-1]
         status = 'Rejected'
         if metadata:
             comments = metadata['comments']

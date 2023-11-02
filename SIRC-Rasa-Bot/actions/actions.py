@@ -601,9 +601,10 @@ class CommitmentItemsList(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # fc_no = tracker.get_slot("fc_no")
-        fc_notext = tracker.latest_message["text"]
-        print(fc_notext)
-        fc_no = fc_notext.split()[-1]
+        # fc_notext = tracker.latest_message["text"]
+        # print(fc_notext)
+        # fc_no = fc_notext.split()[-1]
+        fc_no = tracker.get_slot('fcnumber')
         print(fc_no)
         resp = commititem_list(fc_no)
         print(resp)
@@ -626,9 +627,12 @@ class BudgetDetails(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         budget_notext = tracker.latest_message["text"]
-        fc_no = budget_notext.split()[1]
+        # fc_no = budget_notext.split()[1]
+        fc_no = tracker.get_slot('fcnumber')
         print(fc_no)
-        ci_no = budget_notext.split()[-1]
+        # ci_no = budget_notext.split()[-1]
+        ci_no = tracker.get_slot('cinumber')
+
         print(ci_no)
         resp = budget_description(fc_no,ci_no)
         print(resp)

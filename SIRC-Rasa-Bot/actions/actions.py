@@ -380,7 +380,7 @@ class ActionLeaveBalance(Action):
         leave_balance = {
             'SIRC Annual Leave' : '9',
             'SIRC Hajj Leave' : '3',
-            'SIRC Unpaid Leave' : '4',
+            'SIRC Unpaid Leave' : '4',  
             'SIRC Examination Leave' : '2',
             'SIRC Sick Leave' : '4',
         }
@@ -615,7 +615,7 @@ class CommitmentItemsList(Action):
         my_json = json.dumps(send)
         dispatcher.utter_message(text=my_json)
  
- 
+
         return []
    
 class BudgetDetails(Action):
@@ -626,7 +626,7 @@ class BudgetDetails(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        budget_notext = tracker.latest_message["text"]
+        # budget_notext = tracker.latest_message["text"]
         # fc_no = budget_notext.split()[1]
         fc_no = tracker.get_slot('fcnumber')
         print(fc_no)
@@ -651,7 +651,7 @@ class BudgetDetails(Action):
 #                                 BUDGET DETAILS REQUEST                                                  #
 
 
-#                                 POLICIES                                                  #
+#                                            POLICIES                                                  #
 
 class ActionLearningAndDevelopmentPoliciesPolicy(Action):
     def name(self) -> Text:
